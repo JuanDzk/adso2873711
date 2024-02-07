@@ -2,7 +2,7 @@
 
 ## TGO en Analisis y Desarrollo de Software
 
-![bersek](https://img.asmedia.epimg.net/resizer/0y8JzQlzFNltSZGIpha4Kf3f1uU=/1200x1200/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/HYPXFH2SXZLA5PE6N22J2D2EMM.jpg)
+![bersek](https://upload.wikimedia.org/wikipedia/en/d/db/GutsBerserk.PNG)
 
 | TEMAS | DESCRIPCION |
 |--|--|
