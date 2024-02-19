@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+body {background-color: #6C0505;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23000000' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%233d0556' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23161616' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23410455' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23252525' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23450354' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23343434' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23490252' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23444444' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%234d0151' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23555555' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23500050' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: Poppins, sans-serif; 
+}
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+
+    header {
+        h1, h2 {
+            color: #dd8a2ce1;
+            text-align: center;
+            magin: 0;
+        }
+        h1 {
+            font-size: 5rem;
+            font-weight: 400;
+        }
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 300;
+        }
+    }
+    menu {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        gap: 1rem;
+
+        a:is(:link, :visited) {
+            background-color: #000900;
+            border-radius: 50px;
+            display: flex;
+            color: #fff9;
+            gap: 1rem;
+            align-items: center;
+            padding: 1rem;
+            text-decoration: none;
+            transition: all 0.5s ease-in;
+            width: 280px;
+
+            i {
+                background-color: #6f35bbab;
+                border-radius: 20px;
+                color: #fd7a00;
+                font-style: mormal;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease-in;
+                height: 34px;
+                width: 34px;
+            }
+        }
+        a:is(:hover)  {
+            transform: scale(1.2) translate(-20px);
+            background-color: #082f63b6;
+        }
+        a:is(:hover) i { 
+            transform: scale(1.2) rotateY(360deg);
+        }
+    }
+}
