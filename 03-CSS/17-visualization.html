@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>visualization</title>
+    <link rel="stylesheet" href="ccs/master.css">
+    <style>
+        div.parent{
+            border: 2px solid #0009;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+            gap: 1rem;
+            margin: 20px auto;
+            width: 180px;
+        }
+        div.child{
+            border: 2px solid #0009;
+            padding: 10px;
+            text-align: center;
+            width: 25px;
+        }
+        div.child.none{
+            display: none;
+        }
+        div.child.hidden{
+            visibility: hidden;
+        }
+        div.parent-box{
+            display: flex;
+            margin: 20px auto;
+            gap: 10px;
+        }
+        div.box{
+            border: 2px solid #0009;
+            height: 180px;
+            padding: 4px;
+        }
+        section div.box p{
+            font-size: 0.6rem;
+            text-align: justify;
+        }
+        section div.box h4{
+            background-color: #0009;
+            color: #fff6;
+            font-size: 0.7rem;
+            text-align: center;
+            padding: 4px;
+            margin: 0;
+        }
+        div.box2{
+            overflow: hidden;
+        }
+        div.box3{
+            overflow: scroll;
+        }
+        div.element{
+            border: 2px solid #0009;
+            width: 200px;
+            font-size: 4.4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 80px;
+        }
+        div.parent-element{
+            display: flex;
+            margin: 20px auto;
+            gap: 10px;
+            padding-bottom: 4rem;
+        }
+        div.element1{
+            background-color: rgb(66, 66, 221);
+            left: 100px;
+            z-index: 1;
+        }
+        div.element2{
+            background-color: rgba(99, 184, 99, 0.951);
+            left: 50px;
+            top: 30px;
+            z-index: 2;
+        }
+        div.element3{
+            background-color: rgb(228, 72, 72);
+            left: 0px;
+            top: 60px;
+            z-index: 3;
+        }
+       
+
+    </style>
+</head>
+<body>
+    <nav class="controls"> 
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M346.7 6C337.6 17 320 42.3 320 72c0 40 15.3 55.3 40 80s40 40 80 40c29.7 0 55-17.6 66-26.7c4-3.3 6-8.2 6-13.3s-2-10-6-13.2c-11.4-9.1-38.3-26.8-74-26.8c-32 0-40 8-40 8s8-8 8-40c0-35.7-17.7-62.6-26.8-74C370 2 365.1 0 360 0s-10 2-13.3 6zM244.6 136c-40 0-77.1 18.1-101.7 48.2l60.5 60.5c6.2 6.2 6.2 16.4 0 22.6s-16.4 6.2-22.6 0l-55.3-55.3 0 .1L2.2 477.9C-2 487-.1 497.8 7 505s17.9 9 27.1 4.8l134.7-62.4-52.1-52.1c-6.2-6.2-6.2-16.4 0-22.6s16.4-6.2 22.6 0L199.7 433l100.2-46.4c46.4-21.5 76.2-68 76.2-119.2C376 194.8 317.2 136 244.6 136z"/></svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1>visualization</h1>
+            <ul>
+                <li>display block/inline/none/flex/grid</li>
+                <li>visibility: hidden</li>
+                <li>overflow: hidden/scroll/auto</li>
+                <li>z-index: 1...n</li>
+            </ul>
+        </header>
+        <section>
+           <h3>display: none</h3>
+           <div class="parent">
+            <div class="child chindl1">1</div>
+            <div class="child chindl2">2</div>
+            <div class="child chindl3">3</div>
+            <div class="child chindl4">4</div>
+            <div class="child chindl5 none">5</div>
+            <div class="child chindl5">6</div>
+           </div>
+           <h3>chind 5 = visibility: hidden</h3>
+           <div class="parent">
+            <div class="child child1">1</div>
+            <div class="child child2">2</div>
+            <div class="child child3">3</div>
+            <div class="child child4">4</div>
+            <div class="child child5 hidden">5</div>
+            <div class="child child6">6</div>
+           </div>
+           <h3>overflow</h3>
+           <div class="parent-box">
+            <div class="box box1">
+                <h4>visible</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In ratione deserunt distinctio repellendus laboriosam soluta amet aspernatur eos eligendi assumenda quaerat ad quibusdam, error, magnam sed voluptatem alias quos rem?</p>
+            </div>
+            <div class="box box2">
+                <h4>hidden</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis incidunt nisi perspiciatis exercitationem, delectus quaerat. Libero nam, non ipsum explicabo eum dolorem enim ab ducimus esse quisquam recusandae nostrum sunt.</p>
+            </div>
+            <div class="box box3">
+                <h4>scroll</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At suscipit doloribus dolorum aperiam, temporibus inventore soluta exercitationem provident accusantium necessitatibus quidem rerum iusto dolore nesciunt laudantium eius eaque rem libero!</p>
+            </div>
+           </div>
+           <br>
+            <h3>z-index</h3>
+            <div class="parent-element">
+                <div class="element element1">1</div>
+                <div class="element element2">2</div>
+                <div class="element element3">3</div>
+            </div>
+           </br>
+        </section>
+    </main>
+</body>
+</html>

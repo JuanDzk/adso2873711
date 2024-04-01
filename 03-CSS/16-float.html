@@ -3,25 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>background</title>
+    <title>float</title>
     <link rel="stylesheet" href="ccs/master.css">
     <style>
-        div.box{
-            border: 4px solid #0009;
-            height: 380px;
-            margin: 20px auto;
-            width: 360px;
+        section article p{
+            font-size: 0.7rem;
+            text-align: justify;
         }
-        div.box1{
-            background: transparent url(imagenes/logoakatsu.jpg) repeat center/120px fixed;
+        section article img{
+            float: left;
         }
-        div.box2{
-            background: transparent url(imagenes/chainsaw.jpg) repeat top left/ 220px fixed;
-        }
-        div.box3{
-            background: black url(imagenes/killerbee.png) no-repeat center/360px;
+        section article p + p{
+            clear: left;
         }
     </style>
+    
 </head>
 <body>
     <nav class="controls"> 
@@ -31,19 +27,16 @@
     </nav>
     <main>
         <header>
-            <h1>background</h1>
-            <ul>
-                <li>background-color</li>
-                <li>background-image</li>
-                <li>background-repeat</li>
-                <li>background-position</li>
-                <li>background-size</li>
-            </ul>
+            <h1>float</h1>
+            <h2>Empuja el elemento hacia el lado izquierdo o derecho.</h2>
         </header>
         <section>
-            <div class="box box1"></div>
-            <div class="box box2"></div>
-            <div class="box box3"></div>
+           <article>
+            <h4>musashi miyamoto</h4>
+            <img src="imagenes/miyamotogod.png" width="140px">
+                <p>musashi miyamoto Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero possimus aperiam laudantium commodi modi atque, dolores odit quod? Suscipit optio at aspernatur magni velit, totam maxime aliquam itaque praesentium excepturi.</p>
+            </img>
+           </article>
         </section>
     </main>
 </body>
