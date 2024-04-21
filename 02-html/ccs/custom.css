@@ -1,0 +1,26 @@
+main{
+    section{
+        display: flex;
+        justify-content: center;
+        h2{
+            align-items: center;
+            background-color: slateblue;
+            border: 8px solid #000;
+            border-radius:50%;
+            color: aliceblue;
+            display: flex;
+            font-size: 2.2rem;
+            filter: blur(6px) grayscale(1);
+            height: 250px;
+            justify-content: center;
+            padding: 1rem;
+            transition: all 0.s ease-in;
+            transform: scale(0.5);
+            width: 250px;
+            &:hover{
+                filter: blur(0px) grayscale(0);
+                transform: scale(1);
+            }
+            }
+        }
+    }

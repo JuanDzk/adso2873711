@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sprite</title>
+    <style>
+        html{
+            border:10px solid white;
+            
+        }
+        body{
+            background-color: #17a053;
+        }
+        main.caja-general{
+            align-items: center;
+
+            justify-content: center;
+        }
+        div.sprite-logo{
+            background: url(imagenes/spriteweb.png);
+            background-position: -10px -400px;
+            height: 180px;
+            margin: 0 auto;
+            width: 190px;
+        }
+        nav.caja-botones{
+            border: 2px solid rgba(97, 29, 29, 0);
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px auto;
+            width: 72.5%;
+            
+        }
+        div.boton{
+            align-items: center;
+            background-color: #0007;
+            border-bottom: 4px solid #fff;
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+            text-align: center;
+            width: 80%;
+        }
+        div.boton:is(:hover){
+            color: #fff;
+            background-color: #0009;
+            border-bottom: 4px solid gold;
+        }
+        main.caja-3imagenes{
+            align-items: center;
+           border-radius: 5px;
+            background-color: #0007;
+            display: flex;
+            justify-content: center;
+            margin: 30px auto;
+            width: 72.5%;
+            
+        }
+        div.imagen{
+            background: url(imagenes/spriteweb.png);
+            background-position: -500px -6px;
+            border: 3px solid #fff;
+            display: flex;
+            flex-direction: row;
+            height: 200px;
+            justify-content: center;
+            margin: 20px auto;
+            width: 290px; 
+        }
+        div.sprite{
+            
+            align-items: center;
+            background-color: #fff5;
+            display: flex;
+            font-size: 1.4rem;
+            font-weight: 600;
+            height: 30%;
+            justify-content: center;
+            width: 100%;
+        }
+        div.sprite:is(:hover){
+            background-color: #fff9;
+            color: #000;
+        }
+        main.caja-medio{
+            align-items: center;
+            background: #0009;
+            justify-content: center;
+            margin: 10px auto;
+            width: 70%;
+            padding: 1rem;
+            border-radius: 1px;
+        }
+        div.sec3{
+            align-items: center;
+            background-color: #fff;
+            display: flex;
+            height: 200px;
+            justify-content: center;
+            margin: 10px auto;
+            width: 98%;
+            border-radius: 5px;
+        }
+        div.img1{
+            background: url(imagenes/spriteweb.png);
+            background-position: -250px -490px;
+            height: 115px;
+            width: 20%;
+           
+        }
+        div.img2{
+            background: url(imagenes/spriteweb.png);
+            background-position: 0px -190px;
+            height: 199px;
+            width: 270px;
+        }
+        p{
+            align-items: center;
+            display: flex;
+            height: 199px;
+            margin: 5px auto;
+            text-align: justify;
+            width: 55%;
+        }
+        p:is(:hover){
+            color: blue;
+        }
+
+        main.caja-bajo{
+            height: auto;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff    ;
+            border: 2px solid rgba(97, 29, 29, 0);
+            gap: 20px;
+            margin: 15px auto;
+            width: 72%;
+        }
+        div.sprite-img2{
+            background: url(imagenes/spriteweb.png);
+            background-position: -500px -420px;
+            margin: 0 auto;
+            height: 180px;
+            width: 300px;
+        }
+        nav.caja-bajo2{
+            display: flex;
+            justify-content: center;
+            width: 90%;
+            margin: 10px auto;
+        }
+        section{
+            background-color: #fff;
+            display: flex;
+            color: #000;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
+            width: 80%;
+        }
+        section:is(:hover){
+            border-bottom: 3px solid green;
+        }
+
+
+    </style>
+    
+    <body>
+        <main class="caja-general">
+            <div class="sprite-logo"></div>
+            <nav class="caja-botones">
+                <div class="boton">INICIO</div>
+                <div class="boton">NOSOTROS</div>
+                <div class="boton">PORTAFOLIO</div>
+                <div class="boton">SERVICIOS</div>
+                <div class="boton">CONTACTO</div>
+            </nav> 
+    
+            <main class="caja-3imagenes">
+                <div class="imagen">
+                    <div class="sprite">SPRITE 01</div>
+                </div>
+    
+                <div class="imagen">
+                    <div class="sprite">SPRITE 02</div>
+                </div>
+                
+                <div class="imagen">
+                    <div class="sprite">SPRITE 03</div>
+                </div> 
+            </main> 
+    
+            <main class="caja-medio">
+                <div class="sec3">
+                    <div class="img1"></div>
+                   <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo tempora cupiditate qui aperiam vero, doloribus quaerat incidunt nesciunt ad voluptatem inventore veniam, optio nihil non earum exercitationem eveniet, ullam veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, facere pariatur. Recusandae consectetur minus corrupti laboriosam at dicta iure assumenda unde veniam dolor, temporibus quos, corporis, a debitis omnis? Dolores.</p>
+                    <div class="img2"></div>
+                </div>
+                
+                <div class="sec3">
+                    <div class="img1"></div>
+                   <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo tempora cupiditate qui aperiam vero, doloribus quaerat incidunt nesciunt ad voluptatem inventore veniam, optio nihil non earum exercitationem eveniet, ullam veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, facere pariatur. Recusandae consectetur minus corrupti laboriosam at dicta iure assumenda unde veniam dolor, temporibus quos, corporis, a debitis omnis? Dolores.</p>
+                    <div class="img2"></div>
+                </div>
+                
+                <div class="sec3">
+                    <div class="img1"></div>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo tempora cupiditate qui aperiam vero, doloribus quaerat incidunt nesciunt ad voluptatem inventore veniam, optio nihil non earum exercitationem eveniet, ullam veritatis Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, facere pariatur. Recusandae consectetur minus corrupti laboriosam at dicta iure assumenda unde veniam dolor, temporibus quos, corporis, a debitis omnis? Dolores.</p>
+                    <div class="img2"></div>
+                </div>
+            </main> 
+
+            <main class="caja-bajo">
+                <div class="sprite-img2"></div>
+                 <nav class="caja-bajo2">
+                    <section href="">INICIO</section>
+                    <section href="">NOSOTROS</section>
+                    <section href="">PORTAFOLIO</section>
+                    <section href="">SERVICIOS</section>
+                    <section href="">CONTACTO</section>
+                 </nav>
+            </main> 
+        </main>
+    </body>
+</html>
