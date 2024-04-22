@@ -1,0 +1,228 @@
+!<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new selectors</title>
+    <link rel="stylesheet" href="ccs/master.css">
+    <style>
+        section ul{
+            list-style: none;
+            gap: 1rem;
+            justify-content: center;
+            padding: 0;
+            display: flex;
+        }
+        section ul li{
+            background-color: #fff6;
+            border: 2px solid #fff9;
+            padding: .4rem;
+        }
+        section ul li:first-of-type{
+            background: #0906;
+            border: 2px solid #0903;
+        }
+        section ul li:last-of-type{
+            background: #0096;
+            border: 2px solid #0093;
+        }
+        section ul li:nth-of-type(3){
+            background: #9909;
+            border: #9903;
+        }
+        /*nth-child(n)*/
+        div.chess{
+            display: flex;
+            flex-direction: column;
+            margin-block: 1rem;
+            justify-content: center;
+        }
+        div.chess div.f{
+            display: flex;
+        }
+        div.chess div.f div.c{
+            border: 1px solid #333;
+            background-color: #fff;
+            height: 25px;
+            width: 25px;
+        }
+        div.chess div.f:nth-child(odd) div.c:nth-child(2n+1){
+            background-color: burlywood;
+        }
+        div.chess div.f:nth-child(even) div.c:nth-child(even){
+            background-color: burlywood;
+        }
+        /*target*/
+        div.target{
+            background: #fff9;
+            display: flex;
+            gap: 1rem;
+            margin-block: 1rem;
+            justify-content: space-around;
+            width: 220px;
+        }
+        div.target div.menu-fruits{
+            display: flex;
+            gap: 1rem;
+            flex-direction: column;
+        }
+        div.target div.menu-fruits a:is(:link, :visited){
+            background-color: #0009;
+            text-decoration: none;
+            padding: 10px;
+            color: #fff9;
+        }
+        div.emojis{
+            padding: 10px;
+        }
+        div.emojis div.fruit{
+            zoom: 6;
+            display: none;
+        }
+        div.emojis div#apple:target,
+        div.emojis div#pear:target,
+        div.emojis div#orange:target{
+            display: flex;
+        }
+        /*::selection*/
+        p.blue::selection{
+            background-color: blue;
+        }
+        p.yellow::selection{
+            background-color: yellow;
+        }
+        p.red::selection{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <nav class="controls"> 
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M346.7 6C337.6 17 320 42.3 320 72c0 40 15.3 55.3 40 80s40 40 80 40c29.7 0 55-17.6 66-26.7c4-3.3 6-8.2 6-13.3s-2-10-6-13.2c-11.4-9.1-38.3-26.8-74-26.8c-32 0-40 8-40 8s8-8 8-40c0-35.7-17.7-62.6-26.8-74C370 2 365.1 0 360 0s-10 2-13.3 6zM244.6 136c-40 0-77.1 18.1-101.7 48.2l60.5 60.5c6.2 6.2 6.2 16.4 0 22.6s-16.4 6.2-22.6 0l-55.3-55.3 0 .1L2.2 477.9C-2 487-.1 497.8 7 505s17.9 9 27.1 4.8l134.7-62.4-52.1-52.1c-6.2-6.2-6.2-16.4 0-22.6s16.4-6.2 22.6 0L199.7 433l100.2-46.4c46.4-21.5 76.2-68 76.2-119.2C376 194.8 317.2 136 244.6 136z"/></svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1>new selectors</h1>
+            <h2>usado para seleccionar elementos si desea cambiar el estilo</h2>
+        </header>
+        <section>
+           <h3>:first-of-type|nth-of-type|:last-of-type</h3>
+           <ul>
+            <li>first</li>
+            <li>second</li>
+            <li>third</li>
+            <li>fourth</li>
+            <li>last</li>
+           </ul>
+           <h3>:nth-child(n)</h3>
+           <div class="chess">
+            <div class="f">
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+            </div>
+            <div class="f">
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+            </div>
+            <div class="f">
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+            </div>
+            <div class="f">
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+            </div>
+            <div class="f">
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+            </div>
+            <div class="f">
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+            </div>
+            <div class="f">
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+            </div>
+            <div class="f">
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+                <div class="c"></div>
+            </div>
+           </div>
+           <h3>target</h3>
+           <div class="target">
+            <div class="menu-fruits">
+                <a href="#apple">apple</a>
+                <a href="#pear">pear</a>
+                <a href="#orange">orange</a>
+            </div>
+            <div class="emojis">
+                <div id="apple" class="fruit">🍎</div>
+                <div id="pear" class="fruit">🍐</div>
+                <div id="orange" class="fruit">🍊</div>
+            </div>
+           </div>
+           <h3>selection</h3>
+           <p class="blue">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, blanditiis.
+            </p>
+           <p class="yellow">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, blanditiis.
+            </p>
+           <p class="red">
+            orem ipsum dolor sit amet consectetur adipisicing elit. Ex, blanditiis.
+            </p>
+        </section>
+    </main>
+</body>
+</html>
