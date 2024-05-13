@@ -7,74 +7,88 @@
     <title>responsive design (media queries)</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap');
-        *{
+
+        * {
             transition: all 0.2s ease-in;
         }
-        body{
+
+        body {
             background-color: #003675;
             color: #fffc;
             font-family: Poppins, sans-serif;
             font-weight: 200;
         }
-        main{
+
+        main {
             padding: 2rem;
         }
-        main header figure.logo{
+
+        main header figure.logo {
             background: url(imagenes/pepsi01.png) no-repeat center;
             margin: 0 auto;
             width: 919px;
             height: 354px;
         }
-        main p{
+
+        main p {
             line-height: 2rem;
             text-align: justify;
         }
-        main h1{
+
+        main h1 {
             font-size: 4rem;
             text-align: center;
         }
+
         main h1 span.small,
-        main h1 span.medium{
+        main h1 span.medium {
             display: none;
         }
+
         /*-------------*/
         /*MEDIA QUERIES*/
         /*-------------*/
-        @media (max-width: 1024px){
-        main header figure.logo {
-            background: url(imagenes/miyamotogod.png) no-repeat center;
-            width: 348px;
-            height: 370px;
-        }
-        main h1 span.small,
-        main h1 span.large{
-            display: none;
-        }
-        main h1 span.medium{
-            display: inline;
-        }
-        main h1{
-            font-size: 2.8rem;
-        }
-        }
-        @media (max-width: 780px){
-        main header figure.logo {
-            background: url(imagenes/pepsi03.png) no-repeat center;
-            width: 162px;
-            height: 150px;
-        }
-        main h1 span.medium,
-        main h1 span.large{
-            display: none;
-        }
-        main h1 span.small{
-            display: inline;
-        }
-        main h1{
-            font-size: 2rem;
-        }
+        @media (max-width: 1024px) {
+            main header figure.logo {
+                background: url(imagenes/miyamotogod.png) no-repeat center;
+                width: 348px;
+                height: 370px;
+            }
+
+            main h1 span.small,
+            main h1 span.large {
+                display: none;
+            }
+
+            main h1 span.medium {
+                display: inline;
+            }
+
+            main h1 {
+                font-size: 2.8rem;
+            }
         }
 
+        @media (max-width: 780px) {
+            main header figure.logo {
+                background: url(imagenes/pepsi03.png) no-repeat center;
+                width: 162px;
+                height: 150px;
+            }
+
+            main h1 span.medium,
+            main h1 span.large {
+                display: none;
+            }
+
+            main h1 span.small {
+                display: inline;
+            }
+
+            main h1 {
+                font-size: 2rem;
+            }
+        }
     </style>
 
 </head>
@@ -89,7 +103,7 @@
                 media queries
                 <spam class="large"> (> 1024px)</spam>
                 <spam class="medium">(< 1024px)</spam>
-                        <spam class="small">(< 780px)</spam>
+                <spam class="small">(< 780px)</spam>
             </h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti consectetur expedita qui odio unde
                 assumenda est numquam voluptatem vitae magnam corporis soluta praesentium quod sequi, aliquid quis

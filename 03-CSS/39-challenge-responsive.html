@@ -4,48 +4,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SEINEN</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap');
+
+        * {
+            transition: all 0.2s ease-in;
+        }
 
         body {
             background: url(imagenes/BERSERK/fondo.jpg) no-repeat;
         }
 
+
         main {
-            border: 2px solid red;
+            padding: 2rem;
         }
 
-        header figure.logo {
-            align-items: center;
-            background: url(imagenes/BERSERK/filters_quality\(95\)format\(webp\).webp) no-repeat;
-            border-radius: 1rem;
-            background-position: -30px -20px;
-            height: 320px;
+
+        main.caja-cabecera {
+            background: url(imagenes/BERSERK/seinen_logo-remove.png) no-repeat;
             margin: 0 auto;
-            width: 600px;
+            width: 410px;
+            height: 79px;
+
         }
 
-        
+        /* 4 imagenes*/
+        main nav.protas {
+            display: flex;
+            justify-content: center;
+            gap: 55px;
+            margin: 20px auto;
+        }
 
 
+        nav div.imagen1 {
+            background: url(imagenes/BERSERK/guts_remove.png) no-repeat;
+            width: 200px;
+            height: 210px;
+            border: 2px solid black;
+            background-color: #887599;
+        }
+
+        nav div.imagen2 {
+            background: url(imagenes/BERSERK/miyamoto_remove.png) no-repeat;
+            width: 200px;
+            height: 210px;
+            border: 2px solid black;
+            background-color: #8181b3;
+        }
+
+        nav div.imagen3 {
+            background: url(imagenes/BERSERK/killy_remove.png) no-repeat;
+            width: 200px;
+            height: 210px;
+            border: 2px solid black;
+            background-color: #574e4e;
+        }
+
+        nav div.imagen4 {
+            background: url(imagenes/BERSERK/agni_remove.png) no-repeat;
+            width: 200px;
+            height: 210px;
+            border: 2px solid black;
+            background-color: #65453a;
+        }
+
+        /****************************/
+
+
+
+        /*texto de las 4 imagenes*/
+        nav div.seinen {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            background-color: #3d303059;
+            height: 40px;
+            color: antiquewhite;
+            font-size: 2rem;
+            transition: all 0.4s ease-in;
+        }
+
+        div.seinen:hover {
+            height: 70px;
+            background-color: #323a7259;
+
+        }
+
+        /****************/
+
+
+
+
+        /* imagenes de abajo */
+        nav.antagon {
+            border-radius: 1px;
+            background: #0009;
+            margin: 10px auto;
+            width: 71%;
+            padding: 1rem;
+        }
+
+        nav div.sec3 {
+            display: flex;
+        }
+
+        nav div.img1 {
+            background: url(imagenes/BERSERK/griffit_remove.png) no-repeat;
+            width: 80%;
+            height: 210px;
+            margin: 10px auto;
+            border: 2px solid whitesmoke;
+            background-color: #943038;
+        }
+
+        nav div.img2 {
+            background: url(imagenes/BERSERK/johan_remove.png) no-repeat;
+            width: 80%;
+            height: 210px;
+            margin: 10px auto;
+            border: 2px solid whitesmoke;
+            background-color: #6d654b;
+        }
+
+
+
+        div.texto{
+            display: block;
+        }
+        nav p {
+            color: aliceblue;
+            align-items: center;
+            margin: 20px;
+        }
+
+        h1 {
+            margin: 20px;
+            color: azure;
+        }
+
+        /********************/
+
+
+        /*FORMATOS*/
+        @media (max-width: 1024px) {
+            main.caja-cabecera{
+                background: url(imagenes/BERSERK/berserk_logo-removed.png) no-repeat center;
+                width: 348px;
+                height: 370px;
+            }
+        }
+
+        @media (max-width: 780px) {
+            body {
+                background: url(imagenes/BERSERK/estigma-berserk-guts-manga.jpg) no-repeat center;
+                background-color: #000;
+            }
+
+        main.caja-cabecera{
+                background: url(imagenes/BERSERK/calaca-removed.png) no-repeat center;
+                width: 200px;
+                height: 200px;
+            }
+
+        }
+
+        /**************/
     </style>
 </head>
 
 <body>
-    <main>
-        <header>
-            <figure class="logo"></figure>
-        </header>
-        <section>
-            <nav class="caja-botones">
-                <div class="guts">GUTS</div>
-                <div class="musashi">MUSASHI</div>
-                <div class="gojo">GOJO</div>
-                <div class="killy">KILLY</div>
-            </nav>
-        </section>
+    <main class="caja-general">
+
+        <main class="caja-cabecera"></main>
+
+        <nav class="protas">
+            <div class="imagen1">
+                <div class="seinen">GUTS</div>
+            </div>
+
+            <div class="imagen2">
+                <div class="seinen">MUSASHI</div>
+            </div>
+
+            <div class="imagen3">
+                <div class="seinen">KILLY</div>
+            </div>
+
+            <div class="imagen4">
+                <div class="seinen">AGNI</div>
+            </div>
+        </nav>
+
+
+        <nav class="antagon">
+            <div class="sec3">
+                <div class="img1">
+                    <div class="villian"></div>
+                </div>
+                <div class="texto">
+                <h1>GRIFFIT</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo tempora cupiditate qui aperiam
+                    vero, doloribus quaerat incidunt nesciunt ad voluptatem inventore veniam, optio nihil non earum
+                    exercitationem eveniet, ullam veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Harum, facere pariatur. Recusandae consectetur minus corrupti laboriosam at dicta iure assumenda
+                    unde veniam dolor, temporibus quos, corporis, a debitis omnis? Dolores.</p>
+                </div>
+            </div>
+
+            <div class="sec3">
+                <div class="img2">
+                    <div class="villian"></div>
+                </div>
+                <div class="texto">
+                <h1>JOHAN</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo tempora cupiditate qui aperiam
+                    vero, doloribus quaerat incidunt nesciunt ad voluptatem inventore veniam, optio nihil non earum
+                    exercitationem eveniet, ullam veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Harum, facere pariatur. Recusandae consectetur minus corrupti laboriosam at dicta iure assumenda
+                    unde veniam dolor, temporibus quos, corporis, a debitis omnis? Dolores.</p>
+                </div>
+            </div>
+        </nav>
+
     </main>
 </body>
-
 </html>
