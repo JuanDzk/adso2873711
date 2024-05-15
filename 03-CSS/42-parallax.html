@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parallax</title>
+    <link rel="stylesheet" href="ccs/master.css">
+    <style>
+        figure.parallax{
+            border-radius: 6px;
+            height: 576px;
+            overflow: hidden;
+            position: relative;
+            margin: 1rem auto;
+            width: calc(1024px / 3);
+        }
+        figure.parallax div{
+            height: 576px;
+            position: absolute;
+            width: calc(1024px * 2);
+        }
+        figure.parallax div.layer8{
+            background: url(imagenes/STEPS/parallax/layer_08.png)repeat-x;
+            z-index: 1;
+        }
+        figure.parallax div.layer7{
+            background: url(imagenes/STEPS/parallax/layer_07.png)repeat-x;
+            z-index: 2;
+            animation: animParallax 70s linear infinite;
+        }
+        figure.parallax div.layer6{
+            background: url(imagenes/STEPS/parallax/layer_06.png)repeat-x;
+            z-index: 3;
+            animation: animParallax 60s linear infinite;
+        }
+        figure.parallax div.layer5{
+            background: url(imagenes/STEPS/parallax/layer_05.png)repeat-x;
+            z-index: 4;
+            animation: animParallax 50s linear infinite;
+        }
+        figure.parallax div.layer4{
+            background: url(imagenes/STEPS/parallax/layer_04.png)repeat-x;
+            z-index: 5;
+            animation: animParallax 40s linear infinite;
+        }
+        figure.parallax div.layer3{
+            background: url(imagenes/STEPS/parallax/layer_03.png)repeat-x;
+            z-index: 6;
+            animation: animParallax 30s linear infinite;
+        }
+        figure.parallax div.layer2{
+            background: url(imagenes/STEPS/parallax/layer_02.png)repeat-x;
+            z-index: 7;
+            animation: animParallax 20s linear infinite;
+        }
+        figure.parallax div.layer1{
+            background: url(imagenes/STEPS/parallax/layer_01.png)repeat-x;
+            z-index: 8;
+            animation: animParallax 10s linear infinite;
+        }
+        
+        figure.parallax div.runner{
+            background: url(imagenes/STEPS/parallax/running.gif) no-repeat;
+            background-size: contain;
+            height: 100px;
+            left: 120px;
+            bottom: 120px;
+            width: 100px;
+            z-index: 9;
+        }
+        @keyframes animParallax{
+           100% {background-position: calc(-1024px *4) }
+        }
+
+        
+    </style>
+    
+</head>
+<body>
+    <nav class="controls"> 
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M346.7 6C337.6 17 320 42.3 320 72c0 40 15.3 55.3 40 80s40 40 80 40c29.7 0 55-17.6 66-26.7c4-3.3 6-8.2 6-13.3s-2-10-6-13.2c-11.4-9.1-38.3-26.8-74-26.8c-32 0-40 8-40 8s8-8 8-40c0-35.7-17.7-62.6-26.8-74C370 2 365.1 0 360 0s-10 2-13.3 6zM244.6 136c-40 0-77.1 18.1-101.7 48.2l60.5 60.5c6.2 6.2 6.2 16.4 0 22.6s-16.4 6.2-22.6 0l-55.3-55.3 0 .1L2.2 477.9C-2 487-.1 497.8 7 505s17.9 9 27.1 4.8l134.7-62.4-52.1-52.1c-6.2-6.2-6.2-16.4 0-22.6s16.4-6.2 22.6 0L199.7 433l100.2-46.4c46.4-21.5 76.2-68 76.2-119.2C376 194.8 317.2 136 244.6 136z"/></svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1>parallax</h1>
+            <h2>mover a diferente velocidad el fondo.</h2>
+        </header>
+        <section>
+           <h3>example: runner</h3>
+           <figure class="parallax">
+               <div class="layer8"></div>
+               <div class="layer7"></div>
+               <div class="layer6"></div>
+               <div class="layer5"></div>
+               <div class="layer4"></div>
+               <div class="layer3"></div>
+               <div class="layer2"></div>
+               <div class="layer1"></div>
+               <div class="runner"></div>
+           </figure>
+        </section>
+    </main>
+</body>
+</html>
