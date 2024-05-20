@@ -39,6 +39,9 @@ main {
 
 
     header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         h1, h2 {
             color: #000000e1;
             text-align: center;
@@ -51,6 +54,11 @@ main {
         h2 {
             font-size: 1.4rem;
             font-weight: 300;
+        }
+        img {
+            border-radius: 20%;
+            width: 250px;
+            bottom: 10px solid rgb(194, 194, 194);
         }
     }
     menu {
