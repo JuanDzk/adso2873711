@@ -28,14 +28,13 @@ section.content {
   text-align: center;
 }
 section.content figure {
-  background: #3e1d6f url(../imagen/Zero_Katana_Zero.webp) no-repeat center;
-  background-position: 0 1px;
+  background: #fff url(../imagen/Zero_Katana_Zero.webp) no-repeat center;
   background-size: cover;
   border: 2px solid #d94d9b;
-  border-radius: 110px;
+  border-radius: 100%;
   display: inline-block;
-  height: 200px;
-  margin: 10px;
+  height: 100px;
+  margin: 10px auto;
   padding: 0px;
-  width: 200px;
+  width: 100px;
 }
