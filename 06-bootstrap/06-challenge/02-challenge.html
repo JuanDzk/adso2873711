@@ -1,44 +1,44 @@
+Perfecto, puedo ayudarte a crear una plantilla en Bootstrap basada en el diseño que has compartido. Aquí tienes un código de ejemplo para una página similar:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juan Diego Osorio</title>
+    <title>Portfolio</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .hero-section {
-            background-color: #5b2c90;
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background: #6f42c1;
             color: white;
-            padding: 60px 0;
-            position: relative;
+            padding: 40px 0;
+            text-align: center;
         }
-        .hero-section .content {
-            position: relative;
-            z-index: 2;
+        .header img {
+            max-width: 150px;
+            border-radius: 50%;
         }
-        .hero-section img {
-            max-width: 100%;
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            z-index: 1;
+        .skills .progress {
+            margin-bottom: 15px;
         }
-        .about-section {
-            padding: 60px 0;
-        }
-        .skills .progress-bar {
-            background-color: #5b2c90;
-        }
-        .services-section {
-            background-color: #5b2c90;
+        .service {
+            background: #6f42c1;
             color: white;
-            padding: 60px 0;
+            padding: 40px 0;
+            text-align: center;
         }
-        .portfolio-section {
-            padding: 60px 0;
+        .service .card {
+            margin-bottom: 30px;
+        }
+        .portfolio {
+            padding: 40px 0;
         }
         .footer {
-            background-color: #5b2c90;
+            background: #6f42c1;
             color: white;
             padding: 20px 0;
             text-align: center;
@@ -47,68 +47,53 @@
 </head>
 <body>
 
-<!-- Hero Section -->
-<section class="hero-section text-white">
+<!-- Header Section -->
+<header class="header">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6 content">
-                <h1>Hello I'm <br> <span class="font-weight-bold">Juan Diego Osorio</span></h1>
-                <p>Professional Freelance Web Designer</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <a href="#" class="btn btn-primary">Hire me</a>
-            </div>
-            <div class="col-md-6">
-                <img src="path/to/your/image.jpg" alt="Juan Diego Osorio">
-            </div>
-        </div>
+        <img src="your-profile-image.jpg" alt="Juan Diego Osorio">
+        <h1>Hello I'm Juan Diego Osorio</h1>
+        <p>Professional Freelance Web Designer</p>
+        <button class="btn btn-primary">Hire me</button>
     </div>
-</section>
+</header>
 
 <!-- About Section -->
-<section class="about-section">
+<section class="about py-5">
     <div class="container">
         <h2>About</h2>
-        <h3>Why you hire me?</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <div class="row">
-            <div class="col-md-6">
-                <img src="path/to/your/image.jpg" alt="About Image" class="img-fluid">
+        <p>Why you hire me?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+        <div class="skills">
+            <h4>UI/UX Design</h4>
+            <div class="progress">
+                <div class="progress-bar" style="width: 90%;"></div>
             </div>
-            <div class="col-md-6">
-                <div class="skills">
-                    <p>UI/UX Design</p>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 85%;"></div>
-                    </div>
-                    <p>Web Design</p>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 75%;"></div>
-                    </div>
-                    <p>HTML/CSS</p>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 90%;"></div>
-                    </div>
-                    <p>Sketch</p>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 70%;"></div>
-                    </div>
-                </div>
+            <h4>Web Design</h4>
+            <div class="progress">
+                <div class="progress-bar" style="width: 80%;"></div>
+            </div>
+            <h4>HTML/CSS</h4>
+            <div class="progress">
+                <div class="progress-bar" style="width: 85%;"></div>
+            </div>
+            <h4>Sketch</h4>
+            <div class="progress">
+                <div class="progress-bar" style="width: 70%;"></div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Services Section -->
-<section class="services-section text-white">
+<section class="service">
     <div class="container">
-        <h2>Services</h2>
-        <h3>Service I Provide</h3>
+        <h2>Service I Provide</h2>
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Graphic Design</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet.</p>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.</p>
                     </div>
                 </div>
             </div>
@@ -116,7 +101,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Web Design</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet.</p>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.</p>
                     </div>
                 </div>
             </div>
@@ -124,38 +109,37 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">UI/UX Design</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet.</p>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.</p>
                     </div>
                 </div>
             </div>
-            <!-- Add more cards as needed -->
         </div>
     </div>
 </section>
 
 <!-- Portfolio Section -->
-<section class="portfolio-section">
+<section class="portfolio">
     <div class="container">
-        <h2>Portfolio</h2>
-        <h3>Latest Projects</h3>
+        <h2>Latest Projects</h2>
         <div class="row">
             <div class="col-md-4">
-                <img src="path/to/your/image.jpg" alt="Project 1" class="img-fluid">
+                <img src="project1.jpg" class="img-fluid" alt="Project 1">
             </div>
             <div class="col-md-4">
-                <img src="path/to/your/image.jpg" alt="Project 2" class="img-fluid">
+                <img src="project2.jpg" class="img-fluid" alt="Project 2">
             </div>
             <div class="col-md-4">
-                <img src="path/to/your/image.jpg" alt="Project 3" class="img-fluid">
+                <img src="project3.jpg" class="img-fluid" alt="Project 3">
             </div>
         </div>
     </div>
 </section>
 
-<!-- Footer -->
+<!-- Footer Section -->
 <footer class="footer">
     <div class="container">
-        <p>Juan Diego Osorio</p>
+        <p>&copy; All rights reserved 2024</p>
+        <p>Juan Osorio</p>
         <p>juandiegocalvoosorio@gmail.com</p>
         <nav>
             <a href="#">Home</a> |
@@ -163,13 +147,14 @@
             <a href="#">Services</a> |
             <a href="#">Portfolio</a>
         </nav>
-        <p>&copy; All rights reserved 2024</p>
     </div>
 </footer>
 
-<!-- Scripts -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+```
+
+Este código HTML usa Bootstrap para crear una página web similar al diseño que compartiste. Asegúrate de reemplazar las rutas de las imágenes con las correctas y de ajustar cualquier texto o estilo adicional según tus necesidades. ¿Necesitas alguna otra ayuda o ajuste en el código?
