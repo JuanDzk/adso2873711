@@ -7,149 +7,253 @@
   <title>CV- Curriculum Vitae</title>
   <link rel="stylesheet" href="../css/bootstrap.min.css">
   <style>
-    .body {
-      background: #D9D9D9;
-
+    .navbar-custom {
+      background: linear-gradient(115deg, #b0b0b1 34%, #744A95 66%);
     }
 
-    .row {
-      background: linear-gradient(-115, #D9D9D9 50%, #542976 50%)
+    .hero-section {
+      background: linear-gradient(90deg, #b0b0b1 34%, #744A95 66%);
     }
 
-    .btn {
-      background: #542976;
+    .texto_violeta {
+      color: #744A95;
     }
 
-    .txt2 {
-      margin-right: 200px;
+    .texto_about {
+      color: #744A95;
     }
 
-    div.col-md-6.align-content-md-around {
-      padding-left: -100px;
-
+    .progress-bar {
+      background-color: #744A95;
     }
-
-
-    .conteiner-fluid {
-      background: #D9D9D9;
+    .services-section{
+      background-color: #744A95;
     }
-    @media (max-width: 750px){
-      .user1{
-        scale: 0.7;
-      }
-      .imagenabout{
-        scale: 0.7;
-        background-position: 0, 100px;
-      }
+    .row-custom{
+      background-color: #b0b0b1;
+      border-radius: 20px;
+    }
+    .service-icon{
+      background-color: #A477C7;
+      width: 60px;
+      height: 60px;
+      border-radius: 20px 20px 0px 20px;
     }
 
   </style>
 </head>
 
 <body>
-  <section class="conteiner-fluid">
-    <div class="row1">
-      <div class="col-12">
-        <!-- principio navbar -->
-        <nav class="navbar navbar-expand-lg">
-          <div class="container-fluid">
-            <img calss="logo1" src="../imagen/logo.svg" alt="">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="position-absolute top-0 end-0 collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link active text-white" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-white" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-white" href="#">Services</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-white" href="#">Portfolio</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-        <!-- fin navbar -->
-        <!-- inicio i am -->
-        <section class="conteiner-section">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6 align-content-md-around">
-                <h1 class="text-v">Hello I'm</h1>
-                <h1>Juan Diego Calvo Osorio</h1>
-                <p class="txt1">Professional Freelance Web Designer</p>
-                <p class="txt2">Lore ipsum dolor sit amet, conceptos sadipscing tempor invidum ut labore et dolore magna
-                  aliquyam sendiometrios</p>
-                <a href="#" class="btn btn-dark">Hire me</a>
-              </div>
-              <div class="col-md-6">
-                <img class="user1" src="../imagen/WhatsApp_Image1.svg" alt="...">
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-      <!-- fin i am  -->
-    </div>
-      <!-- inicio about-->
-      <section class="container-fluid">
-        <div class="row">
-          <div class="imagenabout"class="col-lg-4 col-md-6 col-sm-12">
-            <img src="../imagen/Group 2.svg" alt="">
-          </div>
-          <div class="col-lg-8 col-md-6 col-sm-12 ">
-            <h4 class="text-primary">About</h4>
-            <p>Why you hire me?</p>
-            <p>lorem ipsum dolor bet amet elefot maguito rotador pess de banca elegante takimata sanctus et justi
-              diolores et ea rebirm, stet citar kasd gutembert ear tencla tempor magnus siligus petros mecter masitus
-              darlo itmow datter epertenus malefuicyus accusam labiore conseternum.</p>
-            <div class="skills">
-              <h4>UI/UX Design</h4>
-              <div class="progress">
-                <div class="progress-bar" style="width: 90%;">90%</div>
-              </div>
-              <h4>Web Design</h4>
-              <div class="progress">
-                <div class="progress-bar" style="width: 80%;">80%</div>
-              </div>
-              <h4>HTML/CSS</h4>
-              <div class="progress">
-                <div class="progress-bar" style="width: 85%;">85%</div>
-              </div>
-              <h4>Sketch</h4>
-              <div class="progress">
-                <div class="progress-bar" style="width: 70%;">70% </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- fin about-->
 
-        <div class="row3">
-          <div class="col-2">col-2 1</div>
-          <div class="col-2">col-2 2</div>
-          <div class="col-2">col-2 3</div>
-          <div class="col-2">col-2 4</div>
-          <div class="col-2">col-2 5</div>
-          <div class="col-2">col-2 6</div>
+  <body>
+    <div class="container-fluid p-0">
+      <!-- inicio hello -->
+      <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+          <img src="../imagen/logo.svg" alt="">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#Home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#About">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#Servicies">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#Portafolio">Portafolio</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="row4">
-          <div class="col-4">col-4 1</div>
-          <div class="col-4">col-4 2</div>
-          <div class="col-4">col-4 3</div>
+      </nav>
+      <!-- fin hello -->
+
+
+      <!-- inicio navbar -->
+      <div id="Home" class="hero-section py-3">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <h4 class="texto_violeta">Hello I'm</h4>
+              <h1 class="display-4 fw-bold">Juan Diego Osorio</h1>
+              <p class="lead">Professional Freelance Web Designer</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque
+                tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis. Lorem ipsum
+                dolor, sit amet consectetur adipisicing elit. Totam.</p>
+              <button class="btn btn-light">Hire me</button>
+            </div>
+            <div class="col-md-6 text-center">
+              <img src="../imagen/WhatsApp_Image1.svg" alt="Avatar" class="avatar img-fluid">
+            </div>
+          </div>
         </div>
-        <div class="row5">
-          <div class="col-12">col-12</div>
-        </div>
-    </div>
-  </section>
-</body>
+      </div>
+      <!-- fin navbar -->
+
+      <!-- inicio why-hire-me -->
+      <div id="About" class="about-section py-3">
+        <div class="container-fluid">
+          <div class="row">
+
+            <div class="col-md-6 text-center mb-3">
+              <img src="../imagen/Group 2.svg" alt="About Me" class="img-fluid full-height">
+            </div>
+
+            <div class="col-md-6 align-items-center">
+              <div class="about-content">
+                <h6 class="texto_about mt-5">About</h1>
+                  <h2>Why You Hire Me?</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque
+                    tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+
+                  <div class="skillbar ">
+                    <span class="skill">UI/UX Design</span>
+                    <div class="progress mb-3">
+                      <div class="progress-bar" style="width: 90%; ">85%</div>
+                    </div>
+                  </div>
+
+                  <div class="skillbar">
+                    <span class="skill">WEB Desing</span>
+                    <div class="progress mb-3">
+                      <div class="progress-bar" style="width: 80%;">75%</div>
+                    </div>
+                  </div>
+
+                  <div class="skillbar">
+                    <span class="skill">HTML/CSS</span>
+                    <div class="progress mb-3">
+                      <div class="progress-bar" style="width: 70%;">90%</div>
+                    </div>
+                  </div>
+
+                  <div class="skillbar">
+                    <span class="skill">Sketch</span>
+                    <div class="progress mb-3">
+                      <div class="progress-bar" style="width: 90%;">65%</div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <!-- fin hire-me -->
+
+
+            <!-- inicio services -->
+            <div id="Servicies" class="services-section py-5">
+              <div class="container 1">
+                <h3 class="text-center"><strong>Services</strong></h3>
+                <h2 class="text-center mb-5"><strong>Services I Provide</strong></h2>
+                <div class="row row-custom">
+                  <div class="col-md-4">
+                    <div class="service-card ">
+                      <img src="../imagen/vec1.svg" class="service-icon">
+                      <h3>Graphic Design</h3>
+                      <p>lorem ipsum dolor sit aconsect dipisicing elit, sed do eiusmod to incidunt uabore etdolore
+                        magna aliqua</p>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="service-card">
+                      <img src="../imagen/vec2.svg" class="service-icon">
+                      <h3>Web Design</h3>
+                      <p>lorem ipsum dolor sit aconsect dipisicing elit, sed do eiusmod to incidunt uabore etdolore
+                        magna aliqua</p>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="service-card">
+                      <img src="../imagen/vec3.svg" class="service-icon ">
+                      <h3>UI/UX Design</h3>
+                      <p>lorem ipsum dolor sit aconsect dipisicing elit, sed do eiusmod to incidunt uabore etdolore
+                        magna aliqua</p>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="service-card">
+                      <img src="../imagen/vec4.svg" class="service-icon">
+                      <h3>Frontend Development</h3>
+                      <p>lorem ipsum dolor sit aconsect dipisicing elit, sed do eiusmod to incidunt uabore etdolore
+                        magna aliqua</p>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="service-card">
+                      <img src="../imagen/vec5.svg" class="service-icon">
+                      <h3>Business Analysis</h3>
+                      <p>lorem ipsum dolor sit aconsect dipisicing elit, sed do eiusmod to incidunt uabore etdolore
+                        magna aliqua</p>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="service-card">
+                      <img src="../imagen/vec6.svg" class="service-icon">
+                      <h3>Digital Marketing</h3>
+                      <p>lorem ipsum dolor sit aconsect dipisicing elit, sed do eiusmod to incidunt uabore etdolore
+                        magna aliqua</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- fin services -->
+
+            <!-- inicio portafolio -->
+            <div id="carouselExample" class="carousel slide">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="../imagen/sprite.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src=".." class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="..." class="d-block w-100" alt="...">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <!-- fin portafolio -->
+
+            <!-- inicio footer -->
+            <footer class="py-4">
+              <div class="container text-center">
+                <p>© Juan Diego Calvo</p>
+                <div class="social-icons">
+                  <a href="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Fstories%2F1105871559518779%2FUzpfSVNDOjkwNzg4NzA3MTM1NDk3Mw%3D%3D%2F%3Fbucket_count%3D9%26source%3Dstory_tray"
+                    class="me-3"><i class="fab fa-facebook"></i></a>
+                  <a href="https://x.com/?lang=es&mx=2" class="me-3"><i class="fab fa-twitter"></i></a>
+                  <a href="https://www.instagram.com/" class="me-3"><i class="fab fa-instagram"></i></a>
+                  <a href="https://co.linkedin.com/" class="me-3"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <p>somemail@example.com</p>
+                <nav>
+                  <a href="#Home" class="me-3">Home</a>
+                  <a href="#About" class="me-3">About</a>
+                  <a href="#Servicies" class="me-3">Services</a>
+                  <a href="#Portafolio" class="me-3">Portfolio</a>
+                </nav>
+                <p>© All Rights Reserved 2024</p>
+              </div>
+            </footer>
+            <!-- fin footer -->
+          </div>
 
 </html>
