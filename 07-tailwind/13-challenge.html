@@ -10,12 +10,17 @@
         body{
             background: url(/07-tailwind/imagen/bg_2.jpg) no-repeat;
             background-size: cover;
+            font-family: dark-souls;
         }
+       @font-face {
+        font-family: 'dark-souls';
+        src: url(/07-tailwind/fonts/OptimusPrinceps.ttf);
+       }
        
     </style>
 </head>
 
-<body class="bg-gray-900 p-20 flex justify-center space-x-4">
+<body class="bg-gray-900 p-[100px] flex justify-center space-x-4">
 
     <!-- Primera sección -->
     <section id="section1" class="bg-slate-800 rounded-xl p-4 max-w-xs">
@@ -108,33 +113,33 @@
             </button>
             <h2 class="text-xl font-bold text-yellow-500">BEST SOULS</h2>
         </div>
-        <div class="bg-gray-700 text-white p-4 rounded-lg mb-4 h-56">
+        <div class="bg-gray-700 text-white p-4 rounded-lg mb-4 grid">
             <div class="flex justify-center mb-2">
-                <span>1. ELDEN RING</span>
-                 <div class="">
+                <h4>1. ELDEN RING</span>
+                 <div class="eldenring border-4 border-gray-800">
                     <img src="/07-tailwind/imagen/eldenring.jpg" alt="">
                  </div>
             </div>
             <div class="flex justify-center mb-2">
-                <span>2. BLOODBORNE</span>
-                 <div class="bloodborne">
+                <h4>2. BLOODBORNE</span>
+                 <div class="bloodborne border-4 border-gray-800">
                     <img src="/07-tailwind/imagen/bloodborne.jpg" alt="">
                  </div>
             </div>
             <div class="flex justify-center mb-2">
-                <span >3. DARK SOULS</span>
-                 <div class="darksouls">
+                <h4>3. DARK SOULS</span>
+                 <div class="darksouls border-4 border-gray-800">
                     <img src="/07-tailwind/imagen/darksouls.jpg" alt="">
                  </div>
             </div>
             <div class="flex justify-center">
-                <span>4. SEKIRO</span>
-                 <div class="sekiro">
+                <h4 class="texr-">4. SEKIRO</span>
+                 <div class="sekiro border-4 border-gray-800">
                     <img src="/07-tailwind/imagen/sekiro_1.jpg" alt="">
                  </div>
             </div>
         </div>
-        <p class="text-sm text-gray-600 italic mb-4">We'll meet again at the bonfire.</p>
+        <p class="text-sm text-gray-600 italic mb-4 text-center">We'll meet again at the bonfire.</p>
         <button class="bg-black text-white py-2 px-4 rounded-full w-full">START THE PATH</button>
     </section>
 
