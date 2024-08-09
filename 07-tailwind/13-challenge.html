@@ -1,81 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StandUp Language Learning</title>
+    <title>Challenge Maria Paula Melo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .section {
-            display: none;
+        body{
+            background: url(/07-tailwind/imagen/bg_2.jpg) no-repeat;
+            background-size: cover;
         }
-        #section1 {
-            display: block;
-        }
-        .section:target {
-            display: block;
-        }
-        .section:target ~ #section1 {
-            display: none;
-        }
-        #section2:target ~ #section1,
-        #section3:target ~ #section1 {
-            display: none;
-        }
+       
     </style>
 </head>
-<body class="bg-blue-900 p-4">
-    <div class="max-w-4xl mx-auto">
-        <!-- Primera sección -->
-        <section id="section1" class="section bg-white rounded-xl p-4">
-            <div class="w-full h-48 bg-gray-200 rounded-lg mb-4"></div>
-            <h2 class="text-3xl font-bold mb-2 text-center">StandUp</h2>
-            <p class="text-center text-sm mb-4">Are you ready to learn languages easily in the funniest way?</p>
-            <div class="text-center">
-                <a href="#section2" class="bg-black text-white py-2 px-4 rounded-full inline-block">Get started</a>
-            </div>
-        </section>
 
-        <!-- Segunda sección -->
-        <section id="section2" class="section bg-white rounded-xl p-4">
-            <div class="flex items-center mb-4">
-                <a href="#section1" class="mr-2">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                </a>
-                <h2 class="text-xl font-bold">A2 - Elementary</h2>
-            </div>
-            <div class="space-y-4">
-                <div class="flex items-center">
-                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-2">0%</div>
-                    <div>
-                        <p class="font-semibold">Lesson 1</p>
-                        <p class="text-sm text-gray-500">How are you?</p>
-                    </div>
+<body class="bg-gray-900 p-20 flex justify-center space-x-4">
+
+    <!-- Primera sección -->
+    <section id="section1" class="bg-slate-800 rounded-xl p-4 max-w-xs">
+        <div class="w-full max-h-full  rounded-lg mb-4 flex justify-center items-center">
+            <img src="/07-tailwind/imagen/dark _1.jpg" alt="Paris 2024 Logo" class="max-h-full max-w-full rounded-xl">
+        </div>
+        <h2 class="text-xl font-bold mb-2 uppercase text-yellow-500 mt-4 text-center">The Souls</h2>
+        <p class="text-xs mb-4 mt-4 text-center text-neutral-300">Dark Souls is a dark odyssey where death lurks in
+            every shadow, and only the brave survive. Face colossal creatures in a cursed world where courage is the
+            only hope to escape eternal darkness. </p>
+        <div class="text-center mt-4">
+            <button onclick="showSection('section2')"
+                class="bg-black text-white py-2 px-4 rounded-full inline-block text-sm">AVIVÁR</button>
+        </div>
+    </section>
+
+    <!-- Segunda sección -->
+    <section id="section2" class="bg-slate-800 rounded-xl p-4 w-96 hidden">
+        <div class="flex items-center mb-4">
+            <button onclick="showSection('section1')" class="mr-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <h2 class="text-xl font-bold text-yellow-500 uppercase">characters</h2>
+        </div>
+        <div class="space-y-4 ">
+            <div class="flex items-center">
+                <div class="w-8 h-8 rounded-full bg-red-900 flex items-center justify-center mr-2 text-amber-300">1
                 </div>
-                <!-- Repite para otras lecciones -->
+                <div>
+                    <p class="font-semibold text-red-800">The Soul of cinder</p>
+                </div>
             </div>
-            <div class="text-center mt-4">
-                <a href="#section3" class="bg-black text-white py-2 px-4 rounded-full inline-block">Next</a>
+            <div class="w-full h-40 rounded-lg mb-4">
+                <img src="/07-tailwind/imagen/cinder_1.webp" alt="imagen"
+                    class="w-full h-full object-cover rounded-lg border-4 border-red-900">
             </div>
-        </section>
 
-        <!-- Tercera sección -->
-        <section id="section3" class="section bg-white rounded-xl p-4">
-            <div class="flex items-center mb-4">
-                <a href="#section2" class="mr-2">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                </a>
-                <h2 class="text-xl font-bold">Choose your language level</h2>
+            <div class="flex items-center">
+                <div class="w-8 h-8 rounded-full bg-gray-900 flex items-center justify-center mr-2 text-emerald-600">2
+                </div>
+                <div>
+                    <p class="font-semibold text-emerald-800">ludwin</p>
+                </div>
             </div>
-            <div class="space-y-2 mb-4">
-                <button class="bg-blue-900 text-white py-2 px-4 rounded-lg w-full text-left">A1 - Basic</button>
-                <button class="bg-blue-900 text-white py-2 px-4 rounded-lg w-full text-left">A2 - Elementary</button>
-                <button class="bg-blue-900 text-white py-2 px-4 rounded-lg w-full text-left">B1 - Pre-Intermediate</button>
-                <button class="bg-blue-900 text-white py-2 px-4 rounded-lg w-full text-left">B2 - Intermediate</button>
+            <div class="w-full h-40  rounded-lg mb-4">
+                <img src="/07-tailwind/imagen/ludwin.jpg" alt="imagen"
+                    class="w-full h-full object-cover rounded-lg border-4 border-emerald-800">
             </div>
-            <p class="text-sm mb-2">Or take a test to determine the level. It will take about 10 minutes.</p>
-            <button class="bg-gray-800 text-white py-2 px-4 rounded-full w-full">Start test</button>
-        </section>
-    </div>
+
+            <div class="flex items-center">
+                <div class="w-8 h-8 rounded-full bg-orange-600 flex items-center justify-center mr-2">3</div>
+                <div>
+                    <p class="font-semibold text-orange-600">Gwyn</p>
+                </div>
+            </div>
+            <div class="w-full h-40  rounded-lg mb-4">
+                <img src="/07-tailwind/imagen/gwyn.jpg" alt="imagen"
+                    class="w-full h-full object-cover rounded-lg border-4 border-orange-600">
+            </div>
+
+            <div class="flex items-center">
+                <div class="w-8 h-8 rounded-full bg-zinc-500 flex items-center justify-center mr-2 text-slate-200">4
+                </div>
+                <div>
+                    <p class="font-semibold  text-zinc-500">Nameless Kind</p>
+                </div>
+            </div>
+            <div class="w-full h-40  rounded-lg mb-4">
+                <img src="/07-tailwind/imagen/nameless kind.jpg" alt="imagen"
+                    class="w-full h-full object-cover rounded-lg border-4 border-zinc-500">
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <button onclick="showSection('section3')"
+                class="bg-black text-white py-2 px-4 rounded-full inline-block">Next</button>
+        </div>
+    </section>
+
+    <!-- Tercera sección -->
+    <section id="section3" class="bg-slate-800 rounded-xl p-7 max-w-xs hidden">
+        <div class="flex items-center mb-4">
+            <button onclick="showSection('section2')" class="mr-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <h2 class="text-xl font-bold text-yellow-500">BEST SOULS</h2>
+        </div>
+        <div class="bg-gray-700 text-white p-4 rounded-lg mb-4 h-56">
+            <div class="flex justify-center mb-2">
+                <span>1. ELDEN RING</span>
+                 <div class="">
+                    <img src="/07-tailwind/imagen/eldenring.jpg" alt="">
+                 </div>
+            </div>
+            <div class="flex justify-center mb-2">
+                <span>2. BLOODBORNE</span>
+                 <div class="bloodborne">
+                    <img src="/07-tailwind/imagen/bloodborne.jpg" alt="">
+                 </div>
+            </div>
+            <div class="flex justify-center mb-2">
+                <span >3. DARK SOULS</span>
+                 <div class="darksouls">
+                    <img src="/07-tailwind/imagen/darksouls.jpg" alt="">
+                 </div>
+            </div>
+            <div class="flex justify-center">
+                <span>4. SEKIRO</span>
+                 <div class="sekiro">
+                    <img src="/07-tailwind/imagen/sekiro_1.jpg" alt="">
+                 </div>
+            </div>
+        </div>
+        <p class="text-sm text-gray-600 italic mb-4">We'll meet again at the bonfire.</p>
+        <button class="bg-black text-white py-2 px-4 rounded-full w-full">START THE PATH</button>
+    </section>
+
+    <script>
+        function showSection(sectionId) {
+            document.getElementById('section1').classList.add('hidden');
+            document.getElementById('section2').classList.add('hidden');
+            document.getElementById('section3').classList.add('hidden');
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+    </script>
+
 </body>
+
 </html>
