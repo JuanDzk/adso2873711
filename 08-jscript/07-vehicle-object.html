@@ -65,6 +65,85 @@
             left: -60px;
             top: -5px;
         }
+
+        section div.landscape {
+            background-color: #fff9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px;
+            height: 260px;
+            margin: 0 auto;
+            width: 374px;
+        }
+        section div.landscape button {
+            border: none;
+            cursor: pointer;
+            height: 44px;
+            width: 44px;
+        }
+        section div.landscape button.btn-prev {
+            background: url(/08-jscript/imagen/07-obj/boton-prew.svg) no-repeat;
+            background-position: 5px;
+            background-color: #F77463;
+            border-radius: 0 50px 50px 0;
+        }
+        section div.landscape button.btn-next {
+            background: url(/08-jscript/imagen/07-obj/boton-next.svg) no-repeat;
+            background-position: 5px;
+            background-color: #F77463;
+            border-radius: 50px 0 0 50px;
+            align-items: center;
+        }
+        section .img-metodos{
+            text-align: center;
+            margin-top: 5px;
+        }
+        
+        section div.methods {
+            background-color: #8C1D1F;
+            width: 379px;
+            height: 67px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            margin-left: 10px;
+            border-radius: 20px;
+        }
+        section div.methods button {
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+            height: 47px;
+            width: 40px;
+        }
+        section .botones{
+            margin-left: 20px;
+            margin-bottom: 8px;
+        }
+        section div.methods button.btn-on {
+            background: url(imagen/07-obj/metodos/on.svg) no-repeat;
+            margin-right: 10px;
+        }
+        section div.methods button.btn-fwd {
+            background: url(imagen/07-obj/metodos/go.svg) no-repeat;
+            margin-left: 10px;
+            margin-right: 10px ;
+        }
+        section div.methods button.btn-stop {
+            background: url(imagen/07-obj/metodos/stop.svg) no-repeat;
+            margin: 10px;
+        }
+        section div.methods button.btn-bwd {
+            background: url(imagen/07-obj/metodos/back.svg) no-repeat;
+            margin: 10px;
+        }
+        section div.methods button.btn-off {
+            background: url(imagen/07-obj/metodos/stop.svg) no-repeat;
+            margin: 10px;
+        }
+
     </style>
 
 </head>
@@ -132,13 +211,18 @@
                 <button class="btn-next"></button>
             </div>
 
+            <div class="img-metodos">
+                <img src="imagen/07-obj/metodos.svg" alt="">
+            </div>
 
             <div class="methods">
-                <button class="btn-on"></button>
-                <button class="btn-fwd"></button>
-                <button class="btn-stop"></button>
-                <button class="btn-bwd"></button>
-                <button class="btn-off"></button>
+                <div class="botones">
+                    <button class="btn-on"></button>
+                    <button class="btn-fwd"></button>
+                    <button class="btn-stop"></button>
+                    <button class="btn-bwd"></button>
+                    <button class="btn-off"></button>
+                </div>
             </div>
 
 
