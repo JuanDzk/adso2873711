@@ -9,8 +9,11 @@
     <style>
         section {
             background-color: #F77463;
+            position: relative;
         }
+
         section div.header {
+            background: url(../08-jscript/imagen/07-obj/titulo-velocistas.svg) no-repeat;
             align-items: center;
             display: flex;
         }
@@ -26,18 +29,17 @@
             height: 50px;
             width: 40px;
             top: 5px;
-            left: 20px;
+            left: 300px;
         }
 
-        .titulo-velocistas{
+        .titulo-velocistas {
             position: relative;
             left: -35px;
 
         }
-        
-        .btn-light {
-            background: transparent url(imagen/07-obj/GRUPO\ 1\ boton.svg) no-repeat;
 
+        .btn-mode {
+            background: transparent url(imagen/07-obj/relojnoche.svg) no-repeat;
         }
 
 
@@ -53,17 +55,32 @@
         }
 
         .atributos {
+            background: url(imagen/07-obj/atributos-titulo.svg) no-repeat;
             position: relative;
             z-index: 1;
             top: 40px;
             left: 30px;
         }
 
-        .brand {
-            font-size: small;
-            position: relative;
-            left: -60px;
-            top: -5px;
+        span {
+            position: absolute;
+            left: 60px;
+        }
+
+        .atributos .name {
+            background: url(imagen/07-obj/atributo-nombre.svg) no-repeat;
+        }
+
+        .atributos .age {
+            background: url(imagen/07-obj/atributo-año.svg) no-repeat;
+        }
+
+        .atributos .power {
+            background: url(imagen/07-obj/tributo-poder.svg) no-repeat;
+        }
+
+        .atributos .vel {
+            background: url(imagen/07-obj/atributo-velocidad.svg) no-repeat;
         }
 
         section div.landscape {
@@ -76,30 +93,37 @@
             margin: 0 auto;
             width: 374px;
         }
+
         section div.landscape button {
             border: none;
             cursor: pointer;
             height: 44px;
             width: 44px;
         }
+
         section div.landscape button.btn-prev {
             background: url(/08-jscript/imagen/07-obj/boton-prew.svg) no-repeat;
             background-position: 5px;
             background-color: #F77463;
             border-radius: 0 50px 50px 0;
         }
-        section div.landscape button.btn-next { 
+
+        section div.landscape button.btn-next {
             background: url(/08-jscript/imagen/07-obj/boton-next.svg) no-repeat;
             background-position: 5px;
             background-color: #F77463;
             border-radius: 50px 0 0 50px;
             align-items: center;
         }
-        section .img-metodos{
+
+        section .img-metodos {
+            background: url(../08-jscript/imagen/07-obj/metodos.svg) no-repeat;
             text-align: center;
-            margin-top: 5px;
+            margin: 5px;
+            height: 30px;
+            margin-left: 10px;
         }
-        
+
         section div.methods {
             background-color: #8C1D1F;
             width: 379px;
@@ -111,6 +135,7 @@
             margin-left: 10px;
             border-radius: 20px;
         }
+
         section div.methods button {
             border: none;
             cursor: pointer;
@@ -118,32 +143,234 @@
             height: 47px;
             width: 40px;
         }
-        section .botones{
+
+        section .botones {
             margin-left: 20px;
             margin-bottom: 8px;
         }
+
         section div.methods button.btn-on {
             background: url(imagen/07-obj/metodos/on.svg) no-repeat;
             margin-right: 10px;
         }
+
         section div.methods button.btn-fwd {
             background: url(imagen/07-obj/metodos/go.svg) no-repeat;
             margin-left: 10px;
-            margin-right: 10px ;
+            margin-right: 10px;
         }
+
         section div.methods button.btn-stop {
             background: url(imagen/07-obj/metodos/stop.svg) no-repeat;
             margin: 10px;
         }
+
         section div.methods button.btn-bwd {
             background: url(imagen/07-obj/metodos/back.svg) no-repeat;
             margin: 10px;
         }
+
         section div.methods button.btn-off {
             background: url(imagen/07-obj/metodos/stop.svg) no-repeat;
             margin: 10px;
         }
 
+
+
+        section img.image {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 125px;
+        }
+
+
+
+        /*********************DARK MODE**********************/
+
+        section.dark {
+            background-color: #303837;
+
+            div.header {
+                background: url(../08-jscript/imagen/07-obj/obj2/velocista.svg) no-repeat;
+                align-items: center;
+                display: flex;
+            }
+
+            div.header button.btn-hidden {
+                visibility: hidden;
+            }
+
+            div.header button {
+                position: relative;
+                border: none;
+                cursor: pointer;
+                height: 50px;
+                width: 40px;
+                top: 5px;
+                left: 300px;
+            }
+
+            .titulo-velocistas {
+                position: relative;
+                left: -35px;
+
+            }
+
+            .btn-mode {
+                background: transparent url(imagen/07-obj/obj2/reloj.svg) no-repeat;
+            }
+
+
+            .attributes-contain {
+
+                position: relative;
+                width: 100%;
+                height: 175px;
+                margin-top: 5px;
+                top: -3px;
+                margin-bottom: 20px;
+                background-image: url('imagen/07-obj/obj2/rectangulo.svg');
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
+            .atributos {
+                background: url(imagen/07-obj/obj2/atributos.svg) no-repeat;
+                position: relative;
+                z-index: 1;
+                top: 13.5px;
+                left: 30px;
+            }
+
+            span {
+                position: absolute;
+                left: 60px;
+            }
+
+
+
+            .atributos .name {
+                background: url(imagen/07-obj/obj2/name.svg) no-repeat;
+            }
+
+            .atributos .age {
+                background: url(imagen/07-obj/obj2/age.svg) no-repeat;
+            }
+
+            .atributos .power {
+                background: url(imagen/07-obj/obj2/power.svg) no-repeat;
+            }
+
+            .atributos .vel {
+                background: url(imagen/07-obj/obj2/km.svg) no-repeat;
+            }
+
+
+
+            div.landscape {
+                background-color: #fff9;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-radius: 5px;
+                height: 260px;
+                margin: 0 auto;
+                width: 374px;
+            }
+
+            div.landscape button {
+                border: none;
+                cursor: pointer;
+                height: 44px;
+                width: 44px;
+            }
+
+            div.landscape button.btn-prev {
+                background: url(/08-jscript/imagen/07-obj/obj2/left.svg) no-repeat;
+                background-position: 5px;
+                background-color: #303837;
+                border-radius: 0 50px 50px 0;
+            }
+
+            div.landscape button.btn-next {
+                background: url(/08-jscript/imagen/07-obj/obj2/right.svg) no-repeat;
+                background-position: 5px;
+                background-color: #303837;
+                border-radius: 50px 0 0 50px;
+                align-items: center;
+            }
+
+            .img-metodos {
+                background: url(../08-jscript/imagen/07-obj/obj2/metodos.svg) no-repeat;
+                text-align: center;
+                margin: 5px;
+                height: 30px;
+                margin-left: 10px;
+            }
+
+            div.methods {
+                background-color: #7C4F8F;
+                width: 379px;
+                height: 67px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 0.5rem;
+                margin-left: 10px;
+                border-radius: 20px;
+            }
+
+            div.methods button {
+                border: none;
+                cursor: pointer;
+                margin-top: 1rem;
+                height: 47px;
+                width: 40px;
+            }
+
+            .botones {
+                margin-left: 20px;
+                margin-bottom: 8px;
+            }
+
+            div.methods button.btn-on {
+                background: url(imagen/07-obj/obj2/metodos/on.svg) no-repeat;
+                margin-right: 10px;
+            }
+
+            div.methods button.btn-fwd {
+                background: url(imagen/07-obj/obj2/metodos/go.svg) no-repeat;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            div.methods button.btn-stop {
+                background: url(imagen/07-obj/obj2/metodos/stop.svg) no-repeat;
+                margin: 10px;
+            }
+
+            div.methods button.btn-bwd {
+                background: url(imagen/07-obj/obj2/metodos/back.svg) no-repeat;
+                margin: 10px;
+            }
+
+            div.methods button.btn-off {
+                background: url(imagen/07-obj/obj2/metodos/off.svg) no-repeat;
+                margin: 10px;
+            }
+        }
+
+        /**************Methods****************/
+        .start{
+            animation: animStart 0.01s ease-in infinite;
+        }
+        @keyframes animStart {
+            100%{
+                bottom: 130px;
+            }
+        }
     </style>
 
 </head>
@@ -163,48 +390,49 @@
             <h1>Vehicle object</h1>
             <h2>Flash</h2>
         </header>
-        <section class="light">
-
-
+        <section>
             <div class="header">
                 <button class="btn-hidden"></button>
-                <div class="titulo-velocistas"><img src="imagen/07-obj/GRUPO 1 TITULO 1.svg" alt=""></div>
-                <button class="btn-light"></button>
+                <div class="titulo-velocistas"> <img src="" alt=""></div>
+                <button class="btn-mode"></button>
             </div>
 
 
             <div class="attributes-contain">
                 <div class="atributos">
-                    <img src="imagen/07-obj/atributos-titulo.svg" alt="">
-                    <div class="name">
-                        <img src="imagen/07-obj/atributo-nombre.svg" alt="">
-                        <span class="brand">Barry A.</span>
+                    <img src="" alt="">
+
+                    <div class="brand-padre">
+                        <div class="name">
+                            <img src="" alt="">
+                            <span class="brand"></span>
+                        </div>
                     </div>
 
-                    <span class="refer">
+                    <div class="refer-padre">
                         <div class="age">
-                            <img src="imagen/07-obj/atributo-año.svg" alt="">
-                            <span class="brand">25</span>
+                            <img src="" alt="">
+                            <span class="refer"></span>
                         </div>
-                    </span>
+                    </div>
 
-                    <span class="model">
+                    <div class="model-padre">
                         <div class="power">
-                            <img src="imagen/07-obj/tributo-poder.svg" alt="">
-                            <span class="brand">Speed F.</span>
+                            <img src="" alt="">
+                            <span class="model"></span>
                         </div>
-                    </span>
+                    </div>
 
-                    <span class="color">
+                    <div class="color-padre">
                         <div class="vel">
-                            <img src="imagen/07-obj/atributo-velocidad.svg" alt="">
-                            <span class="brand">13 c</span>
+                            <img src="" alt="">
+                            <span class="color"></span>
                         </div>
-                    </span>
+                    </div>
                 </div>
-
             </div>
 
+            <img src="" class="image">
 
             <div class="landscape">
                 <button class="btn-prev"></button>
@@ -212,7 +440,7 @@
             </div>
 
             <div class="img-metodos">
-                <img src="imagen/07-obj/metodos.svg" alt="">
+                <img src="" alt="">
             </div>
 
             <div class="methods">
@@ -224,10 +452,117 @@
                     <button class="btn-off"></button>
                 </div>
             </div>
-
-
         </section>
+
     </main>
+
+
+    <script>
+        //values
+        var engine = false 
+        var index = 0
+        //darkmode
+        const darkMode = window.matchMedia('(prefers-color-scheme: dark)')
+        //elements
+        const btnMode = document.querySelector('.btn-mode');
+        const section = document.querySelector('section');
+        const btnNext = document.querySelector('.btn-next');
+        const btnPrev = document.querySelector('.btn-prev');
+        const btnOn = document.querySelector('.btn-on');
+        const btnOff = document.querySelector('.btn-off');
+
+
+        //attributes
+        const brand = document.querySelector('.brand');
+        const refer = document.querySelector('.refer');
+        const model = document.querySelector('.model');
+        const color = document.querySelector('.color');
+        const image = document.querySelector('.image');
+
+        //btns: events
+        btnMode.addEventListener('click', function () {
+            vehicle.mode()
+        })
+
+        btnOn.addEventListener('click', function(){
+            vehicle.start()
+        })
+        btnOff.addEventListener('click', function(){
+            vehicle.off()
+        })
+       
+        const vehicle = {
+            attributes: [
+                { brand: 'Barry A', refer: '25', model: 'Speed F.', color: '13 c', image: 'imagen/07-obj/flash-barry.svg' },
+                { brand: 'Walter W.', refer: '???', model: 'Speed F.', color: '13 c', image: 'imagen/07-obj/obj2/black-flash.svg' },
+
+            ],
+            mode: function () {
+                section.classList.toggle('dark')
+            },
+            showAttributes: function (i) {
+                brand.textContent = this.attributes[i].brand
+                refer.textContent = this.attributes[i].refer
+                model.textContent = this.attributes[i].model
+                color.textContent = this.attributes[i].color
+                image.setAttribute('src', this.attributes[i].image)
+            },
+
+            start: function(){
+                if (!engine) {
+                    image.classList.add('start')
+                    engine = true
+                }
+            },
+            off: function(){
+                if (engine) {
+                    image.classList.remove('start')
+                    engine=false
+                }
+            }
+
+        }
+
+        vehicle.showAttributes(0)
+        darkModeChange(darkMode)
+
+
+        btnNext.addEventListener('click', function () {
+            if (index <= (vehicle.attributes.length) + 1) {
+                btnPrev.style.opacity = '1'
+                vehicle.showAttributes(++index)
+                if (index == (vehicle.attributes.length)-1) {
+                    this.style.opacity = '0.2'
+                }
+            }
+        })
+
+
+        btnPrev.addEventListener('click', function () {
+            if (index >= 0) {
+                btnNext.style.opacity = '1'
+                vehicle.showAttributes(--index)
+                if (index == 0){
+                    this.style.opacity = '0.2'
+                }
+            }
+        })
+
+        
+
+        function darkModeChange(dmq) {
+            const isDarkMode = dmq.matches
+            if (isDarkMode) {
+                section.classList.add('dark')
+            } else {
+                section.classList.remove('dark')
+            }
+        }
+        darkMode.addListener(darkModeChange)
+
+    </script>
+
+
 </body>
 
 </html>

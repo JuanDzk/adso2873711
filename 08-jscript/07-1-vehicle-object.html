@@ -7,19 +7,20 @@
     <title>Vehicle Object</title>
     <link rel="stylesheet" href="css/master.css">
     <style>
-        section {
+        section.dark {
             background-color: #303837   ;
         }
-        section div.header {
+        section div.headerk {
+            
             align-items: center;
             display: flex;
         }
 
-        section div.header button.btn-hidden {
+        section div.headerk button.btn-hidden {
             visibility: hidden;
         }
 
-        section div.header button {
+        section div.headerk button {
             position: relative;
             border: none;
             cursor: pointer;
@@ -35,13 +36,13 @@
 
         }
         
-        .btn-light {
+        .btn-mode-dark {
             background: transparent url(imagen/07-obj/obj2/reloj.svg) no-repeat;
 
         }
 
 
-        .attributes-contain {
+        .attributes-contain-dark {
         
             position: relative;
             width: 100%;
@@ -55,21 +56,22 @@
             background-repeat: no-repeat;
         }
 
-        .atributos {
+        .atributos-dark {
             position: relative;
             z-index: 1;
             top: 13.5px;
             left: 30px;
         }
 
-        .brand {
+        .brand-dark {
+            
             font-size: small;
             position: relative;
             left: -60px;
             top: -5px;
         }
 
-        section div.landscape {
+        section div.landscape-dark {
             background-color: #fff9;
             display: flex;
             justify-content: space-between;
@@ -79,31 +81,31 @@
             margin: 0 auto;
             width: 374px;
         }
-        section div.landscape button {
+        section div.landscape-dark button {
             border: none;
             cursor: pointer;
             height: 44px;
             width: 44px;
         }
-        section div.landscape button.btn-prev {
+        section div.landscape-dark button.btn-prev-dark {
             background: url(/08-jscript/imagen/07-obj/obj2/left.svg) no-repeat;
             background-position: 5px;
             background-color: #303837;
             border-radius: 0 50px 50px 0;
         }
-        section div.landscape button.btn-next { 
+        section div.landscape-dark button.btn-next-dark { 
             background: url(/08-jscript/imagen/07-obj/obj2/right.svg) no-repeat;
             background-position: 5px;
             background-color: #303837;
             border-radius: 50px 0 0 50px;
             align-items: center;
         }
-        section .img-metodos{
+        section .img-metodos-dark{
             text-align: center;
             margin-top: 5px;
         }
         
-        section div.methods {
+        section div.methods-dark {
             background-color: #7C4F8F;
             width: 379px;
             height: 67px;
@@ -114,35 +116,35 @@
             margin-left: 10px;
             border-radius: 20px;
         }
-        section div.methods button {
+        section div.methods-dark button {
             border: none;
             cursor: pointer;
             margin-top: 1rem;
             height: 47px;
             width: 40px;
         }
-        section .botones{
+        section .botones-dark{
             margin-left: 20px;
             margin-bottom: 8px;
         }
-        section div.methods button.btn-on {
+        section div.methods-dark button.btn-on-dark {
             background: url(imagen/07-obj/obj2/metodos/on.svg) no-repeat;
             margin-right: 10px;
         }
-        section div.methods button.btn-fwd {
+        section div.methods-dark button.btn-fwd-dark {
             background: url(imagen/07-obj/obj2/metodos/go.svg) no-repeat;
             margin-left: 10px;
             margin-right: 10px ;
         }
-        section div.methods button.btn-stop {
+        section div.methods-dark button.btn-stop-dark {
             background: url(imagen/07-obj/obj2/metodos/stop.svg) no-repeat;
             margin: 10px;
         }
-        section div.methods button.btn-bwd {
+        section div.methods-dark button.btn-bwd-dark {
             background: url(imagen/07-obj/obj2/metodos/back.svg) no-repeat;
             margin: 10px;
         }
-        section div.methods button.btn-off {
+        section div.methods-dark button.btn-off-dark {
             background: url(imagen/07-obj/obj2/metodos/off.svg) no-repeat;
             margin: 10px;
         }
@@ -166,42 +168,41 @@
             <h1>Vehicle object</h1>
             <h2>Flash</h2>
         </header>
-        <section class="light">
-
-
-            <div class="header">
+        <section class="dark">
+            
+            <div class="headerk">
                 <button class="btn-hidden"></button>
                 <div class="titulo-velocistas"><img src="imagen/07-obj/obj2/Group 7.svg" alt=""></div>
-                <button class="btn-light"></button>
+                <button class="btn-mode-dark"></button>
             </div>
 
 
-            <div class="attributes-contain">
-                <div class="atributos">
+            <div class="attributes-contain-dark">
+                <div class="atributos-dark">
                     <img src="imagen/07-obj/obj2/atributos.svg" alt="">
                     <div class="name">
                         <img src="imagen/07-obj/obj2/name.svg" alt="">
-                        <span class="brand">Barry A.</span>
+                        <span class="brand-dark">Barry A.</span>
                     </div>
 
                     <span class="refer">
                         <div class="age">
                             <img src="imagen/07-obj/obj2/age.svg" alt="">
-                            <span class="brand">25</span>
+                            <span class="brand-dark">25</span>
                         </div>
                     </span>
 
                     <span class="model">
                         <div class="power">
                             <img src="imagen/07-obj/obj2/power.svg" alt="">
-                            <span class="brand">Speed F.</span>
+                            <span class="brand-dark">Speed F.</span>
                         </div>
                     </span>
 
                     <span class="color">
                         <div class="vel">
                             <img src="imagen/07-obj/obj2/km.svg" alt="">
-                            <span class="brand">13 c</span>
+                            <span class="brand-dark">13 c</span>
                         </div>
                     </span>
                 </div>
@@ -209,22 +210,22 @@
             </div>
 
 
-            <div class="landscape">
-                <button class="btn-prev"></button>
-                <button class="btn-next"></button>
+            <div class="landscape-dark">
+                <button class="btn-prev-dark"></button>
+                <button class="btn-next-dark"></button>
             </div>
 
-            <div class="img-metodos">
+            <div class="img-metodos-dark">
                 <img src="imagen/07-obj/obj2/metodos.svg" alt="">
             </div>
 
-            <div class="methods">
-                <div class="botones">
-                    <button class="btn-on"></button>
-                    <button class="btn-fwd"></button>
-                    <button class="btn-stop"></button>
-                    <button class="btn-bwd"></button>
-                    <button class="btn-off"></button>
+            <div class="methods-dark">
+                <div class="botones-dark">
+                    <button class="btn-on-dark"></button>
+                    <button class="btn-fwd-dark"></button>
+                    <button class="btn-stop-dark"></button>
+                    <button class="btn-bwd-dark"></button>
+                    <button class="btn-off-dark"></button>
                 </div>
             </div>
 
