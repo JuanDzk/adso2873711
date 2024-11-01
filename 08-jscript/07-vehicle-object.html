@@ -84,6 +84,7 @@
         }
 
         section div.landscape {
+            background: url(imagen/07-obj/obj2/backg_1.svg);
             background-color: #fff9;
             display: flex;
             justify-content: space-between;
@@ -270,6 +271,7 @@
 
 
             div.landscape {
+                background: url(imagen/07-obj/obj2/backg_2.svg);
                 background-color: #fff9;
                 display: flex;
                 justify-content: space-between;
@@ -459,17 +461,26 @@
 
     <script>
         //values
-        var engine = false 
-        var index = 0
+        var   index         = 0
+        var   isOn          = false
+        var   isPaused      = false
+        var   isReversed    = false
+        var   lastTimestamp = 0
+        const speedFactors  = [0.04, 0.08, 0.25]
         //darkmode
         const darkMode = window.matchMedia('(prefers-color-scheme: dark)')
         //elements
-        const btnMode = document.querySelector('.btn-mode');
-        const section = document.querySelector('section');
-        const btnNext = document.querySelector('.btn-next');
-        const btnPrev = document.querySelector('.btn-prev');
-        const btnOn = document.querySelector('.btn-on');
-        const btnOff = document.querySelector('.btn-off');
+        const btnMode   = document.querySelector('.btn-mode')
+        const section   = document.querySelector('section')
+        const landscape = document.querySelector('.landscape')
+        const layers    = document.querySelectorAll('.layer')
+        const btnPrev   = document.querySelector('.btn-prev')
+        const btnNext   = document.querySelector('.btn-next')
+        const btnOn     = document.querySelector('.btn-on')
+        const btnStop   = document.querySelector('.btn-stop')
+        const btnOff    = document.querySelector('.btn-off')
+        const btnFwd    = document.querySelector('.btn-fwd')
+        const btnBwd    = document.querySelector('.btn-bwd')
 
 
         //attributes
@@ -490,7 +501,17 @@
         btnOff.addEventListener('click', function(){
             vehicle.off()
         })
+        btnFwd.addEventListener('click', function () {
+            vehicle.fordward()
+        })
+        btnStop.addEventListener('click', function () {
+            vehicle.stop()
+        })
+        btnBwd.addEventListener('click', function () {
+            vehicle.reverse()
+        })
        
+        //object
         const vehicle = {
             attributes: [
                 { brand: 'Barry A', refer: '25', model: 'Speed F.', color: '13 c', image: 'imagen/07-obj/flash-barry.svg' },
@@ -519,14 +540,37 @@
                     image.classList.remove('start')
                     engine=false
                 }
+            },
+            fordward: function () {
+                if (isOn) {
+                    lastTimestamp = 0
+                    isPaused = false
+                    isReversed = false
+                    requestAnimationFrame(animateParallax)
+                }
+            },
+            stop: function () {
+                if (isOn && !isPaused) {
+                    isPaused = true
+                }
+            },
+            reverse: function () {
+                if (isOn) {
+                    lastTimestamp = 0
+                    isReversed = true
+                    isPaused = false
+                    requestAnimationFrame(animateParallax)
+                }
             }
-
         }
+
+        
 
         vehicle.showAttributes(0)
         darkModeChange(darkMode)
+        btnPrev.style.opacity = '0.2'
 
-
+        // Next & Prev Buttons
         btnNext.addEventListener('click', function () {
             if (index <= (vehicle.attributes.length) + 1) {
                 btnPrev.style.opacity = '1'
@@ -549,7 +593,7 @@
         })
 
         
-
+        // DarkMode Change
         function darkModeChange(dmq) {
             const isDarkMode = dmq.matches
             if (isDarkMode) {
@@ -558,6 +602,27 @@
                 section.classList.remove('dark')
             }
         }
+
+        // animate Parallax
+        layers.forEach(layer => {
+            layer.dataset.pos = '0'
+        })
+        function animateParallax(timestamp) {
+            if (!isPaused) {
+                const delta   = timestamp - (lastTimestamp || timestamp)
+                lastTimestamp = timestamp
+
+                layers.forEach((layer, index) => {
+                let currentPos = (parseFloat(layer.dataset.pos) || 0) 
+                                 + speedFactors[index] 
+                                 * (isReversed ? delta : -delta)
+                layer.style.backgroundPositionX = $;{currentPos}px
+                layer.dataset.pos = currentPos
+                })
+            }
+            requestAnimationFrame(animateParallax)
+        }
+        //
         darkMode.addListener(darkModeChange)
 
     </script>
