@@ -84,7 +84,7 @@
         }
 
         section div.landscape {
-            background: url(imagen/07-obj/obj2/backg_1.svg);
+            background: url(imagen/07-obj/fondo-dia.svg);
             background-color: #fff9;
             display: flex;
             justify-content: space-between;
@@ -103,14 +103,14 @@
         }
 
         section div.landscape button.btn-prev {
-            background: url(/08-jscript/imagen/07-obj/boton-prew.svg) no-repeat;
+            background: url(../08-jscript/imagen/07-obj/boton-prew.svg) no-repeat;
             background-position: 5px;
             background-color: #F77463;
             border-radius: 0 50px 50px 0;
         }
 
         section div.landscape button.btn-next {
-            background: url(/08-jscript/imagen/07-obj/boton-next.svg) no-repeat;
+            background: url(../08-jscript/imagen/07-obj/boton-next.svg) no-repeat;
             background-position: 5px;
             background-color: #F77463;
             border-radius: 50px 0 0 50px;
@@ -271,7 +271,7 @@
 
 
             div.landscape {
-                background: url(imagen/07-obj/obj2/backg_2.svg);
+                background: url(imagen/07-obj/fondo-noche.svg);
                 background-color: #fff9;
                 display: flex;
                 justify-content: space-between;
@@ -459,173 +459,168 @@
     </main>
 
 
-    <script>
-        //values
-        var   index         = 0
-        var   isOn          = false
-        var   isPaused      = false
-        var   isReversed    = false
-        var   lastTimestamp = 0
-        const speedFactors  = [0.04, 0.08, 0.25]
-        //darkmode
-        const darkMode = window.matchMedia('(prefers-color-scheme: dark)')
-        //elements
-        const btnMode   = document.querySelector('.btn-mode')
-        const section   = document.querySelector('section')
-        const landscape = document.querySelector('.landscape')
-        const layers    = document.querySelectorAll('.layer')
-        const btnPrev   = document.querySelector('.btn-prev')
-        const btnNext   = document.querySelector('.btn-next')
-        const btnOn     = document.querySelector('.btn-on')
-        const btnStop   = document.querySelector('.btn-stop')
-        const btnOff    = document.querySelector('.btn-off')
-        const btnFwd    = document.querySelector('.btn-fwd')
-        const btnBwd    = document.querySelector('.btn-bwd')
+<script>
+    // values
+    var index         = 0
+    var isOn          = false
+    var isPaused      = true  // Inicia en pausa hasta que el vehículo se encienda
+    var isReversed    = false
+    var lastTimestamp = 0
+    const speedFactors = [0.04, 0.08, 0.25]
 
+    // dark mode
+    const darkMode = window.matchMedia('(prefers-color-scheme: dark)')
 
-        //attributes
-        const brand = document.querySelector('.brand');
-        const refer = document.querySelector('.refer');
-        const model = document.querySelector('.model');
-        const color = document.querySelector('.color');
-        const image = document.querySelector('.image');
+    // elements
+    const btnMode   = document.querySelector('.btn-mode')
+    const section   = document.querySelector('section')
+    const landscape = document.querySelector('.landscape')
+    const layers    = document.querySelectorAll('.layer')
+    const btnPrev   = document.querySelector('.btn-prev')
+    const btnNext   = document.querySelector('.btn-next')
+    const btnOn     = document.querySelector('.btn-on')
+    const btnStop   = document.querySelector('.btn-stop')
+    const btnOff    = document.querySelector('.btn-off')
+    const btnFwd    = document.querySelector('.btn-fwd')
+    const btnBwd    = document.querySelector('.btn-bwd')
 
-        //btns: events
-        btnMode.addEventListener('click', function () {
-            vehicle.mode()
-        })
+    // attributes
+    const brand = document.querySelector('.brand');
+    const refer = document.querySelector('.refer');
+    const model = document.querySelector('.model');
+    const color = document.querySelector('.color');
+    const image = document.querySelector('.image');
 
-        btnOn.addEventListener('click', function(){
-            vehicle.start()
-        })
-        btnOff.addEventListener('click', function(){
-            vehicle.off()
-        })
-        btnFwd.addEventListener('click', function () {
-            vehicle.fordward()
-        })
-        btnStop.addEventListener('click', function () {
-            vehicle.stop()
-        })
-        btnBwd.addEventListener('click', function () {
-            vehicle.reverse()
-        })
-       
-        //object
-        const vehicle = {
-            attributes: [
-                { brand: 'Barry A', refer: '25', model: 'Speed F.', color: '13 c', image: 'imagen/07-obj/flash-barry.svg' },
-                { brand: 'Walter W.', refer: '???', model: 'Speed F.', color: '13 c', image: 'imagen/07-obj/obj2/black-flash.svg' },
+    // btns: events
+    btnMode.addEventListener('click', function () {
+        vehicle.mode()
+    })
 
-            ],
-            mode: function () {
-                section.classList.toggle('dark')
-            },
-            showAttributes: function (i) {
-                brand.textContent = this.attributes[i].brand
-                refer.textContent = this.attributes[i].refer
-                model.textContent = this.attributes[i].model
-                color.textContent = this.attributes[i].color
-                image.setAttribute('src', this.attributes[i].image)
-            },
+    btnOn.addEventListener('click', function() {
+        vehicle.start()
+    })
+    btnOff.addEventListener('click', function() {
+        vehicle.off()
+    })
+    btnFwd.addEventListener('click', function () {
+        vehicle.forward()
+    })
+    btnStop.addEventListener('click', function () {
+        vehicle.stop()
+    })
+    btnBwd.addEventListener('click', function () {
+        vehicle.reverse()
+    })
 
-            start: function(){
-                if (!engine) {
-                    image.classList.add('start')
-                    engine = true
-                }
-            },
-            off: function(){
-                if (engine) {
-                    image.classList.remove('start')
-                    engine=false
-                }
-            },
-            fordward: function () {
-                if (isOn) {
-                    lastTimestamp = 0
-                    isPaused = false
-                    isReversed = false
-                    requestAnimationFrame(animateParallax)
-                }
-            },
-            stop: function () {
-                if (isOn && !isPaused) {
-                    isPaused = true
-                }
-            },
-            reverse: function () {
-                if (isOn) {
-                    lastTimestamp = 0
-                    isReversed = true
-                    isPaused = false
-                    requestAnimationFrame(animateParallax)
-                }
+    // object
+    const vehicle = {
+        attributes: [
+            { brand: 'Barry A', refer: '25', model: 'Speed F.', color: '13 c', image: 'imagen/07-obj/flash-barry.svg' },
+            { brand: 'Walter W.', refer: '???', model: 'Speed F.', color: '13 c', image: 'imagen/07-obj/obj2/black-flash.svg' },
+        ],
+        mode: function () {
+            section.classList.toggle('dark')
+        },
+        showAttributes: function (i) {
+            brand.textContent = this.attributes[i].brand
+            refer.textContent = this.attributes[i].refer
+            model.textContent = this.attributes[i].model
+            color.textContent = this.attributes[i].color
+            image.setAttribute('src', this.attributes[i].image)
+        },
+        start: function() {
+            if (!isOn) {
+                image.classList.add('start')
+                isOn = true
+                isPaused = false
+            }
+        },
+        off: function() {
+            if (isOn) {
+                image.classList.remove('start')
+                isOn = false
+                isPaused = true
+                lastTimestamp = 0
+            }
+        },
+        forward: function() {
+            if (isOn && isPaused) {
+                isPaused = false
+                isReversed = false
+                requestAnimationFrame(animateParallax)
+            }
+        },
+        stop: function() {
+            if (isOn && !isPaused) {
+                isPaused = true
+            }
+        },
+        reverse: function() {
+            if (isOn && isPaused) {
+                isPaused = false
+                isReversed = true
+                requestAnimationFrame(animateParallax)
             }
         }
+    }
 
-        
+    vehicle.showAttributes(0)
+    darkModeChange(darkMode)
+    btnPrev.style.opacity = '0.2'
 
-        vehicle.showAttributes(0)
-        darkModeChange(darkMode)
-        btnPrev.style.opacity = '0.2'
-
-        // Next & Prev Buttons
-        btnNext.addEventListener('click', function () {
-            if (index <= (vehicle.attributes.length) + 1) {
-                btnPrev.style.opacity = '1'
-                vehicle.showAttributes(++index)
-                if (index == (vehicle.attributes.length)-1) {
-                    this.style.opacity = '0.2'
-                }
-            }
-        })
-
-
-        btnPrev.addEventListener('click', function () {
-            if (index >= 0) {
-                btnNext.style.opacity = '1'
-                vehicle.showAttributes(--index)
-                if (index == 0){
-                    this.style.opacity = '0.2'
-                }
-            }
-        })
-
-        
-        // DarkMode Change
-        function darkModeChange(dmq) {
-            const isDarkMode = dmq.matches
-            if (isDarkMode) {
-                section.classList.add('dark')
-            } else {
-                section.classList.remove('dark')
+    // Next & Prev Buttons
+    btnNext.addEventListener('click', function () {
+        if (index < vehicle.attributes.length - 1) {
+            btnPrev.style.opacity = '1'
+            vehicle.showAttributes(++index)
+            if (index === vehicle.attributes.length - 1) {
+                this.style.opacity = '0.2'
             }
         }
+    })
 
-        // animate Parallax
-        layers.forEach(layer => {
-            layer.dataset.pos = '0'
-        })
-        function animateParallax(timestamp) {
-            if (!isPaused) {
-                const delta   = timestamp - (lastTimestamp || timestamp)
-                lastTimestamp = timestamp
+    btnPrev.addEventListener('click', function () {
+        if (index > 0) {
+            btnNext.style.opacity = '1'
+            vehicle.showAttributes(--index)
+            if (index === 0) {
+                this.style.opacity = '0.2'
+            }
+        }
+    })
 
-                layers.forEach((layer, index) => {
+    // DarkMode Change
+    function darkModeChange(dmq) {
+        const isDarkMode = dmq.matches
+        section.classList.toggle('dark', isDarkMode)
+    }
+
+    // animate Parallax
+    layers.forEach(layer => {
+        layer.dataset.pos = '0'
+    })
+
+    function animateParallax(timestamp) {
+        if (!isPaused) {
+            const delta   = timestamp - (lastTimestamp || timestamp)
+            lastTimestamp = timestamp
+
+            layers.forEach((layer, index) => {
                 let currentPos = (parseFloat(layer.dataset.pos) || 0) 
                                  + speedFactors[index] 
                                  * (isReversed ? delta : -delta)
-                layer.style.backgroundPositionX = $;{currentPos}px
+                layer.style.backgroundPositionX = `${currentPos}px`
                 layer.dataset.pos = currentPos
-                })
-            }
+            })
+
             requestAnimationFrame(animateParallax)
         }
-        //
-        darkMode.addListener(darkModeChange)
+    }
 
-    </script>
+    // Dark mode listener
+    darkMode.addListener(darkModeChange)
+</script>
+
 
 
 </body>
