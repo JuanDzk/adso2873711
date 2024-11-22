@@ -29,7 +29,8 @@
             margin: 2rem 0;
         }
 
-        section h4.day {
+        section h4.day,
+        section h4.menber {
             background-color: #e2c926;
             font-size: 1.4rem;
             align-items: center;
@@ -62,12 +63,15 @@
             <button class="validate">Validar</button>
             <hr>
             <h4 class="day"></h4>
+            <hr>
+            <h4 class="menber"></h4>
         </section>
     </main>
     <script>
-        const answer = document.querySelector('.answer')
+        const answer   = document.querySelector('.answer')
         const validate = document.querySelector('.validate')
-        const day = document.querySelector('.day')
+        const day      = document.querySelector('.day')
+        const member   = document.querySelector('.member')
 
         //btn action
         validate.addEventListener('click', () => {
@@ -107,7 +111,11 @@
                 day.textContent = 'hoy es: fin de semana 🤩'
                 break;
         }
+
+        //Ternary operator
+        let isMenber = true
+        member.textContent = isMenber ? 'true: is menber' : 'false: is not menber';
     </script>
 </body>
-
+    
 </html>
