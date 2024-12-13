@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+body {background-color: #e6de6f;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: Poppins, sans-serif; 
+}
+nav.controls{
+    position: fixed;
+    a:is(:link, :visited) { 
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #000900;
+        height: 40px;
+        transform: scale(0.8);
+        opacity: 0.50;
+        padding: 10px;
+        width: 40px;
+        transition: all 0.4s ease-in;
+    }    
+    a:is(:hover) {
+        opacity: 1;
+        transform: scale(1);
+    }
+    svg {
+        width:  40px;
+    }
+}
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h1, h2 {
+            color: #ffffff;
+            text-align: center;
+            margin: 0;
+            text-shadow: 2px 2px 2px #000, -2px -2px 2px #000, 2px -2px 2px #000, -2px 2px 2px #000;
+        }
+        h1 {
+            font-size: 5rem;
+            font-weight: 400;
+        }
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 300;
+        }
+        img {
+            border-radius: 50%;
+            height: 190px;
+            width: 200px;
+            border: 10px solid rgba(93, 111, 213, 0.657);
+        }
+    }
+    menu {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        gap: 1rem;
+
+        a:is(:link, :visited) {
+            background-color: #000900;
+            border-radius: 50px;
+            display: flex;
+            color: rgba(255, 255, 255, 0.6);
+            gap: 1rem;
+            align-items: center;
+            padding: 1rem;
+            text-decoration: none;
+            transition: all 0.5s ease-in;
+            width: 280px;
+
+            i {
+                background-color: #e3e641;
+                border-radius: 20px;
+                color: #d4431f;
+                font-style: mormal;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease-in;
+                height: 34px;
+                width: 34px;
+            }
+        }
+        a:is(:hover)  {
+            transform: scale(1.2) translate(-20px);
+            background-color: #1876f1b6;
+        }
+        a:is(:hover) i { 
+            transform: scale(1.2) rotateY(360deg);
+        }
+    }
+}

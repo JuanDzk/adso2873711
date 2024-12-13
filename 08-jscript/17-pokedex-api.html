@@ -2,84 +2,364 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pokedex Api</title>
-    <link rel="stylesheet" href="css/master.css">
-    <style>
-        section ul.pokemons{
-            list-style: none;
-            padding: 0;
-            gap: 0.2rem;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            li{
-                background-color: rgb(236, 150, 79);
-                border-radius: 4px;
-                height: 100px;
-                width: 100px;
-                align-items: center;
-                flex-direction: column;
-                display: flex;
-                span{
-                    background-color: #000000b6;
-                    font-size: 0.8rem;
-                    color: blanchedalmond;
-                    display: flex;
-                    justify-content: center;
-                    width: 100%;
-                }
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berserk Characters</title>
+  <link rel="stylesheet" href="css/master1.css">
+  <style>
+    @font-face {
+      font-family: 'Dark-souls';
+      src: url('fonts/OptimusPrincepsSemiBold.ttf') format('truetype');
+    }
 
+    body {
+      background: url('imagen/berserk-api/body.jpg') no-repeat;
+      background-size: cover;
+      font-family: 'Dark-souls', 'Times New Roman', Times, serif;
+    }
+
+    section {
+      background: url(imagen/berserk-api/imagen-externa.svg) no-repeat;
+      background-size: cover;
+      border-radius: 10px;
+      border: 2px solid white;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-image {
+      width: 300px;
+      border-radius: 10px;
+      border: 2px solid white;
+    }
+
+    .back-button {
+      cursor: pointer;
+      background: url('imagen/berserk-api/boton-back.svg') no-repeat center;
+      background-size: contain;
+      border-radius: 100%;
+      border: 2px solid black;
+      width: 70px;
+      height: 70px;
+      transition: transform 0.2s ease;
+      margin-right: 10px;
+    }
+
+    .back-button:hover {
+      transform: scale(1.1);
+    }
+
+    div ul.characters {
+      list-style: none;
+      gap: 1rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      padding: 10px;
+      max-height: 400px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+
+    div ul.characters li {
+      border: 2px solid rgb(105, 18, 18);
+      width: 150px;
+      height: auto;
+      background-color: #2c2c2c;
+      border-radius: 8px;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: #f4f4f4;
+      transition: transform 0.2s ease;
+    }
+
+    div ul.characters li:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+
+    }
+
+    div ul.characters li img {
+      max-width: 100px;
+      border-radius: 50%;
+      margin-bottom: 8px;
+      border: 2px solid white;
+    }
+
+    div ul.characters li span {
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #home,
+    #characterList {
+      /* border: 2px solid red; */
+      padding: 20px;
+      margin: 20px;
+      text-align: center;
+      background: url(imagen/berserk-api/imagen-media.svg) no-repeat;
+      background-size: cover;
+      border-radius: 10px;
+      border: 2px solid white;
+    }
+
+    button.image-button {
+      cursor: pointer;
+      background: url(imagen/berserk-api/portada.svg) no-repeat center;
+      background-size: contain;
+      border: none;
+      width: 300px;
+      height: 400px;
+      transition: transform 0.2s ease;
+    }
+
+    button.image-button:hover {
+      transform: scale(1.07);
+    }
+
+    #characterDetail {
+      width: 400px;
+      height: 400px;
+      background: url(imagen/berserk-api/imagen-media.svg) no-repeat;
+      background-size: cover;
+      border-radius: 10px;
+      text-shadow: 2px 2px 2px #000, -2px -2px 2px #000, 2px -2px 2px #000, -2px 2px 2px #000;
+
+      .top-section {
+        display: grid;
+        grid-template-columns: 50px 1fr 1fr;
+        color: #f4f4f4;
+
+      }
+
+      .back-button2 {
+        background: url(imagen/berserk-api/boton-back.svg) no-repeat center;
+        background-size: cover;
+        border-radius: 100%;
+        border: 2px solid black;
+        width: 30px;
+        height: 30px;
+        margin-left: 10px;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+
+      }
+
+      .back-button2:hover {
+        transform: scale(1.1);
+      }
+
+      #characterImage {
+        border-radius: 10px;
+        border: 2px solid #ffffff;
+        height: 150px;
+        width: 150px;
+        margin: 20px 20px 0 0;
+
+      }
+
+      .informa {
+        margin-left: 10px;
+        margin-top: 40px;
+      }
+
+      #characterId {
+        color: #ff0000;
+      }
+
+
+      .descrip {
+        margin-top: 40px;
+      }
+
+      .descripcion {
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-left: 5px;
+        color: white;
+        max-height: 165px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        border-radius: 10px;
+        border: 2px solid white;
+      }
+
+    }
+  </style>
 </head>
 
 <body>
-    <nav class="controls">
-        <a href="index.html">
-            <svg xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                <path fill="#ffffff"
-                    d="M346.7 6C337.6 17 320 42.3 320 72c0 40 15.3 55.3 40 80s40 40 80 40c29.7 0 55-17.6 66-26.7c4-3.3 6-8.2 6-13.3s-2-10-6-13.2c-11.4-9.1-38.3-26.8-74-26.8c-32 0-40 8-40 8s8-8 8-40c0-35.7-17.7-62.6-26.8-74C370 2 365.1 0 360 0s-10 2-13.3 6zM244.6 136c-40 0-77.1 18.1-101.7 48.2l60.5 60.5c6.2 6.2 6.2 16.4 0 22.6s-16.4 6.2-22.6 0l-55.3-55.3 0 .1L2.2 477.9C-2 487-.1 497.8 7 505s17.9 9 27.1 4.8l134.7-62.4-52.1-52.1c-6.2-6.2-6.2-16.4 0-22.6s16.4-6.2 22.6 0L199.7 433l100.2-46.4c46.4-21.5 76.2-68 76.2-119.2C376 194.8 317.2 136 244.6 136z" />
-            </svg>
-        </a>
-    </nav>
-    <main>
-        <header>
-            <h1>Pokedex API</h1>
-            <h2>Consumir los datos de la API</h2>
-        </header>
-        <section>
-            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://embed.figma.com/design/9HHbbJpP9oSq4J9Y5UDhpa/1?node-id=0-1&embed-host=share" allowfullscreen></iframe>            <ul class="pokemons">
-               
-            </ul>
+  <nav class="controls">
+    <a href="index.html">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path fill="#ffffff"
+          d="M346.7 6C337.6 17 320 42.3 320 72c0 40 15.3 55.3 40 80s40 40 80 40c29.7 0 55-17.6 66-26.7c4-3.3 6-8.2 6-13.3s-2-10-6-13.2c-11.4-9.1-38.3-26.8-74-26.8c-32 0-40 8-40 8s8-8 8-40c0-35.7-17.7-62.6-26.8-74C370 2 365.1 0 360 0s-10 2-13.3 6zM244.6 136c-40 0-77.1 18.1-101.7 48.2l60.5 60.5c6.2 6.2 6.2 16.4 0 22.6s-16.4 6.2-22.6 0l-55.3-55.3 0 .1L2.2 477.9C-2 487-.1 497.8 7 505s17.9 9 27.1 4.8l134.7-62.4-52.1-52.1c-6.2-6.2-6.2-16.4 0-22.6s16.4-6.2 22.6 0L199.7 433l100.2-46.4c46.4-21.5 76.2-68 76.2-119.2C376 194.8 317.2 136 244.6 136z" />
+      </svg>
+    </a>
+  </nav>
+  <main>
+    <header>
+      <h1>Personajes de Berserk</h1>
+      <h2>Consumiendo datos desde la API de AniList</h2>
+    </header>
+    <section>
 
-        </section>
-    </main>
-    <!-- <script>
-        const pks = document.querySelector('.pokemons')
-        const loadPokemons = async (pk) => {
-            const url      = 'https://pokeapi.co/api/v2/pokemon/'+pk
-            const response = await fetch(url)
-            const data     = await response.json()
-            const image    = 'https://www.serebii.net/swordshield/pokemon/'+pk+'.png'
-            pks.innerHTML += "<li style='background: #fffa url("+image+") no-repeat center /contain'> \
-                                   <span>"+data.id+"</span> \
-                                   <span>"+data.name+"</span> \
-                              </li>"
-        }
-        for (let pk = 152; pk <= 251; pk++) {
-            loadPokemons(pk)
-        }
-        // let pk = 1
-        // const si = setInterval(function() {
-        //     loadPokemons(pk)
-        //     pk++
-        //     if(pk == 151)
-        //     clearInterval(si)
-        // }, 500)
-        </script> -->
+      <!-- <iframe style="border: 1px solid rgba(255, 255, 255, 0.1);" width="100%" height="450"
+        src="https://embed.figma.com/design/9HHbbJpP9oSq4J9Y5UDhpa/1?node-id=0-1&embed-host=share"
+        allowfullscreen></iframe> -->
+
+      <!-- Inicio -->
+      <div id="home">
+        <button id="startButton" class="image-button"></button>
+      </div>
+
+      <!-- Lista -->
+      <div id="characterList" class="hidden">
+        <!-- Contenedor superior -->
+        <div class="header-container">
+          <button id="backToHome" class="back-button"></button>
+          <img src="imagen/berserk-api/titulo.svg" alt="Título Berserk" class="header-image">
+        </div>
+
+        <!-- Lista de personajes -->
+        <ul id="characters" class="characters"></ul>
+      </div>
+
+
+      <!-- Detalles -->
+      <div id="characterDetail" class="hidden">
+        <div class="top-section">
+          <button id="backToList" class="back-button2"></button>
+          <div class="informa">
+            <p><strong>Name: </strong> <span id="characterName"></span></p>
+            <p><strong>Gener: </strong> <span id="characterGender"></span></p>
+            <p><strong>ID: </strong> <span id="characterId"></span></p>
+            <p class="descrip"><strong>Description:</strong></p>
+          </div>
+          <img id="characterImage" alt="Imagen del personaje">
+        </div>
+        <div class="descripcion">
+          <p id="characterDescription"></p>
+        </div>
+      </div>
+
+
+    </section>
+
+  </main>
+  <script src="js/app.js"></script>
 </body>
+
+
+<script>
+  const query = `
+  query {
+    Media(search: "Berserk", type: ANIME) {
+      characters {
+        edges {
+          node {
+            id
+            name {
+              full
+            }
+            image {
+              large
+            }
+            description
+          }
+        }
+      }
+    }
+  }
+`;
+
+const url = "https://graphql.anilist.co";
+
+const homeSection = document.getElementById("home");
+const characterListSection = document.getElementById("characterList");
+const characterDetailSection = document.getElementById("characterDetail");
+const charactersList = document.getElementById("characters");
+const characterName = document.getElementById("characterName");
+const characterImage = document.getElementById("characterImage");
+const characterGender = document.getElementById("characterGender");
+const characterId = document.getElementById("characterId");
+const characterDescription = document.getElementById("characterDescription");
+
+const femaleIds = [605, 73441, 614, 423, 58299]; // IDs de las mujeres.
+
+document.getElementById("startButton").addEventListener("click", () => {
+  homeSection.classList.add("hidden");
+  characterListSection.classList.remove("hidden");
+  fetchCharacters();
+});
+
+document.getElementById("backToHome").addEventListener("click", () => {
+  characterListSection.classList.add("hidden");
+  homeSection.classList.remove("hidden");
+});
+
+document.getElementById("backToList").addEventListener("click", () => {
+  characterDetailSection.classList.add("hidden");
+  characterListSection.classList.remove("hidden");
+});
+
+function fetchCharacters() {
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ query }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const characters = data.data.Media.characters.edges;
+      charactersList.innerHTML = "";
+      characters.forEach((character) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <img src="${character.node.image.large}" alt="${character.node.name.full}">
+          <span>${character.node.name.full}</span>
+        `;
+        li.addEventListener("click", () => showCharacterDetail(character.node));
+        charactersList.appendChild(li);
+      });
+    })
+    .catch((error) => console.error("Error:", error));
+}
+
+function showCharacterDetail(character) {
+  characterName.textContent = character.name.full;
+  characterImage.src = character.image.large;
+
+  // Determinar género según el ID
+  const isFemale = femaleIds.includes(character.id);
+  characterGender.textContent = isFemale ? "Mujer" : "Hombre";
+  characterId.textContent = `${character.id}`;
+  characterDescription.textContent = saniDescription(character.description) || "Descripción no disponible.";
+  characterListSection.classList.add("hidden");
+  characterDetailSection.classList.remove("hidden");
+}
+
+function saniDescription(description) {
+  return description || "Descripción no disponible.";
+}
+
+
+</script>
+
+
 
 </html>
