@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>events</title>
+    <link rel="stylesheet" href="css/master.css">
+    <style>
+        .section-dbl{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 0.6rem;
+            button{
+                background-color: #d68888;
+                border-radius: 5px;
+                border: none;
+                padding: 0.6rem;
+                cursor: pointer;
+                width: 160px;
+                color: aliceblue;
+            }
+        }
+        .section-keyup{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 0.6rem;
+            input{
+                border: 2px solid #d68888;
+                border-radius: 5px;
+                padding: 0.5rem;
+                width: 160px;
+            }
+        }
+
+        .section-change{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 0.6rem;
+            input{
+                border: 2px solid #d68888;
+                border-radius: 5px;
+                padding: 0.5rem;
+                width: 160px;
+            }
+        }
+        p{
+            zoom: 4;
+            margin: 0;
+        }
+
+        .event-mouse{
+            background-color: aliceblue;
+            margin: 0.6rem auto;
+            display: flex;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid red;
+            width: 240px;
+            height: 240px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="controls">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path fill="#ffffff"
+                    d="M346.7 6C337.6 17 320 42.3 320 72c0 40 15.3 55.3 40 80s40 40 80 40c29.7 0 55-17.6 66-26.7c4-3.3 6-8.2 6-13.3s-2-10-6-13.2c-11.4-9.1-38.3-26.8-74-26.8c-32 0-40 8-40 8s8-8 8-40c0-35.7-17.7-62.6-26.8-74C370 2 365.1 0 360 0s-10 2-13.3 6zM244.6 136c-40 0-77.1 18.1-101.7 48.2l60.5 60.5c6.2 6.2 6.2 16.4 0 22.6s-16.4 6.2-22.6 0l-55.3-55.3 0 .1L2.2 477.9C-2 487-.1 497.8 7 505s17.9 9 27.1 4.8l134.7-62.4-52.1-52.1c-6.2-6.2-6.2-16.4 0-22.6s16.4-6.2 22.6 0L199.7 433l100.2-46.4c46.4-21.5 76.2-68 76.2-119.2C376 194.8 317.2 136 244.6 136z" />
+            </svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1>events</h1>
+            <h2>handle user interactions with event listeners</h2>
+        </header>
+        <section>
+            <h3>event: onload</h3>
+            <h4 class="event-onload"></h4>
+
+            <h3>event: dblclick</h3>
+            <div class="section-dbl">
+                <button>boton</button>
+                <h4 class="event-dbl">0 bouble clicks</h4>
+            </div>
+
+            <h3>event: onkeyup</h3>
+            <div class="section-keyup">
+                <input type="text" placeholder="enter text...">
+                <h4 class="event-keyup">null</h4>
+            </div>
+
+            <h3>event: onresize</h3>
+            <div class="event-resize">no resize</div>
+            <div class="event-resize2">no resize</div>
+
+            <h3>event: change</h3>
+            <div class="section-change">
+                <select>
+                    <option value="" selected>select an animal</option>
+                    <option value="🐮">🐮</option>
+                    <option value="🐷">🐷</option>
+                    <option value="🐶">🐶</option>
+                    <option value="🦊">🦊</option>
+                    <option value="🐻">🐻</option>
+                </select>
+                <p class="event-change">💀</p>
+            </div>
+
+            <h3>event: onmouseover</h3>
+            <img src="imagen/guts1.webp" class="event-mouse">
+        </section>
+    </main>
+</body>
+<script>
+    // messages
+    const msgload=document.querySelector('.event-onload')
+    const msgDbl=document.querySelector('.event-dbl')
+    const msgkeyUp = document.querySelector('.event-keyup')
+    const msgReSize = document.querySelector('.event-resize')
+    const msgReSize2 = document.querySelector('.event-resize2')
+    const msgChange = document.querySelector('.event-change')
+    const imgMouse = document.querySelector('.event-mouse')
+
+
+    //event: onload
+    const ebody=document.querySelector('body')
+    ebody.onload=function(){
+        msgload.textContent = 'the page is loaded!'
+    }
+
+    //event: ondbl
+    const btnDbl=document.querySelector('.section-dbl button')
+    let countDblClick = 0
+    btnDbl.addEventListener('dblclick',function () {
+        msgDbl.textContent = ++countDblClick + ' double clicks'
+    })
+
+    //event: pnkeyup
+    const inpKeyUp = document.querySelector('.section-keyup input')
+    inpKeyUp.onkeyup = function(){
+        if (this.value.length < 18) {
+            msgkeyUp.textContent = this.value
+        }
+    }
+
+    //event: onresize
+    window.onresize = function(){
+        msgReSize.textContent = 'window width: ' + window.outerWidth + 'px'
+        msgReSize2.textContent = 'window height: ' + window.outerHeight + 'px'
+
+    }
+
+    //event: onchange
+    const sltChange = document.querySelector('.section-change select')
+    sltChange.addEventListener('change',function(){
+        msgChange.textContent = this.value
+    })
+
+    //event: onmouseover / onmouseout
+    imgMouse.addEventListener('mouseover',function(){
+        this.src = 'imagen/guts1.webp'
+    })
+
+    imgMouse.addEventListener('mouseout',function(){
+        this.src = 'imagen/guts2.jpg'
+    })
+</script>
+
+</html>

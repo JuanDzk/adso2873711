@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methods String</title>
+    <link rel="stylesheet" href="css/master.css">
+    <style>
+        textarea {
+            width: 95%;
+            height: 80px;
+            border-radius: 5px;
+            padding: 0.5rem;
+            width: 380px;
+        }
+
+        div.row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.6rem;
+
+            input[type=text] {
+                border: 2px solid #380606;
+                border-radius: 5px;
+                padding: 0.5rem;
+                width: 120px;
+            }
+
+            input[type=radio]{
+                accent-color: #553c06;
+            }
+        }
+
+        button.btn-generate{
+            background-color: #e4e279;
+            border-radius: 5px;
+            border: none;
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            padding: 0.6rem;
+            display: block;
+            margin: 0 auto;
+            width: 160px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="controls">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path fill="#ffffff"
+                    d="M346.7 6C337.6 17 320 42.3 320 72c0 40 15.3 55.3 40 80s40 40 80 40c29.7 0 55-17.6 66-26.7c4-3.3 6-8.2 6-13.3s-2-10-6-13.2c-11.4-9.1-38.3-26.8-74-26.8c-32 0-40 8-40 8s8-8 8-40c0-35.7-17.7-62.6-26.8-74C370 2 365.1 0 360 0s-10 2-13.3 6zM244.6 136c-40 0-77.1 18.1-101.7 48.2l60.5 60.5c6.2 6.2 6.2 16.4 0 22.6s-16.4 6.2-22.6 0l-55.3-55.3 0 .1L2.2 477.9C-2 487-.1 497.8 7 505s17.9 9 27.1 4.8l134.7-62.4-52.1-52.1c-6.2-6.2-6.2-16.4 0-22.6s16.4-6.2 22.6 0L199.7 433l100.2-46.4c46.4-21.5 76.2-68 76.2-119.2C376 194.8 317.2 136 244.6 136z" />
+            </svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1>Methods String</h1>
+            <h2>manipulate text using string Methods</h2>
+        </header>
+        <section>
+            <textarea placeholder="enter de paragraph"></textarea>
+            <div class="row">
+                <label>
+                    <input type="radio" class="upper" name="transf">uppercase
+                </label>
+                OR
+                <label>
+                    <input type="radio" class="lower" name="transf">lowercase
+                </label>
+            </div>
+
+            <div class="row">
+                <input type="text" class="word-ori" placeholder="word original">
+                for
+                <input type="text" class="word-rep" placeholder="word replacement">
+            </div>
+
+            <div class="row">
+                <input type="text" class="pos-s" placeholder="start Pos">
+                to
+                <input type="text" class="pos-f" placeholder="final Pos">
+            </div>
+            <button class="btn-generate">generate</button>
+            <ul class="output"></ul>
+        </section>
+    </main>
+    <script>
+        //elements
+        const string = document.querySelector('textarea')
+        const upper = document.querySelector('.upper')
+        const lower = document.querySelector('.lower')
+
+        const btn = document.querySelector('.btn-generate')
+        const output = document.querySelector('.output')
+
+        //variables
+        let isUpper = false
+
+        //event
+        btn.addEventListener('click',() => {
+            if(string.value.length > 0){
+                output.innerHTML += "<li><strong>original string: </strong>" + string.value + "</li>"
+                if(isUpper){
+                    output.innerHTML += "<li><strong>uppercase: </strong>" + string.value.toUpperCase() + "</li>"
+                }else{
+                    output.innerHTML += "<li><strong>lowercase: </strong>" + string.value.toLowerCase() + "</li>"
+                }
+            }else{
+                alert('please enter a paragraph')
+            }
+        })
+    </script>
+</body>
+
+</html>
