@@ -6,6 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>challenge baloto</title>
     <link rel="stylesheet" href="css/master.css">
+    <style>
+        body{
+            background: url(imagen/baloto/wall.jpg) ;
+            background-size: cover;
+        }
+       @font-face {
+        font-family: 'dark-souls';
+        src: url(/07-tailwind/fonts/OptimusPrinceps.ttf);
+        }
+        section{
+            width: 482px;
+            background-color: black;
+        }
+        .back{
+            border: 2px solid red;
+
+            background-image: url(imagen/baloto/fondo.jpg);
+            border-radius: 10px;
+            height: 854.82px;
+            width: 481px;
+        }
+        .mano{
+            /* border: 2px solid red; */
+            
+            background: url(imagen/baloto/señalador.png);
+            height: 90px;
+            width: 46px;
+            margin: 0 auto;
+        }
+        .ruleta{
+            /* border: 2px solid red; */
+
+            background-image: url(imagen/baloto/mano-ruleta2.png);
+            height: 413px;
+            width: 300px;
+            margin: -65px auto;
+        }
+        .ball{
+            /* border: 2px solid red; */
+
+            background-image: url(imagen/baloto/ball.png);
+            height: 256.46px;
+            width: 519px;
+            scale: .9;
+            margin: -150px 0 0 -21px;
+        }
+        .mc{
+            /* border: 2px solid red; */
+            scale: .8;
+            width: 400px;
+            margin: -50px auto;
+            text-align: center;   
+        }
+        .boton{ 
+            margin: 50px auto;
+            width: 100px;
+            height: 50px;
+
+            .press{
+                font-family: 'dark-souls';
+                font-size: larger;
+                border: 2px solid rgb(146, 16, 16);
+                background: #881f23;
+                color: #BABABA;
+                border-radius: 15px;
+                width: 100px;
+                height: 50px;
+            }
+        }
+
+
+    </style>
 
 </head>
 
@@ -20,14 +92,65 @@
         </a>
     </nav>
     <main>
-        <header>
-            <h1>game baloto</h1>
-            <h2>simulate a lottery number generator</h2>
-        </header>
         <section>
-            
+            <div class="back">
+                <div class="mano"></div>
+                <div class="ruleta" id="ruleta"></div>
+                <div class="ball"></div>
+                <div class="mc">
+                    <img class="imagen-dinamica" src="imagen/baloto/personajes/femto.png" alt="Imagen dinámica">
+                  </div>
+
+                <div class="boton">
+                    <button class="press">press</button>
+                </div>
+            </div>
         </section>
     </main>
+    <script>
+        // Seleccionamos la ruleta
+        const ruleta = document.getElementById('ruleta');
+    
+        // Definimos los ángulos de cada división
+        const divisiones = [
+            { inicio: 0, fin: 60 },    // División 1
+            { inicio: 60, fin: 120 },  // División 2
+            { inicio: 120, fin: 180 }, // División 3
+            { inicio: 180, fin: 240 }, // División 4
+            { inicio: 240, fin: 360 }  // División 5 (la más grande)
+        ];
+    
+        // Función para hacer girar la ruleta
+        function girarRuleta() {
+            // Generamos un ángulo aleatorio para la rotación
+            const anguloFinal = Math.floor(Math.random() * 360) + 720; // 720 grados para dar varias vueltas
+            const tiempoGiro = 5000; // 5 segundos de giro
+    
+            // Aplicamos la rotación con una transición suave
+            ruleta.style.transition = `transform ${tiempoGiro}ms ease-out`;
+            ruleta.style.transform = `rotate(${anguloFinal}deg)`;
+    
+            // Después de que termine el giro, centramos la ruleta en una posición específica
+            setTimeout(() => {
+                // Calculamos el ángulo final ajustado para que se detenga en una división específica
+                const anguloAjustado = anguloFinal % 360;
+    
+                // Encontramos la división en la que se detendrá la ruleta
+                const division = divisiones.find(d => anguloAjustado >= d.inicio && anguloAjustado < d.fin);
+    
+                // Calculamos el ángulo centrado en la división encontrada
+                const anguloCentrado = (division.inicio + division.fin) / 2;
+    
+                // Aplicamos la rotación final sin transición para que se detenga bruscamente
+                ruleta.style.transition = 'none';
+                ruleta.style.transform = `rotate(${anguloCentrado}deg)`;
+            }, tiempoGiro);
+        }
+    
+        // Seleccionamos el botón y añadimos un evento para girar la ruleta
+        const boton = document.querySelector('.press');
+        boton.addEventListener('click', girarRuleta);
+    </script>
 </body>
 
 </html>
