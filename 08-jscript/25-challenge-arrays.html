@@ -6,6 +6,253 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Templance</title>
     <link rel="stylesheet" href="css/master.css">
+    <style>
+        @font-face {
+            font-family: 'Dark-souls';
+            src: url('fonts/OptimusPrincepsSemiBold.ttf') format('truetype');
+        }
+
+        body {
+            font-family: 'Dark-souls', 'Times New Roman', Times, serif;
+        }
+
+        .container {
+            /* border: 2px solid red; */
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        section {
+            background: url(imagen/Array/fondo.png) no-repeat;
+            background-size: cover;
+            max-height: 900px;
+            max-width: 500px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .title {
+            /* border: 2px solid red; */
+            background: url(imagen/Array/titulo.png) no-repeat;
+            background-size: cover;
+            height: 96.64px;
+        }
+
+        .subtitle {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, red, orange, yellow, black, red, red, orange, yellow, yellow, black);
+            background-size: 300% 100%;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: colorMove 3s linear infinite;
+        }
+
+        @keyframes colorMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        #result-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            width: 100%;
+            padding: 10px;
+        }
+
+        #result-container img {
+            width: 70px;
+            height: auto;
+            object-fit: contain;
+        }
+
+
+
+
+        /*******************************************************************/
+        .characters {
+            /* border: 2px solid rgb(4, 0, 255); */
+            height: 200px;
+            border-radius: 15px;
+            background-color: #145b4788;
+        }
+
+        #character-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 10px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        #character-container img {
+            width: 70px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .character {
+            position: relative;
+            display: inline-block;
+            width: 70px;
+            height: auto;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+
+        .character img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .character.selected {
+            transform: scale(1.2);
+            box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.8);
+            border-radius: 5px;
+        }
+
+        .character-index {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 2px 5px;
+
+            background: linear-gradient(90deg, red, orange, yellow, black, red, red, orange, yellow, yellow, black);
+            background-size: 300% 100%;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: colorMove 3s linear infinite;
+
+        }
+
+
+
+        /********************************************************************/
+        .options {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .option-btn {
+            position: relative;
+            width: 90px;
+            height: 40px;
+            background: #963238;
+            border: 2px solid #145B47;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.3s;
+            overflow: hidden;
+        }
+
+        /* Esfera deslizante */
+        .esferas {
+            width: 25px;
+            height: 25px;
+            background: #151515;
+            border: 2px solid #145B47;
+            border-radius: 50%;
+            position: absolute;
+            left: 5px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Texto dentro del botón */
+        .texto-esfera {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            font-size: 16px;
+            color: #e6e3e3;
+            transition: opacity 0.3s;
+        }
+
+        /* Ubicación de los textos */
+        .left-text {
+            left: 10px;
+        }
+
+        .right-text {
+            right: 10px;
+            opacity: 0;
+        }
+
+        /* Cuando el botón está activo (toggle encendido) */
+        .option-btn.active .esferas {
+            transform: translateX(50px);
+        }
+
+        .option-btn.active .left-text {
+            opacity: 0;
+            /* Ocultar texto izquierdo */
+        }
+
+        .option-btn.active .right-text {
+            opacity: 1;
+            /* Mostrar texto derecho */
+        }
+
+        .position {
+            justify-content: center;
+            color: #e6e3e3;
+            font-size: 16px;
+        }
+
+        /********************************************************************/
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 3rem;
+            gap: 2rem;
+        }
+
+        .add-btn {
+            height: 80px;
+            width: 70px;
+            cursor: pointer;
+        }
+
+        @keyframes clickAnimation {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(0.9);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .animate-click {
+            animation: clickAnimation 0.2s ease-in-out;
+        }
+
+        /********************************************************************/
+    </style>
 
 </head>
 
@@ -25,9 +272,220 @@
             <h2>Description</h2>
         </header>
         <section>
-            
+            <div class="container">
+                <div class="title"></div>
+
+                <div class="subtitle">SELECT YOUR CHARACTER</div>
+                <div class="characters" id="character-container">
+                    <!-- Los personajes se generarán dinámicamente con JavaScript -->
+                </div>
+
+                <div class="subtitle">SELECT OPTIONS</div>
+                <!-- Cambiar el botón por un campo de entrada -->
+                <div class="options">
+                    <button class="option-btn" id="toggleFirst">
+                        <span class="esferas"></span>
+                        <span class="texto-esfera left-text">First</span>
+                        <span class="texto-esfera right-text">Last</span>
+                    </button>
+
+                    <button class="option-btn" id="toggleAdd">
+                        <span class="esferas"></span>
+                        <span class="texto-esfera left-text">Add</span>
+                        <span class="texto-esfera right-text">Rem</span>
+                    </button>
+
+                    <!-- Cambiar el botón por un campo de entrada -->
+                    <input type="number" class="option-btn position" id="positionInput" placeholder="Position" min="0">
+                </div>
+
+                <div class="actions">
+                    <img class="add-btn" src="imagen/Array/bonfire.gif" alt="">
+                </div>
+
+                <div class="subtitle">RESULTS</div>
+                <div id="result-container"></div>
+
+            </div>
+
         </section>
     </main>
 </body>
+
+<!-- <script>
+    document.querySelectorAll(".option-btn").forEach(button => {
+        button.addEventListener("click", function () {
+            this.classList.toggle("active");
+        });
+    });
+
+    document.querySelectorAll(".add-btn").forEach(button => {
+        button.addEventListener("click", function () {
+            this.classList.add("animate-click");
+
+            // Elimina la clase después de la animación para que pueda repetirse
+            setTimeout(() => {
+                this.classList.remove("animate-click");
+            }, 100);
+        });
+    });
+
+
+    const characters = [
+        "imagen/Array/dorado.png",
+        "imagen/Array/giga.png",
+        "imagen/Array/main1.png",
+        "imagen/Array/marti.png",
+        "imagen/Array/sol.png",
+        "imagen/Array/main2.png",
+        "imagen/Array/guts.png",
+        "imagen/Array/main3.png",
+        "imagen/Array/onion.png",
+        "imagen/Array/orn.png",
+    ];
+
+    const characterContainer = document.getElementById("character-container");
+
+    characters.forEach(src => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = "Character";
+        characterContainer.appendChild(img);
+    });
+</script> -->
+
+<script>
+    const characters = [
+        "imagen/Array/dorado.png",
+        "imagen/Array/giga.png",
+        "imagen/Array/main1.png",
+        "imagen/Array/marti.png",
+        "imagen/Array/sol.png",
+        "imagen/Array/main2.png",
+        "imagen/Array/guts.png",
+        "imagen/Array/main3.png",
+        "imagen/Array/onion.png",
+        "imagen/Array/orn.png",
+    ];
+
+    const characterContainer = document.getElementById("character-container");
+    const resultContainer = document.getElementById("result-container");
+    let selectedCharacter = null; // Variable para almacenar el personaje seleccionado
+    let resultados = []; // Array de resultados seleccionados
+    let isFirst = true; // Si es true, agrega al inicio; si es false, al final
+    let isAdding = true; // Si es true, agrega; si es false, elimina
+
+    // Crear los personajes en la interfaz
+    characters.forEach((src, index) => {
+        const characterDiv = document.createElement("div");
+        characterDiv.classList.add("character");
+
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = "Character";
+
+        const indexLabel = document.createElement("div");
+        indexLabel.classList.add("character-index");
+        indexLabel.textContent = index;
+
+        characterDiv.appendChild(img);
+        characterDiv.appendChild(indexLabel);
+        characterContainer.appendChild(characterDiv);
+    });
+
+    // Selección de personaje al hacer click
+    const characterElements = document.querySelectorAll(".character");
+    characterElements.forEach(character => {
+        character.addEventListener("click", function () {
+            // Remover selección de otros personajes
+            characterElements.forEach(c => c.classList.remove("selected"));
+
+            // Agregar selección al personaje clickeado
+            this.classList.add("selected");
+
+            // Guardar el personaje seleccionado (clonamos para evitar referencias)
+            selectedCharacter = this.cloneNode(true);
+        });
+    });
+
+    // Función para alternar switches
+    document.getElementById("toggleFirst").addEventListener("click", function () {
+        this.classList.toggle("active");
+        isFirst = !isFirst; // Alternar entre First y Last
+    });
+
+    document.getElementById("toggleAdd").addEventListener("click", function () {
+        this.classList.toggle("active");
+        isAdding = !isAdding; // Alternar entre Add y Rem
+    });
+
+    // Función para manejar el botón de la fogata
+    document.querySelector(".add-btn").addEventListener("click", function () {
+        if (!selectedCharacter) return; // Si no hay personaje seleccionado, no hacer nada
+
+        // Agregar animación al botón
+        this.classList.add("animate-click");
+        setTimeout(() => {
+            this.classList.remove("animate-click");
+        }, 200);
+
+        // Obtener el valor de la posición
+        const positionInput = document.getElementById("positionInput");
+        const position = parseInt(positionInput.value);
+
+        // Validar si se está usando una posición específica
+        const usePosition = !isNaN(position) && position >= 0 && position <= resultados.length;
+
+        if (isAdding) {
+            // Validación: No permitir más de 5 personajes
+            if (resultados.length >= 5) {
+                alert("No se pueden agregar más de 5 personajes.");
+                return;
+            }
+
+            // Agregar personaje
+            const clonedCharacter = selectedCharacter.cloneNode(true);
+            if (usePosition) {
+                // Insertar en la posición específica
+                resultados.splice(position, 0, clonedCharacter);
+                resultContainer.insertBefore(clonedCharacter, resultContainer.children[position]);
+            } else {
+                // Agregar al inicio o al final según el switch
+                if (isFirst) {
+                    resultados.unshift(clonedCharacter);
+                    resultContainer.prepend(clonedCharacter);
+                } else {
+                    resultados.push(clonedCharacter);
+                    resultContainer.appendChild(clonedCharacter);
+                }
+            }
+        } else {
+            // Eliminar personaje
+            if (resultados.length > 0) {
+                if (usePosition) {
+                    // Eliminar en la posición específica
+                    if (position >= 0 && position < resultados.length) {
+                        resultados.splice(position, 1);
+                        resultContainer.removeChild(resultContainer.children[position]);
+                    }
+                } else {
+                    // Eliminar al inicio o al final según el switch
+                    if (isFirst) {
+                        resultados.shift();
+                        resultContainer.removeChild(resultContainer.firstChild);
+                    } else {
+                        resultados.pop();
+                        resultContainer.removeChild(resultContainer.lastChild);
+                    }
+                }
+            }
+        }
+
+        // Limpiar el campo de posición después de usarlo
+        positionInput.value = "";
+    });
+</script>
+
+
 
 </html>
