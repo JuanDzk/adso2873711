@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Templance</title>
+    <title>Dark Souls Selector</title>
     <link rel="stylesheet" href="css/master.css">
     <style>
         @font-face {
@@ -19,16 +19,14 @@
         .container {
             /* border: 2px solid red; */
             width: 100%;
-            display: flex;
             flex-direction: column;
-            gap: 20px;
+            max-width: 400px;
         }
 
         section {
             background: url(imagen/Array/fondo.png) no-repeat;
             background-size: cover;
-            max-height: 900px;
-            max-width: 500px;
+            min-height: 800px;
             display: flex;
             justify-content: center;
         }
@@ -43,7 +41,8 @@
         .subtitle {
             display: flex;
             justify-content: center;
-            margin-top: 2rem;
+            margin-top: .9rem;
+            margin-bottom: .9rem;
             font-size: 1.5rem;
             font-weight: bold;
             background: linear-gradient(90deg, red, orange, yellow, black, red, red, orange, yellow, yellow, black);
@@ -64,19 +63,23 @@
         }
 
         #result-container {
+            /* border: 2px solid red; */
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             justify-content: center;
             width: 100%;
-            padding: 10px;
+            padding: 20px 0;
+            margin: 0 auto;
         }
 
         #result-container img {
-            width: 70px;
+            width: 60px;
             height: auto;
             object-fit: contain;
         }
+
+
 
 
 
@@ -93,7 +96,7 @@
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             grid-template-rows: repeat(2, auto);
-            gap: 10px;
+            gap: 1px;
             justify-content: center;
             width: 100%;
         }
@@ -108,21 +111,17 @@
             position: relative;
             display: inline-block;
             width: 70px;
-            height: auto;
+           height: 85px;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             cursor: pointer;
         }
 
-        .character img {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-        }
+
 
         .character.selected {
             transform: scale(1.2);
             box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.8);
-            border-radius: 5px;
+            border-radius: 10% 10% 50% 50%;
         }
 
         .character-index {
@@ -196,19 +195,16 @@
             opacity: 0;
         }
 
-        /* Cuando el botón está activo (toggle encendido) */
         .option-btn.active .esferas {
             transform: translateX(50px);
         }
 
         .option-btn.active .left-text {
             opacity: 0;
-            /* Ocultar texto izquierdo */
         }
 
         .option-btn.active .right-text {
             opacity: 1;
-            /* Mostrar texto derecho */
         }
 
         .position {
@@ -223,11 +219,15 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 3rem;
+            height: 7rem;
             gap: 2rem;
         }
-
+        
         .add-btn {
+            background-color: #ffffff77;
+            border: 2px solid rgba(167, 0, 0, 0.788);
+            border-radius: 1rem;
+            padding: 5px;
             height: 80px;
             width: 70px;
             cursor: pointer;
@@ -268,8 +268,8 @@
     </nav>
     <main>
         <header>
-            <h1>Templance</h1>
-            <h2>Description</h2>
+            <h1>Selector</h1>
+            <h2>Dark Souls</h2>
         </header>
         <section>
             <div class="container">
@@ -277,11 +277,10 @@
 
                 <div class="subtitle">SELECT YOUR CHARACTER</div>
                 <div class="characters" id="character-container">
-                    <!-- Los personajes se generarán dinámicamente con JavaScript -->
+                    <!-- personajes dinámicos JavaScript -->
                 </div>
 
                 <div class="subtitle">SELECT OPTIONS</div>
-                <!-- Cambiar el botón por un campo de entrada -->
                 <div class="options">
                     <button class="option-btn" id="toggleFirst">
                         <span class="esferas"></span>
@@ -295,7 +294,6 @@
                         <span class="texto-esfera right-text">Rem</span>
                     </button>
 
-                    <!-- Cambiar el botón por un campo de entrada -->
                     <input type="number" class="option-btn position" id="positionInput" placeholder="Position" min="0">
                 </div>
 
@@ -311,48 +309,6 @@
         </section>
     </main>
 </body>
-
-<!-- <script>
-    document.querySelectorAll(".option-btn").forEach(button => {
-        button.addEventListener("click", function () {
-            this.classList.toggle("active");
-        });
-    });
-
-    document.querySelectorAll(".add-btn").forEach(button => {
-        button.addEventListener("click", function () {
-            this.classList.add("animate-click");
-
-            // Elimina la clase después de la animación para que pueda repetirse
-            setTimeout(() => {
-                this.classList.remove("animate-click");
-            }, 100);
-        });
-    });
-
-
-    const characters = [
-        "imagen/Array/dorado.png",
-        "imagen/Array/giga.png",
-        "imagen/Array/main1.png",
-        "imagen/Array/marti.png",
-        "imagen/Array/sol.png",
-        "imagen/Array/main2.png",
-        "imagen/Array/guts.png",
-        "imagen/Array/main3.png",
-        "imagen/Array/onion.png",
-        "imagen/Array/orn.png",
-    ];
-
-    const characterContainer = document.getElementById("character-container");
-
-    characters.forEach(src => {
-        const img = document.createElement("img");
-        img.src = src;
-        img.alt = "Character";
-        characterContainer.appendChild(img);
-    });
-</script> -->
 
 <script>
     const characters = [
@@ -370,12 +326,12 @@
 
     const characterContainer = document.getElementById("character-container");
     const resultContainer = document.getElementById("result-container");
-    let selectedCharacter = null; // Variable para almacenar el personaje seleccionado
+    let selectedCharacter = null; // Variable para almacenar personaje seleccionado
     let resultados = []; // Array de resultados seleccionados
-    let isFirst = true; // Si es true, agrega al inicio; si es false, al final
-    let isAdding = true; // Si es true, agrega; si es false, elimina
+    let isFirst = true; // true, agrega al inicio /  false, al final
+    let isAdding = true; // true, agrega / false, elimina
 
-    // Crear los personajes en la interfaz
+    // Crear los personajes
     characters.forEach((src, index) => {
         const characterDiv = document.createElement("div");
         characterDiv.classList.add("character");
@@ -403,7 +359,7 @@
             // Agregar selección al personaje clickeado
             this.classList.add("selected");
 
-            // Guardar el personaje seleccionado (clonamos para evitar referencias)
+            // Guardar el personaje seleccionado (clon para evitar referencias)
             selectedCharacter = this.cloneNode(true);
         });
     });
