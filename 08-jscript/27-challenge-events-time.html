@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape de la Mazmorra</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        #game { display: grid; grid-template-columns: repeat(10, 30px); gap: 2px; margin: 20px auto; }
+        .cell { width: 30px; height: 30px; display: inline-block; }
+        .type-1 { background: black; }
+        .type-0 { background: white; }
+        .type-2 { background: blue; }
+        .type-3 { background: green; }
+        .type-4 { background: red; }
+        .player { border: 2px solid yellow; }
+    </style>
+</head>
+<body>
+    <h1>Escape de la Mazmorra 🏰</h1>
+    <p>Usa las flechas para moverte</p>
+    <div id="game"></div>
+    <script>
+        const gridSize = 10;
+        let map = [];
+        const player = { x: 1, y: 1 };
+        const exit = { x: gridSize - 2, y: gridSize - 2 };
+        const enemy = { x: Math.floor(gridSize / 2), y: Math.floor(gridSize / 2) };
+
+        document.addEventListener("DOMContentLoaded", () => {
+            generateMap();
+            drawMap();
+        });
+
+        function generateMap() {
+            map = Array.from({ length: gridSize }, () => Array(gridSize).fill(1));
+            
+            for (let y = 1; y < gridSize - 1; y += 2) {
+                for (let x = 1; x < gridSize - 1; x += 2) {
+                    map[y][x] = 0;
+                    let direction = [[0, -1], [1, 0], [0, 1], [-1, 0]][Math.floor(Math.random() * 4)];
+                    let nx = x + direction[0];
+                    let ny = y + direction[1];
+                    if (nx > 0 && ny > 0 && nx < gridSize - 1 && ny < gridSize - 1) {
+                        map[ny][nx] = 0;
+                    }
+                }
+            }
+            map[player.y][player.x] = 2;
+            map[exit.y][exit.x] = 3;
+            map[enemy.y][enemy.x] = 4;
+        }
+
+        function drawMap() {
+            const gameBoard = document.getElementById("game");
+            gameBoard.innerHTML = "";
+            map.forEach((row, y) => {
+                row.forEach((cell, x) => {
+                    const div = document.createElement("div");
+                    div.className = `cell type-${cell}`;
+                    if (player.x === x && player.y === y) div.classList.add("player");
+                    gameBoard.appendChild(div);
+                });
+            });
+        }
+
+        document.addEventListener("keydown", (e) => {
+            let dx = 0, dy = 0;
+            if (e.key === "ArrowUp") dy = -1;
+            if (e.key === "ArrowDown") dy = 1;
+            if (e.key === "ArrowLeft") dx = -1;
+            if (e.key === "ArrowRight") dx = 1;
+            
+            let newX = player.x + dx;
+            let newY = player.y + dy;
+            if (map[newY][newX] === 0 || map[newY][newX] === 3) {
+                player.x = newX;
+                player.y = newY;
+            }
+            if (map[player.y][player.x] === 3) alert("¡Has escapado!");
+            drawMap();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Templance</title>
+    <link rel="stylesheet" href="css/master.css">
+    <style>
+        body {
+            font-family: 'Determination Mono', monospace;
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #battle-area {
+            width: 300px;
+            height: 200px;
+            border: 4px solid white;
+            position: relative;
+            background-color: black;
+        }
+
+        #soul {
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            position: absolute;
+            transition: all 0.1s ease;
+        }
+
+        .projectile {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        .health-bar {
+            width: 300px;
+            height: 20px;
+            border: 2px solid white;
+            margin: 10px 0;
+        }
+
+        .health {
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        #player-health {
+            background-color: green;
+        }
+
+        #enemy-health {
+            background-color: orange;
+        }
+
+        #game-over,
+        #attack-button,
+        #restart-button {
+            display: none;
+            font-size: 20px;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        #game-over {
+            color: red;
+        }
+
+        #attack-button {
+            background: yellow;
+            color: black;
+        }
+
+        #restart-button {
+            background: white;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Batalla de Estilo Undertale</h1>
+    <div class="health-bar">
+        <div id="player-health" class="health" style="width: 100%;"></div>
+    </div>
+    <div class="health-bar">
+        <div id="enemy-health" class="health" style="width: 100%;"></div>
+    </div>
+    <div id="battle-area">
+        <div id="soul"></div>
+    </div>
+    <div id="dialog">¡Prepárate para esquivar!</div>
+    <div id="game-over">GAME OVER</div>
+    <button id="attack-button">¡Atacar!</button>
+    <button id="restart-button">Reiniciar</button>
+
+    <script>
+        const soul = document.getElementById('soul');
+        const battleArea = document.getElementById('battle-area');
+        const playerHealthBar = document.getElementById('player-health');
+        const enemyHealthBar = document.getElementById('enemy-health');
+        const dialogElement = document.getElementById('dialog');
+        const gameOverElement = document.getElementById('game-over');
+        const attackButton = document.getElementById('attack-button');
+        const restartButton = document.getElementById('restart-button');
+
+        let playerHealth = 100;
+        let enemyHealth = 100;
+        let gameActive = true;
+        let battleInterval;
+        let soulX = 140, soulY = 90;
+        const moveSpeed = 5;
+        let battlePhaseActive = false;
+
+        function stopGame() {
+            gameActive = false;
+            clearInterval(battleInterval);
+            document.querySelectorAll('.projectile').forEach(p => p.remove());
+            gameOverElement.style.display = 'block';
+            dialogElement.style.display = 'none';
+            soul.style.display = 'none';
+            attackButton.style.display = 'none';
+            restartButton.style.display = 'block';
+        }
+
+        function resetGame() {
+            playerHealth = 100;
+            enemyHealth = 100;
+            playerHealthBar.style.width = '100%';
+            enemyHealthBar.style.width = '100%';
+            soul.style.display = 'block';
+            gameOverElement.style.display = 'none';
+            restartButton.style.display = 'none';
+            attackButton.style.display = 'none';
+            dialogElement.textContent = '¡Prepárate para esquivar!';
+            dialogElement.style.display = 'block';
+            gameActive = true;
+            battlePhaseActive = false;
+            startBattlePhase();
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (!gameActive) return;
+            if (e.key === 'ArrowUp') soulY = Math.max(0, soulY - moveSpeed);
+            if (e.key === 'ArrowDown') soulY = Math.min(180, soulY + moveSpeed);
+            if (e.key === 'ArrowLeft') soulX = Math.max(0, soulX - moveSpeed);
+            if (e.key === 'ArrowRight') soulX = Math.min(280, soulX + moveSpeed);
+            soul.style.left = `${soulX}px`;
+            soul.style.top = `${soulY}px`;
+        });
+
+        function createProjectiles() {
+            if (!gameActive || !battlePhaseActive) return;
+            for (let i = 0; i < 5; i++) {
+                const projectile = document.createElement('div');
+                projectile.classList.add('projectile');
+                projectile.style.width = '10px';
+                projectile.style.height = '10px';
+                projectile.style.left = `${Math.random() * 290}px`;
+                projectile.style.top = '0px';
+                battleArea.appendChild(projectile);
+                let posY = 0;
+                const moveProjectile = setInterval(() => {
+                    if (!gameActive || !battlePhaseActive) {
+                        clearInterval(moveProjectile);
+                        projectile.remove();
+                        return;
+                    }
+                    posY += 3;
+                    projectile.style.top = `${posY}px`;
+                    if (checkCollision(soul, projectile)) {
+                        playerHealth -= 10;
+                        playerHealthBar.style.width = `${playerHealth}%`;
+                        if (playerHealth <= 0) stopGame();
+                        projectile.remove();
+                        clearInterval(moveProjectile);
+                    }
+                    if (posY > 200) {
+                        projectile.remove();
+                        clearInterval(moveProjectile);
+                    }
+                }, 20);
+            }
+        }
+
+        function checkCollision(player, projectile) {
+            const pRect = player.getBoundingClientRect();
+            const projRect = projectile.getBoundingClientRect();
+            return !(pRect.right < projRect.left || pRect.left > projRect.right || pRect.bottom < projRect.top || pRect.top > projRect.bottom);
+        }
+
+        function startBattlePhase() {
+            if (battlePhaseActive) return;
+            battlePhaseActive = true;
+            dialogElement.textContent = '¡Prepárate para esquivar!';
+            battleInterval = setInterval(createProjectiles, 1000);
+
+            setTimeout(() => {
+                clearInterval(battleInterval);
+                battlePhaseActive = false;
+                dialogElement.textContent = '¡Ahora ataca!';
+                attackButton.style.display = 'block';
+            }, 5000);
+        }
+
+        attackButton.addEventListener('click', () => {
+            if (!gameActive) return;
+            enemyHealth -= 20;
+            enemyHealthBar.style.width = `${enemyHealth}%`;
+            attackButton.style.display = 'none';
+
+            if (enemyHealth <= 0) {
+                dialogElement.textContent = '¡Ganaste!';
+                clearInterval(battleInterval);
+            } else {
+                startBattlePhase();
+            }
+        });
+
+        restartButton.addEventListener('click', resetGame);
+        startBattlePhase();
+    </script>
+
+</body>
+
+</html>
