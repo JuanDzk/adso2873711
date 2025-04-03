@@ -1,155 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ULTRA-GAME</title>
-    <!-- <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/di -->
-    <style>
-      @font-face {
-        font-family: "BroshK";
-        src: url("font/BroshK.woff2") format("woff2"),
-          url("font/BroshK.woff") format("woff"),
-          url("font/BroshK.otf") format("opentype"),
-          url("font/BroshK.ttf") format("truetype");
-      }
-      body {
-        font-family: "BroshK", sans-serif;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        background-color: #6d6c6c;
-        color: #000;
-        border: 2px solid rgb(0, 255, 55);
-        height: 100%;
-        width: 59.8rem;
-      }
-      /************************ STYLE CONTENEDORES 1 ***************************************/
 
-      .container-max {
-        border: 2px solid rgb(255, 238, 0);
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        width: 100%;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ULTRA-GAME</title>
+  <!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/di -->
+  <style>
+    @font-face {
+      font-family: "BroshK";
+      src: url("font/BroshK.woff2") format("woff2"),
+        url("font/BroshK.woff") format("woff"),
+        url("font/BroshK.otf") format("opentype"),
+        url("font/BroshK.ttf") format("truetype");
+    }
 
-      .container1 {
-        border: 2px solid rgb(38, 0, 255);
-        width: 450px;
-        height: 800px;
-        margin: 4rem auto;
-        background: url(image/back.png) no-repeat;
+    body {
+      font-family: "BroshK", sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: #6d6c6c;
+      color: #000;
+      /* border: 2px solid rgb(0, 255, 55); */
+      /* height: 100%;
+        width: 59.8rem; */
+    }
+
+    /************************ STYLE CONTENEDORES 1 ***************************************/
+
+    .container-max {
+      /* border: 2px solid rgb(255, 238, 0); */
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+    }
+
+    .container1 {
+      /* border: 2px solid rgb(38, 0, 255); */
+      width: 450px;
+      height: 800px;
+      margin: 4rem auto;
+      background: url(image/back.png) no-repeat;
+      background-size: contain;
+      padding-top: 2rem;
+
+      .titulo {
+        background: url(image/titulo_ultra.png) no-repeat;
         background-size: contain;
-
-        .titulo {
-          background: url(image/titulo_ultra.png) no-repeat;
-          background-size: contain;
-          scale: 0.8;
-          height: 65px;
-          margin-top: 14rem;
-          /* border: 2px solid red; */
-        }
-
-        .botones {
-          /* border: 2px solid red; */
-          margin: auto;
-          margin-top: 10rem;
-          width: 13rem;
-        }
-
-        .boton {
-          background-color: #ffd900c4;
-          margin: 1rem;
-          padding: 1rem;
-          border-radius: 0.4rem;
-          text-align: center;
-          font-size: 2rem;
-          color: #e8372d;
-          text-shadow: 1px 2px 1px rgb(0, 0, 0);
-        }
-      }
-
-      /************************ STYLE CONTENEDORES 2 ***************************************/
-
-      .container2 {
-        border: 2px solid rgb(38, 0, 255);
-        width: 450px;
-        height: 800px;
-        margin: 4rem auto;
-        background: url(image/back.png) no-repeat;
-        background-size: contain;
-      }
-
-      .instruct {
+        scale: 0.8;
+        height: 65px;
         /* border: 2px solid red; */
-        margin: 8rem auto;
+      }
+
+      .botones {
+        /* border: 2px solid red; */
+        margin: auto;
+        margin-top: 20rem;
+        width: 13rem;
+      }
+
+      .boton {
+        background-color: #ffd900c4;
+        margin: 1rem;
+        padding: 1rem;
+        border-radius: 0.4rem;
+        text-align: center;
+        font-size: 2rem;
         color: #e8372d;
         text-shadow: 1px 2px 1px rgb(0, 0, 0);
-        font-size: 1.6rem;
-
-        .boton-v {
-          background-color: #ffd900c4;
-          border-radius: 0.4rem;
-          text-align: center;
-          font-size: 2rem;
-          color: #e8372d;
-          text-shadow: 1px 2px 1px rgb(0, 0, 0);
-
-          width: 12rem;
-          margin: 8rem auto;
-          padding: 1rem;
-        }
       }
+    }
 
-      /************************ STYLE CONTENEDORES 3 ***************************************/
+    /************************ STYLE CONTENEDORES 2 ***************************************/
 
-      .container3{
+    .container2 {
+      /* border: 2px solid rgb(38, 0, 255); */
+      width: 450px;
+      height: 800px;
+      margin: 4rem auto;
+      background: url(image/back.png) no-repeat;
+      background-size: contain;
+    }
+
+    .instruct {
+      /* border: 2px solid red; */
+      color: #e8372d;
+      text-shadow: 1px 2px 1px rgb(0, 0, 0);
+      font-size: 1.6rem;
+      padding-top: 2rem;
+
+      .boton-v {
+        background-color: #ffd900c4;
+        border-radius: 0.4rem;
+        text-align: center;
+        font-size: 2rem;
+        color: #e8372d;
+        text-shadow: 1px 2px 1px rgb(0, 0, 0);
+
+        width: 12rem;
+        margin: 8rem auto;
+        padding: 1rem;
+      }
+    }
+
+    /************************ STYLE CONTENEDORES 3 ***************************************/
+
+    .container3 {
+      /* border: 2px solid red; */
+      background-color: #000000ad;
+      height: 40.5rem;
+      padding: 3rem;
+    }
+
+    .area-game {
+      background: url(image/bg-area.png) no-repeat;
+      background-size: 1340px 640px;
+      scale: .8;
+
+      height: 40rem;
+      position: relative;
+      /* border: 2px solid red; */
+      background-color: rgba(255, 0, 0, 0.2); /* Rojo semitransparente */
+
+      .score {
         border: 2px solid red;
-        background-color: #000000ad;
-        height: 62.5rem;
+        width: 15rem;
+        height: 10rem;
+        position: absolute;
+        top: 30px;
+        left: 900px;
 
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-template-columns: 1fr 1fr;
+
+        .estilo {
+          border: 2px solid red;
+          grid-column: span 2;
+        }
+
+        .timer {
+          border: 2px solid red;
+          grid-column: span 2;
+
+        }
+
+        .puntos {}
+
+        .number {}
+
+      }
     }
-    .area-game{
-        background: url(image/bg-area.png) no-repeat;
+
+    .boton-v2 {
+      background-color: #ffd900c4;
+      border-radius: 0.4rem;
+      text-align: center;
+      font-size: 2rem;
+      color: #e8372d;
+      text-shadow: 1px 2px 1px rgb(0, 0, 0);
+
+      width: 12rem;
+      padding: 1rem;
     }
-    </style>
-  </head>
-  <body>
-    <div class="conteiner-max">
-      <div id="interfaz3" class="container3">
-        <div class="area-game">
-          <div class="score">
-            <div class="estilo"></div>
-            <div class="puntos"></div>
-            <div class="numer"></div>
-          </div>
 
-          <div id="enemis"></div>
-          <div class="arma"></div>
-        </div>
-      </div>
 
-      <div id="interfaz1" class="container1">
-        <div class="titulo"></div>
-        <div class="botones">
-          <div class="boton">tutorial</div>
-          <div class="boton">jugar</div>
-        </div>
-      </div>
+    .arma {
+      position: absolute;
+      background: url(image/mano.png) no-repeat;
+      background-size: contain;
+      height: 15rem;
+      width: 15rem;
+      top: 370px;
+      left: 900px;
+      border: 2px solid red;
+    }
 
-      <div id="interfaz2" class="container2">
-        <div class="instruct">
-          <ol>
-            <li>USA EL CURSOR PARA DISPARARLE A LOS ENEMIGOS .</li>
-            <li>ACUMULA PUNTOS DE STYLE DISPARANDO RAPIDAMENTE .</li>
-            <p>MANKIND IS DEAD .</p>
-            <p>BLOOD IS FUEL .</p>
-            <p>HELL IS FULL . . .</p>
-          </ol>
-          <div class="boton-v">volver</div>
-        </div>
+    .enemigo {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      transition: transform 0.2s ease-in-out;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="conteiner-max">
+
+
+    <div id="interfaz1" class="container1">
+      <div class="titulo"></div>
+      <div class="botones">
+        <div class="boton">tutorial</div>
+        <div class="boton">jugar</div>
       </div>
     </div>
-  </body>
+
+    <div id="interfaz2" class="container2">
+      <div class="instruct">
+        <ol>
+          <li>USA EL CURSOR PARA DISPARARLE A LOS ENEMIGOS .</li>
+          <li>ACUMULA PUNTOS DE STYLE DISPARANDO RAPIDAMENTE .</li>
+          <p>MANKIND IS DEAD .</p>
+          <p>BLOOD IS FUEL .</p>
+          <p>HELL IS FULL . . .</p>
+        </ol>
+        <div class="boton-v">volver</div>
+      </div>
+    </div>
+
+    <div id="interfaz3" class="container3">
+
+      <div class="boton-v2">volver</div>
+      <div class="area-game">
+        <div class="score">
+          <div class="estilo">ULTRAKILL</div>
+          <div class="timer">----</div>
+          <div class="puntos">SCORE</div>
+          <div class="numer">280</div>
+        </div>
+
+        <div id="enemis"></div>
+        <div class="arma"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="interfaces.js"></script>
+  <script src="game.js"></script>
+  <script src=""></script>
+  <script src=""></script>
+</body>
+
+
 </html>
