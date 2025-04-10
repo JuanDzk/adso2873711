@@ -122,7 +122,8 @@
       height: 40rem;
       position: relative;
       /* border: 2px solid red; */
-      background-color: rgba(255, 0, 0, 0.2); /* Rojo semitransparente */
+      background-color: rgba(255, 0, 0, 0.2);
+      /* Rojo semitransparente */
 
       .score {
         border: 2px solid red;
@@ -147,9 +148,20 @@
 
         }
 
-        .puntos {}
+        .puntos {
+          height: 50px;
+          font-size: 50px;
+          color: #e8372d;
+          text-shadow: 2px 2px 4px #000;
 
-        .number {}
+        }
+
+        .numer {
+          font-size: 50px;
+          color: #ffd900;
+          font-weight: bold;
+          text-shadow: 2px 2px 4px #000;
+        }
 
       }
     }
@@ -173,15 +185,17 @@
       background-size: contain;
       height: 15rem;
       width: 15rem;
-      top: 370px;
-      left: 900px;
+      top: 25rem;
+      left: 65rem;
       border: 2px solid red;
     }
 
     .enemigo {
       position: absolute;
-      width: 50px;
-      height: 50px;
+      width: 100px;
+      height: 100px;
+      border-radius: 100%;
+      box-shadow: 1px 2px 1px rgb(0, 0, 0);
       transition: transform 0.2s ease-in-out;
     }
   </style>
@@ -217,10 +231,17 @@
       <div class="boton-v2">volver</div>
       <div class="area-game">
         <div class="score">
-          <div class="estilo">ULTRAKILL</div>
-          <div class="timer">----</div>
+
+          <div class="estilo">
+            <img id="rango-estilo" src="image/style/S.png" alt="Estilo" style="width: 100px;">
+          </div>
+
+          <div class="timer">
+            <div id="barra-tiempo" style="height: 20px; width: 100%; background: red;"></div>
+          </div>
+
           <div class="puntos">SCORE</div>
-          <div class="numer">280</div>
+          <div class="numer"></div>
         </div>
 
         <div id="enemis"></div>
@@ -229,9 +250,18 @@
     </div>
   </div>
 
+
+  <div id="gameOverScreen"
+    style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: black; justify-content: center; align-items: center; flex-direction: column; z-index: 9999;">
+    <img src="image/skull.gif" alt="Game Over" style="width: 250px; image-rendering: pixelated;">
+    <button id="reiniciarJuego"
+      style="margin-top: 20px; padding: 10px 20px; font-size: 18px; background: red; color: white; border: none; border-radius: 10px; cursor: pointer;">REINICIAR</button>
+  </div>
+
+
   <script src="interfaces.js"></script>
   <script src="game.js"></script>
-  <script src=""></script>
+  <script src="score.js"></script>
   <script src=""></script>
 </body>
 
