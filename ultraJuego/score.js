@@ -32,15 +32,15 @@ function reiniciarJuego() {
   racha = 0;
   score = 0;
 
-  // reiniciar UI
+  // R UI
   barraTiempo.style.width = "100%";
   document.querySelector(".numer").textContent = "0";
   document.getElementById("rango-estilo").src = "image/style/S.png";
 
-  // ocultar Game Over
+  // ocult Game Over
   document.getElementById("gameOverScreen").style.display = "none";
 
-  // limp enemigos 
+  // limp enemis 
   document.querySelectorAll(".enemigo").forEach(e => e.remove());
 
   // Reanudar time

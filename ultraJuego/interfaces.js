@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // interfaces
+  // interf
   const interfaz1 = document.getElementById("interfaz1");
   const interfaz2 = document.getElementById("interfaz2");
   const interfaz3 = document.getElementById("interfaz3");
 
-  // botones
+  // boton
   const btnTutorial = document.querySelector(".botones .boton:first-child");
   const btnJugar = document.querySelector(".botones .boton:last-child");
   const btnVolver1 = document.querySelector(".boton-v");
@@ -17,10 +17,10 @@ document.addEventListener("DOMContentLoaded", function () {
   musicaMenu.loop = true;
   musicaJuego.loop = true;
 
-  // Reproducir
+  // Repr
   musicaMenu.play();
 
-  // cambiar interfaz
+  // cambiar int
   function mostrarInterfaz(interfazMostrar) {
     interfaz1.style.display = "none";
     interfaz2.style.display = "none";
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     interfazMostrar.style.display = "block";
   }
 
-  // Eventos botones
+  // Event boton
   btnTutorial.addEventListener("click", function () {
     mostrarInterfaz(interfaz2);
   });
