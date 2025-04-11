@@ -29,11 +29,10 @@
 
     /************************ STYLE CONTENEDORES 1 ***************************************/
 
-    .container-max {
+    .conteiner-max {
       /* border: 2px solid rgb(255, 238, 0); */
       justify-content: center;
       align-items: center;
-      text-align: center;
       width: 100%;
     }
 
@@ -116,35 +115,46 @@
 
     .area-game {
       background: url(image/bg-area.png) no-repeat;
-      background-size: 1340px 640px;
+      background-size: 60rem 40rem;
       scale: .8;
 
       height: 40rem;
+      width: 60rem;
+      border-radius: 10px;
       position: relative;
       /* border: 2px solid red; */
       background-color: rgba(255, 0, 0, 0.2);
-      /* Rojo semitransparente */
+      margin: 0 auto ;
 
       .score {
-        border: 2px solid red;
+        border: 2px solid rgba(5, 5, 5, 0.753);
         width: 15rem;
         height: 10rem;
         position: absolute;
-        top: 30px;
-        left: 900px;
+        top: 2rem;
+        left: 62rem;
 
         display: grid;
         grid-template-rows: auto auto;
         grid-template-columns: 1fr 1fr;
 
         .estilo {
-          border: 2px solid red;
+          /* border: 2px solid rgb(255, 255, 255); */
           grid-column: span 2;
+          height: 3rem;
+          
+          #rango-estilo{
+            height: 3rem;
+            width: 2rem;
+          }
+          
         }
 
         .timer {
-          border: 2px solid red;
+          /* border: 2px solid red; */
           grid-column: span 2;
+
+
 
         }
 
@@ -186,8 +196,8 @@
       height: 15rem;
       width: 15rem;
       top: 25rem;
-      left: 65rem;
-      border: 2px solid red;
+      left: 45rem;
+      /* border: 2px solid red; */
     }
 
     .enemigo {
@@ -233,11 +243,11 @@
         <div class="score">
 
           <div class="estilo">
-            <img id="rango-estilo" src="image/style/S.png" alt="Estilo" style="width: 100px;">
+            <img id="rango-estilo"  alt="---" style="width: 100px;">
           </div>
 
-          <div class="timer">
-            <div id="barra-tiempo" style="height: 20px; width: 100%; background: red;"></div>
+          <div class="timer" style="background: rgb(156, 153, 153); height: 23px; border: 2px solid rgb(36, 36, 36)">
+            <div id="barra-tiempo" style="height: 20px; width: 100%; background: rgb(212, 54, 54); border: 2px solid rgb(36, 36, 36);"></div>
           </div>
 
           <div class="puntos">SCORE</div>
@@ -251,12 +261,24 @@
   </div>
 
 
-  <div id="gameOverScreen"
-    style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: black; justify-content: center; align-items: center; flex-direction: column; z-index: 9999;">
-    <img src="image/skull.gif" alt="Game Over" style="width: 250px; image-rendering: pixelated;">
-    <button id="reiniciarJuego"
-      style="margin-top: 20px; padding: 10px 20px; font-size: 18px; background: red; color: white; border: none; border-radius: 10px; cursor: pointer;">REINICIAR</button>
-  </div>
+  <div id="gameOverScreen" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: black; justify-content: center; align-items: center; flex-direction: column; z-index: 9999;">
+
+    <p style="color: aliceblue; font-size: 30px;">FIN DEL TIEMPO</p>
+
+  
+  <video autoplay muted loop playsinline style="width: 250px;">
+    <source src="image/skull.mp4" type="video/mp4">
+  </video>
+  
+
+  <p id="puntajeFinal" style="color: white; font-size: 24px; margin-top: 15px;"></p>
+
+
+
+  <button id="reiniciarJuego"
+    style="margin-top: 20px; padding: 10px 20px; font-size: 18px; background: #ec2a2a; color: white; border: none; border-radius: 10px; cursor: pointer;">REINICIAR</button>
+</div>
+
 
 
   <script src="interfaces.js"></script>

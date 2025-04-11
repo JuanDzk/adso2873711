@@ -1,3 +1,12 @@
+// audios
+const musicaMenu = new Audio("sound/menu.mp3");
+const musicaJuego = new Audio("sound/game.mp3");
+const musicaDeath = new Audio("sound/death.mp3");
+
+musicaMenu.loop = true;
+musicaJuego.loop = true;
+musicaDeath.loop = true;
+
 document.addEventListener("DOMContentLoaded", function () {
   // interf
   const interfaz1 = document.getElementById("interfaz1");
@@ -9,13 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const btnJugar = document.querySelector(".botones .boton:last-child");
   const btnVolver1 = document.querySelector(".boton-v");
   const btnVolver2 = document.querySelector(".boton-v2");
-
-  // audios
-  const musicaMenu = new Audio("sound/menu.mp3");
-  const musicaJuego = new Audio("sound/game.mp3");
-
-  musicaMenu.loop = true;
-  musicaJuego.loop = true;
 
   // Repr
   musicaMenu.play();
@@ -33,8 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
     mostrarInterfaz(interfaz2);
   });
 
-
-
   btnVolver1.addEventListener("click", function () {
     mostrarInterfaz(interfaz1);
   });
@@ -50,23 +50,19 @@ document.addEventListener("DOMContentLoaded", function () {
     musicaMenu.pause();
     musicaJuego.currentTime = 0;
     musicaJuego.play();
-  
+    musicaJuego.volume = 0.2;
+
     // Reiniciar estado
     if (typeof reiniciarJuego === "function") {
-      reiniciarJuego(); 
+      reiniciarJuego();
     }
-  
+
     // Iniciar tiempo
     if (window.timerInterval) clearInterval(window.timerInterval);
     window.timerInterval = setInterval(actualizarTiempo, 100);
   });
-  
-  
-
 
   mostrarInterfaz(interfaz1);
-
-
 
   // Reinicio
   const btnReiniciar = document.getElementById("reiniciarJuego");
@@ -76,20 +72,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const scoreElement = document.querySelector(".numer");
   const audioGameOver = new Audio("sound/gameover.mp3");
 
-
-
   btnReiniciar.addEventListener("click", function () {
-    // Reinicia el juego visual y variables
+    // R variables
     reiniciarJuego();
-  
-    // Cambiar a la interfaz inicial
+
     mostrarInterfaz(interfaz1);
-  
+
     // Música
     musicaJuego.pause();
     musicaMenu.currentTime = 0;
+    musicaDeath.pause();
+    musicaDeath.currentTime = 0;
+
+
     musicaMenu.play();
   });
-  
-
 });

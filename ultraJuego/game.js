@@ -68,23 +68,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function actualizarEstilo() {
     if (window.score < 40) {
-      estiloImagen.src = "image/style/destructive.png";
+      estiloImagen.src = "image/1fil.png ";
     } else if (window.score < 70) {
-      estiloImagen.src = "image/style/chaotic.png";
+      estiloImagen.src = "image/style/destructive.png ";
     } else if (window.score < 100) {
-      estiloImagen.src = "image/style/brutal.png";
+      estiloImagen.src = "image/style/chaotic.png ";
     } else if (window.score < 150) {
-      estiloImagen.src = "image/style/anarchic.png";
+      estiloImagen.src = "image/style/brutal.png ";
     } else if (window.score < 200) {
-      estiloImagen.src = "image/style/supreme.png";
+      estiloImagen.src = "image/style/anarchic.png ";
     } else if (window.score < 250) {
-      estiloImagen.src = "image/style/sadistic.png";
+      estiloImagen.src = "image/style/supreme.png ";
     } else if (window.score < 300) {
-      estiloImagen.src = "image/style/ssshitstorm.png";
+      estiloImagen.src = "image/style/sadistic.png ";
     } else if (window.score < 350) {
-      estiloImagen.src = "image/style/ultrakill.png";
+      estiloImagen.src = "image/style/ssshitstorm.png ";
     } else {
-      estiloImagen.src = "image/1fil.png";
+      estiloImagen.src = "image/style/ultrakill.png";
     }
   }
 
@@ -99,5 +99,5 @@ document.addEventListener("DOMContentLoaded", function () {
     arma.style.transform = `rotate(${angle + 135}deg)`;
   });
 
-  setInterval(crearEnemigo, 1500);
+  setInterval(crearEnemigo, 500);
 });

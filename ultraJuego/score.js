@@ -1,3 +1,16 @@
+const estilosPorScore = [
+  { max: 40, nombre: "Nada", color: "#cccccc" }, 
+  { max: 70, nombre: "Destructive", color: "#1b47d8" }, 
+  { max: 100, nombre: "Chaotic", color: "#22c55e" }, 
+  { max: 150, nombre: "Brutal", color: "#facc15" }, 
+  { max: 200, nombre: "Anarchic", color: "#f97316" }, 
+  { max: 250, nombre: "Supreme", color: "#f43f5e" }, 
+  { max: 300, nombre: "Sadistic", color: "#f43f5e" }, 
+  { max: 350, nombre: "SSShitstorm", color: "#f43f5e" }, 
+  { max: Infinity, nombre: "ULTRAKILL", color: "#facc15 " }, 
+];
+
+
 let tiempoMaximo = 30;
 let tiempoRestante = tiempoMaximo;
 const barraTiempo = document.getElementById("barra-tiempo");
@@ -16,15 +29,26 @@ function actualizarTiempo() {
     clearInterval(window.timerInterval);
     document.getElementById("gameOverScreen").style.display = "flex";
 
+    const estiloFinal = estilosPorScore.find((e) => score < e.max) || {
+      nombre: "Desconocido",
+      color: "#fff",
+    };
+
+    const puntajeFinalElement = document.getElementById("puntajeFinal");
+    puntajeFinalElement.textContent = `PUNTAJE FINAL: ${score} — ESTILO: ${estiloFinal.nombre}`;
+    puntajeFinalElement.style.color = estiloFinal.color;
+
     if (typeof musicaJuego !== "undefined") {
       musicaJuego.pause();
     }
 
-    const audioGameOver = new Audio("sound/gameover.mp3");
-    audioGameOver.play();
+    if (typeof musicaDeath !== "undefined") {
+      musicaDeath.currentTime = 0;
+      musicaDeath.playbackRate = 1.3;
+      musicaDeath.play();
+    }
   }
 }
-
 
 function reiniciarJuego() {
   // R variables
@@ -40,15 +64,9 @@ function reiniciarJuego() {
   // ocult Game Over
   document.getElementById("gameOverScreen").style.display = "none";
 
-  // limp enemis 
-  document.querySelectorAll(".enemigo").forEach(e => e.remove());
+  // limp enemis
+  document.querySelectorAll(".enemigo").forEach((e) => e.remove());
 
   // Reanudar time
   actualizarTiempo();
 }
-
-
-
-
-
-
