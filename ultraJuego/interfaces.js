@@ -33,16 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
     mostrarInterfaz(interfaz2);
   });
 
-  btnJugar.addEventListener("click", function () {
-    mostrarInterfaz(interfaz3);
-    musicaMenu.pause();
-    musicaJuego.currentTime = 0;
-    musicaJuego.play();
-
-    // Iniciar tiempo
-    if (window.timerInterval) clearInterval(window.timerInterval);
-    window.timerInterval = setInterval(actualizarTiempo, 100);
-  });
 
 
   btnVolver1.addEventListener("click", function () {
@@ -54,6 +44,24 @@ document.addEventListener("DOMContentLoaded", function () {
     musicaJuego.pause();
     musicaMenu.play();
   });
+
+  btnJugar.addEventListener("click", function () {
+    mostrarInterfaz(interfaz3);
+    musicaMenu.pause();
+    musicaJuego.currentTime = 0;
+    musicaJuego.play();
+  
+    // Reiniciar estado
+    if (typeof reiniciarJuego === "function") {
+      reiniciarJuego(); 
+    }
+  
+    // Iniciar tiempo
+    if (window.timerInterval) clearInterval(window.timerInterval);
+    window.timerInterval = setInterval(actualizarTiempo, 100);
+  });
+  
+  
 
 
   mostrarInterfaz(interfaz1);
@@ -71,33 +79,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   btnReiniciar.addEventListener("click", function () {
-    document.querySelectorAll(".enemigo").forEach(e => e.remove());
-    
-
-
-    // Game Over
-    pantallaGameOver.style.display = "none";
-
-    // reiniciar variables
-    window.tiempoRestante = 30;
-    window.racha = 0;
-    window.score = 0;
-
-    // reiniciar UI
-    barraTiempo.style.width = "100%";
-    estiloImagen.src = "image/style/S.png";
-    scoreElement.textContent = "0";
-
-
-    // interfaz 1
+    // Reinicia el juego visual y variables
+    reiniciarJuego();
+  
+    // Cambiar a la interfaz inicial
     mostrarInterfaz(interfaz1);
-
+  
     // Música
     musicaJuego.pause();
     musicaMenu.currentTime = 0;
     musicaMenu.play();
-    audioGameOver.pause();
-    audioGameOver.currentTime = 0;
   });
+  
 
 });

@@ -15,20 +15,38 @@ function actualizarTiempo() {
   if (tiempoRestante <= 0) {
     clearInterval(window.timerInterval);
     document.getElementById("gameOverScreen").style.display = "flex";
-  
-    // Pausar música
+
     if (typeof musicaJuego !== "undefined") {
       musicaJuego.pause();
     }
-  
-    // Música game over
+
     const audioGameOver = new Audio("sound/gameover.mp3");
     audioGameOver.play();
   }
-   else {
-    setTimeout(actualizarTiempo, 100);
-  }
 }
+
+
+function reiniciarJuego() {
+  // R variables
+  tiempoRestante = tiempoMaximo;
+  racha = 0;
+  score = 0;
+
+  // reiniciar UI
+  barraTiempo.style.width = "100%";
+  document.querySelector(".numer").textContent = "0";
+  document.getElementById("rango-estilo").src = "image/style/S.png";
+
+  // ocultar Game Over
+  document.getElementById("gameOverScreen").style.display = "none";
+
+  // limp enemigos 
+  document.querySelectorAll(".enemigo").forEach(e => e.remove());
+
+  // Reanudar time
+  actualizarTiempo();
+}
+
 
 
 

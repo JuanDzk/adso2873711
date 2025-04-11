@@ -61,8 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setTimeout(() => {
       if (document.body.contains(enemigo)) {
-        enemigo.remove();
-        window.racha = 0; // Pierde la racha si no lo mata
+        enemigo.remove(); //elim enem
       }
     }, 2000);
   }
@@ -89,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  document.addEventListener("mousemove", function (event) {
+  document.addEventListener("mousemove", function (event) { //dir arma
     let x = event.clientX;
     let y = event.clientY;
     let armaRect = arma.getBoundingClientRect();
