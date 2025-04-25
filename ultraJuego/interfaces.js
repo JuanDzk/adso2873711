@@ -1,7 +1,20 @@
 // audios
 const musicaMenu = new Audio("sound/menu.mp3");
+
 const musicaJuego = new Audio("sound/game.mp3");
+
 const musicaDeath = new Audio("sound/death.mp3");
+
+const volumenGlobal = 0.02;
+
+musicaMenu.volume = volumenGlobal;
+musicaJuego.volume = volumenGlobal;
+musicaDeath.volume = volumenGlobal;
+
+
+
+
+
 
 musicaMenu.loop = true;
 musicaJuego.loop = true;
@@ -50,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
     musicaMenu.pause();
     musicaJuego.currentTime = 0;
     musicaJuego.play();
-    musicaJuego.volume = 0.2;
 
     // Reiniciar estado
     if (typeof reiniciarJuego === "function") {
@@ -71,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const estiloImagen = document.getElementById("rango-estilo");
   const scoreElement = document.querySelector(".numer");
   const audioGameOver = new Audio("sound/gameover.mp3");
+  audioGameOver.volume = 0.3
 
   btnReiniciar.addEventListener("click", function () {
     // R variables

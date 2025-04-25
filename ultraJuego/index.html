@@ -124,7 +124,12 @@
       position: relative;
       /* border: 2px solid red; */
       background-color: rgba(255, 0, 0, 0.2);
-      margin: 0 auto ;
+      margin: 0 auto;
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='black' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='4' stroke='black' stroke-width='2' fill='none'/%3E%3Cline x1='16' y1='0' x2='16' y2='8' stroke='black' stroke-width='2'/%3E%3Cline x1='16' y1='24' x2='16' y2='32' stroke='black' stroke-width='2'/%3E%3Cline x1='0' y1='16' x2='8' y2='16' stroke='black' stroke-width='2'/%3E%3Cline x1='24' y1='16' x2='32' y2='16' stroke='black' stroke-width='2'/%3E%3C/svg%3E%0A") 16 16, crosshair;
+
+
+
+
 
       .score {
         border: 2px solid rgba(5, 5, 5, 0.753);
@@ -142,12 +147,12 @@
           /* border: 2px solid rgb(255, 255, 255); */
           grid-column: span 2;
           height: 3rem;
-          
-          #rango-estilo{
+
+          #rango-estilo {
             height: 3rem;
             width: 2rem;
           }
-          
+
         }
 
         .timer {
@@ -207,6 +212,9 @@
       border-radius: 100%;
       box-shadow: 1px 2px 1px rgb(0, 0, 0);
       transition: transform 0.2s ease-in-out;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="red" viewBox="0 0 32 32"><circle cx="16" cy="16" r="4" stroke="red" stroke-width="2" fill="none"/><line x1="16" y1="0" x2="16" y2="8" stroke="red" stroke-width="2"/><line x1="16" y1="24" x2="16" y2="32" stroke="red" stroke-width="2"/><line x1="0" y1="16" x2="8" y2="16" stroke="red" stroke-width="2"/><line x1="24" y1="16" x2="32" y2="16" stroke="red" stroke-width="2"/></svg>') 16 16, crosshair;
+
+
     }
   </style>
 </head>
@@ -243,11 +251,12 @@
         <div class="score">
 
           <div class="estilo">
-            <img id="rango-estilo"  alt="---" style="width: 100px;">
+            <img id="rango-estilo" alt="---" style="width: 100px;">
           </div>
 
           <div class="timer" style="background: rgb(156, 153, 153); height: 23px; border: 2px solid rgb(36, 36, 36)">
-            <div id="barra-tiempo" style="height: 20px; width: 100%; background: rgb(212, 54, 54); border: 2px solid rgb(36, 36, 36);"></div>
+            <div id="barra-tiempo"
+              style="height: 20px; width: 100%; background: rgb(212, 54, 54); border: 2px solid rgb(36, 36, 36);"></div>
           </div>
 
           <div class="puntos">SCORE</div>
@@ -261,23 +270,24 @@
   </div>
 
 
-  <div id="gameOverScreen" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: black; justify-content: center; align-items: center; flex-direction: column; z-index: 9999;">
+  <div id="gameOverScreen"
+    style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: black; justify-content: center; align-items: center; flex-direction: column; z-index: 9999;">
 
     <p style="color: aliceblue; font-size: 30px;">FIN DEL TIEMPO</p>
 
-  
-  <video autoplay muted loop playsinline style="width: 250px;">
-    <source src="image/skull.mp4" type="video/mp4">
-  </video>
-  
 
-  <p id="puntajeFinal" style="color: white; font-size: 24px; margin-top: 15px;"></p>
+    <video autoplay muted loop playsinline style="width: 250px;">
+      <source src="image/skull.mp4" type="video/mp4">
+    </video>
 
 
+    <p id="puntajeFinal" style="color: white; font-size: 24px; margin-top: 15px;"></p>
 
-  <button id="reiniciarJuego"
-    style="margin-top: 20px; padding: 10px 20px; font-size: 18px; background: #ec2a2a; color: white; border: none; border-radius: 10px; cursor: pointer;">REINICIAR</button>
-</div>
+
+
+    <button id="reiniciarJuego"
+      style="margin-top: 20px; padding: 10px 20px; font-size: 18px; background: #ec2a2a; color: white; border: none; border-radius: 10px; cursor: pointer;">REINICIAR</button>
+  </div>
 
 
 

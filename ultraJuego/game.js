@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const estiloImagen = document.getElementById("rango-estilo");
   const arma = document.querySelector(".arma");
 
+  const hitSound = new Audio('sound/shoot1.ogg');
+  hitSound.volume = 0.03; // volumen entre 0 (silencio) y 1 (máximo)
+
+
   window.score = 0;
   window.racha = 0;
   window.tiempoRestante = window.tiempoRestante || 30;
@@ -49,6 +53,9 @@ document.addEventListener("DOMContentLoaded", function () {
       window.score += 10;
       window.racha += 1;
       window.tiempoRestante += 0.5;
+
+      hitSound.currentTime = 0;
+      hitSound.play();
 
       if (window.racha >= 3) {
         window.tiempoRestante += 2;
