@@ -20,12 +20,14 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      background-color: #6d6c6c;
+      background: url(image/bgHtml.jpg) no-repeat;
+      background-size: cover;
       color: #000;
       /* border: 2px solid rgb(0, 255, 55); */
       /* height: 100%;
         width: 59.8rem; */
     }
+
 
     /************************ STYLE CONTENEDORES 1 ***************************************/
 
@@ -38,12 +40,14 @@
 
     .container1 {
       /* border: 2px solid rgb(38, 0, 255); */
-      width: 450px;
-      height: 800px;
+      width: 440px;
+      height: 750px;
       margin: 4rem auto;
       background: url(image/back.png) no-repeat;
       background-size: contain;
       padding-top: 2rem;
+      border: 20px solid #900B09;
+      border-radius: 20px;
 
       .titulo {
         background: url(image/titulo_ultra.png) no-repeat;
@@ -76,11 +80,13 @@
 
     .container2 {
       /* border: 2px solid rgb(38, 0, 255); */
-      width: 450px;
-      height: 800px;
+      width: 440px;
+      height: 780px;
       margin: 4rem auto;
       background: url(image/back.png) no-repeat;
       background-size: contain;
+      border: 20px solid #900B09;
+      border-radius: 20px;
     }
 
     .instruct {
@@ -111,6 +117,10 @@
       background-color: #000000ad;
       height: 40.5rem;
       padding: 3rem;
+      margin: 7rem auto;
+      width: 80rem;
+      border: 20px solid #900B09;
+      border-radius: 10px;
     }
 
     .area-game {
@@ -128,11 +138,8 @@
       cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='black' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='4' stroke='black' stroke-width='2' fill='none'/%3E%3Cline x1='16' y1='0' x2='16' y2='8' stroke='black' stroke-width='2'/%3E%3Cline x1='16' y1='24' x2='16' y2='32' stroke='black' stroke-width='2'/%3E%3Cline x1='0' y1='16' x2='8' y2='16' stroke='black' stroke-width='2'/%3E%3Cline x1='24' y1='16' x2='32' y2='16' stroke='black' stroke-width='2'/%3E%3C/svg%3E%0A") 16 16, crosshair;
 
 
-
-
-
       .score {
-        border: 2px solid rgba(5, 5, 5, 0.753);
+        /* border: 2px solid rgba(5, 5, 5, 0.753); */
         width: 15rem;
         height: 10rem;
         position: absolute;
@@ -200,8 +207,8 @@
       background-size: contain;
       height: 15rem;
       width: 15rem;
-      top: 25rem;
-      left: 45rem;
+      top: 25.5rem;
+      left:46.5rem;
       /* border: 2px solid red; */
     }
 
@@ -222,27 +229,29 @@
 <body>
   <div class="conteiner-max">
 
-
-    <div id="interfaz1" class="container1">
-      <div class="titulo"></div>
-      <div class="botones">
-        <div class="boton">tutorial</div>
-        <div class="boton">jugar</div>
-      </div>
+<div class="bgHtml">
+  <div id="interfaz1" class="container1">
+    <div class="titulo"></div>
+    <div class="botones">
+      <div class="boton">tutorial</div>
+      <div class="boton">jugar</div>
     </div>
+  </div>
 
-    <div id="interfaz2" class="container2">
-      <div class="instruct">
-        <ol>
-          <li>USA EL CURSOR PARA DISPARARLE A LOS ENEMIGOS .</li>
-          <li>ACUMULA PUNTOS DE STYLE DISPARANDO RAPIDAMENTE .</li>
-          <p>MANKIND IS DEAD .</p>
-          <p>BLOOD IS FUEL .</p>
-          <p>HELL IS FULL . . .</p>
-        </ol>
-        <div class="boton-v">volver</div>
-      </div>
+  <div id="interfaz2" class="container2">
+    <div class="instruct">
+      <ol>
+        <li>USA EL CURSOR PARA DISPARARLE A LOS ENEMIGOS .</li>
+        <li>ACUMULA PUNTOS DE STYLE DISPARANDO RAPIDAMENTE .</li>
+        <p>MANKIND IS DEAD .</p>
+        <p>BLOOD IS FUEL .</p>
+        <p>HELL IS FULL . . .</p>
+      </ol>
+      <div class="boton-v">volver</div>
     </div>
+  </div>
+</div>
+
 
     <div id="interfaz3" class="container3">
 

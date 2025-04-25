@@ -7,7 +7,7 @@ const musicaDeath = new Audio("sound/death.mp3");
 
 const volumenGlobal = 0.02;
 
-musicaMenu.volume = volumenGlobal;
+musicaMenu.volume = 0.08;
 musicaJuego.volume = volumenGlobal;
 musicaDeath.volume = volumenGlobal;
 
