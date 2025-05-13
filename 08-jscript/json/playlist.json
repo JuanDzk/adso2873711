@@ -5,7 +5,7 @@
         "artist": "Glaire",
         "album": "Single",
         "year": 2021,
-        "cover": "images/mp3player/cover-01.webp",
+        "cover": "imagen/mp3player/cover-01.webp",
         "song": "audio/song-01.mp3"
        
     
@@ -16,7 +16,7 @@
     "artist": "Jasmine Rodgers",
     "album": "twilight",
     "year": 1996,
-     "cover": "images/mp3player/cover-02.webp",
+     "cover": "imagen/mp3player/cover-02.webp",
     "song": "audio/song-02.mp3"
     },
     { "id": 3,
@@ -24,7 +24,7 @@
     "artist": "wilt",
     "album": "Single",
     "year": 2024,
-   "cover": "images/mp3player/cover-03.webp",
+   "cover": "imagen/mp3player/cover-03.webp",
     "song": "audio/song-03.mp3"
 
 }
