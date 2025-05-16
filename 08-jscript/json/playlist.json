@@ -7,7 +7,7 @@
             "album": "Single",
             "year": 2021,
             "cover": "imagen/mp3player/cover-03.webp",
-            "song": "audio/song-01.mp3",
+            "song": "audio/song-01.mp3.mp3",
             "design": "design1"
         },
         {
@@ -17,17 +17,17 @@
             "album": "twilight",
             "year": 1996,
             "cover": "imagen/mp3player/cover-02.webp",
-            "song": "audio/song-02.mp3",
+            "song": "audio/song-02.mp3.mp3",
             "design": "design2"
         },
         {
             "id": 3,
-            "title": "BITE MY TONGLE",
-            "artist": "wilt",
+            "title": "BITE MY",
+            "artist": "TONGLE",
             "album": "Single",
             "year": 2024,
             "cover": "imagen/mp3player/cover-01.webp",
-            "song": "audio/song-03.mp3",
+            "song": "audio/song-03.mp3.mp3",
             "design": "design3"
         }
     ]

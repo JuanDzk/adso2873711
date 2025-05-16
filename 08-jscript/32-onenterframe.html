@@ -6,6 +6,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Templance</title>
     <link rel="stylesheet" href="css/master.css">
+    <style>
+        .pug {
+                margin: 0 auto;
+            width: 100px;
+            height: 100px;
+            background-image: url(imagen/frames/todo.svg);
+            /* cambia por tu sprite */
+            background-repeat: no-repeat;
+            margin-bottom: 20px;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: 0 50px 50px 50px;
+            grid-template-rows: 50px 50px 50px;
+            gap: 5px;
+            justify-content: center;
+        }
+
+        .controls button {
+            background-color: #444;
+            border: none;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .controls button:hover {
+            background-color: #666;
+        }
+
+        .up {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .left {
+            grid-column: 4;
+            grid-row: 2;
+        }
+
+        .idle {
+            grid-column: 2;
+            grid-row: 2;
+        }
+
+        .right {
+            grid-column: 3;
+            grid-row: 2;
+        }
+
+        .down {
+            grid-column: 2;
+            grid-row: 3;
+        }
+    </style>
+    </style>
 
 </head>
 
@@ -25,9 +85,65 @@
             <h2>Description</h2>
         </header>
         <section>
-            
+            <div class="pug"></div>
+
+            <div class="controls">
+                <button class="up">↑</button>
+                <button class="left">→→</button>
+                <button class="idle">●</button>
+                <button class="right">→</button>
+                <button class="down">↓</button>
+            </div>
         </section>
     </main>
+     <script>
+    const pug = document.querySelector('.pug');
+    const btnLeft = document.querySelector('.left');
+    const btnRight = document.querySelector('.right');
+    const btnUp = document.querySelector('.up');
+    const btnDown = document.querySelector('.down');
+    const btnIdle = document.querySelector('.idle');
+
+    let currentFrame = 0;
+    let lastTime = 0;
+
+    const animations = {
+      idle:  { frames: 1, fps: 6, offsetX: 0, offsetY: 0, frameWidth: 100, frameHeight: 100 },
+      left:  { frames: 8, fps: 10, offsetX: 0, offsetY: 200, frameWidth: 100, frameHeight: 100 },
+      right: { frames: 8, fps: 10, offsetX: 0, offsetY: 100, frameWidth: 100, frameHeight: 100 },
+      up:    { frames: 9, fps: 8, offsetX: 0, offsetY: 400, frameWidth: 100, frameHeight: 100 },
+      down:  {frames: 7, fps: 8, offsetX: 0, offsetY: 300, frameWidth: 100, frameHeight: 100  }
+    };
+
+    let currentAnimation = animations.idle;
+
+    function playAnimation(name) {
+      if (!animations[name]) return;
+      currentAnimation = animations[name];
+      currentFrame = 0;
+    }
+
+    btnLeft.addEventListener('click', () => playAnimation('left'));
+    btnRight.addEventListener('click', () => playAnimation('right'));
+    btnUp.addEventListener('click', () => playAnimation('up'));
+    btnDown.addEventListener('click', () => playAnimation('down'));
+    btnIdle.addEventListener('click', () => playAnimation('idle'));
+
+    function animate(timestamp) {
+      if (timestamp - lastTime > 1000 / currentAnimation.fps) {
+        const { frameWidth, frameHeight, offsetX, offsetY, frames } = currentAnimation;
+        const x = -(offsetX + (currentFrame * frameWidth));
+        const y = -offsetY;
+        pug.style.backgroundPosition = `${x}px ${y}px`;
+        currentFrame = (currentFrame + 1) % frames;
+        lastTime = timestamp;
+      }
+      requestAnimationFrame(animate);
+    }
+
+    requestAnimationFrame(animate);
+  </script>
+
 </body>
 
 </html>

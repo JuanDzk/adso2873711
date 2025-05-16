@@ -18,6 +18,8 @@
         }
 
         body {
+            background: url(imagen/mp3player/fondo.jpg) no-repeat;
+            background-size: cover;
             font-family: 'Arial', sans-serif;
             background-color: #121212;
             color: #fff;
@@ -61,9 +63,10 @@
             flex-direction: column;
             align-items: center;
             gap: 2rem;
+            margin-top: 9rem;
         }
 
-        /* Estilos comunes para todos los players */
+        /* Estilos comunes players */
         div.player {
             position: relative;
             border-radius: 22px;
@@ -73,7 +76,7 @@
             background-position: center;
             background-repeat: no-repeat;
             display: none;
-            /* Oculto por defecto */
+            
         }
 
         div.container {
@@ -146,7 +149,7 @@
             background-size: cover;
         }
 
-        /* Animación para el disco */
+        /* Animacion disco */
         @keyframes spin {
             0% {
                 transform: rotate(0deg);
@@ -157,10 +160,8 @@
             }
         }
 
-        /* -------- Estilos para Design 1 -------- */
-        .design1 {
-            background: linear-gradient(to bottom, #0006, #000c);
-        }
+        /* -------- Estilos Design 1 -------- */
+
 
         .design1 div.disco {
             background: url(imagen/mp3player/svg/disco-01.svg) no-repeat;
@@ -174,15 +175,15 @@
 
         .design1 div.espacio {
             background: url(imagen/mp3player/svg/port.svg) no-repeat;
-            scale: 2.13;
-            top: 5.63rem;
+            scale: 2.15;
+            top: 5.5rem;
             left: 2.9rem;
         }
 
         .design1 h4.title {
             font-size: small;
             opacity: 0.9;
-            top: 14.5rem;
+            top: 14.1rem;
             left: 6rem;
             transform: translateX(-50%) scaleY(7.5);
             width: 8rem;
@@ -225,10 +226,8 @@
 
         }
 
-        /* -------- Estilos para Design 2 -------- */
-        .design2 {
-            background: linear-gradient(to bottom, #001022, #00001a);
-        }
+        /* -------- Estilos Design 2 -------- */
+
 
         .design2 div.disco {
             background: url(imagen/mp3player/svg/disco-02.svg) no-repeat;
@@ -284,10 +283,8 @@
 
         }
 
-        /* -------- Estilos para Design 3 -------- */
-        .design3 {
-            background: linear-gradient(to bottom, #220000, #3a0000);
-        }
+        /* -------- Estilos Design 3 -------- */
+
 
         .design3 div.disco {
             background: url(imagen/mp3player/svg/disco-03.svg) no-repeat;
@@ -306,23 +303,26 @@
         }
 
         .design3 h4.title {
-            font-size: larger;
-            top: 12rem;
+            font-size: 14px;
+            letter-spacing: 1px;
+            top: 12.2rem;
             left: 1.8rem;
-            width: 7.5rem 120px;
+            width: 7.5rem;
         }
 
         .design3 h4.artist {
-            font-size: 19px;
-            top: 0.7rem;
-            left: 18.5rem;
+            font-size: 10px;
+            top: 14.5rem;
+            left: -4.2rem;
             width: 310px;
+            letter-spacing: 3px;
+            transform: scaleY(5);
         }
 
         .design3 h4.year {
             font-size: 19px;
-            top: 2.1rem;
-            left: 18.5rem;
+            top: 0.5rem;
+            left: 8.5rem;
             width: 310px;
         }
 
@@ -344,7 +344,7 @@
 
         }
 
-        /* Información de la canción actual */
+        /* Informacion cancion actual */
         .song-info {
             text-align: center;
             margin-top: 2rem;
@@ -368,8 +368,8 @@
     </nav>
     <main>
         <header>
-            <h1>MP3 Player - Diseños Múltiples</h1>
-            <h2>Reproductor con tres estilos diferentes</h2>
+            <h1>MP3 Player</h1>
+            <h2>Reproductor con estilos diferentes</h2>
         </header>
         <section>
             <!-- Diseño 1 -->
@@ -426,184 +426,178 @@
     </main>
 
     <script>
-        // Definición de la playlist como objeto JSON
-        const playlist = {
-            "songs": [
-                {
-                    "id": 1,
-                    "title": "VOID IN BLUE",
-                    "artist": "Glaire",
-                    "album": "Single",
-                    "year": 2021,
-                    "cover": "imagen/mp3player/cover-03.webp",
-                    "song": "audio/song-01.mp3",
-                    "design": "design1"
-                },
-                {
-                    "id": 2,
-                    "title": "BOA",
-                    "artist": "Duvet",
-                    "album": "twilight",
-                    "year": 1996,
-                    "cover": "imagen/mp3player/cover-02.webp",
-                    "song": "audio/song-02.mp3",
-                    "design": "design2"
-                },
-                {
-                    "id": 3,
-                    "title": "BITE MY TONGLE",
-                    "artist": "wilt",
-                    "album": "Single",
-                    "year": 2024,
-                    "cover": "imagen/mp3player/cover-01.webp",
-                    "song": "audio/song-03.mp3",
-                    "design": "design3"
-                }
-            ]
-        };
+    // Variables globales
+let songs = []; 
+let currentSongIndex = 0;
+let isPlaying = false;
 
-        // Elementos principales
-        const audioElement = document.getElementById('audio-player');
-        const players = {
-            design1: document.querySelector('.player.design1'),
-            design2: document.querySelector('.player.design2'),
-            design3: document.querySelector('.player.design3')
-        };
+// Elementos principales
+const audioElement = document.getElementById('audio-player');
+const players = {
+    design1: document.querySelector('.player.design1'),
+    design2: document.querySelector('.player.design2'),
+    design3: document.querySelector('.player.design3')
+};
 
-        // Variables de estado
-        let currentSongIndex = 0;
-        let isPlaying = false;
-        const songs = playlist.songs;
+/**
+ * Oculta los reproductores
+ */
+function hideAllPlayers() {
+    Object.values(players).forEach(player => {
+        player.style.display = 'none';
+    });
+}
 
-        /**
-         * Oculta todos los reproductores
-         */
-        function hideAllPlayers() {
-            Object.values(players).forEach(player => {
-                player.style.display = 'none';
-            });
-        }
 
-        /**
-         * Actualiza el icono del botón play/pause según el estado
-         * @param {HTMLElement} playButton - El botón a actualizar
-         * @param {boolean} playing - Estado de reproducción
-         * @param {string} design - Diseño actual
-         */
-        function updatePlayButton(playButton, playing, design) {
-            const baseUrl = 'imagen/mp3player/svg/botons/';
-            const icon = playing ? `pause-${design.slice(-1)}.svg` : `play-${design.slice(-1)}.svg`;
-            playButton.style.background = `url(${baseUrl}${icon}) no-repeat center/cover`;
-        }
+function updatePlayButton(playButton, playing, design) {
+    const baseUrl = 'imagen/mp3player/svg/botons/';
+    const icon = playing ? `pause-${design.slice(-1)}.svg` : `play-${design.slice(-1)}.svg`;
+    playButton.style.background = `url(${baseUrl}${icon}) no-repeat center/cover`;
+}
 
-        /**
-         * Carga y muestra una canción
-         * @param {number} index - Índice de la canción a cargar
-         */
-        function loadSong(index) {
-            // Obtener la canción actual
-            const song = songs[index];
-            if (!song) return;
 
-            // Ocultar todos los reproductores
-            hideAllPlayers();
+function loadSong(index) {
+    // Verificar que songs tenga elementos y el índice sea válido
+    if (!songs.length || index < 0 || index >= songs.length) return;
 
-            // Obtener el reproductor correspondiente al diseño
-            const design = song.design;
-            const currentPlayer = players[design];
+    // Obtener la canción actual
+    const song = songs[index];
+    if (!song) return;
 
-            // Mostrar el reproductor actual
-            currentPlayer.style.display = 'block';
+    // Ocultar todos los reproductores
+    hideAllPlayers();
 
-            // Actualizar la información en el reproductor
-            currentPlayer.querySelector('.title').textContent = song.title;
-            currentPlayer.querySelector('.artist').textContent = song.artist;
-            currentPlayer.querySelector('.year').textContent = song.year;
+    // Obtener el reproductor correspondiente al diseño
+    const design = song.design;
+    const currentPlayer = players[design];
 
-            // Establecer el fondo con la portada
-            currentPlayer.style.background = `linear-gradient(to bottom, #0006, #000c), url(${song.cover}) no-repeat center/cover`;
+    // Mostrar el reproductor actual
+    currentPlayer.style.display = 'block';
 
-            // Configurar la fuente de audio
-            audioElement.src = song.song;
-            audioElement.load();
+    // Actualizar la información en el reproductor
+    currentPlayer.querySelector('.title').textContent = song.title;
+    currentPlayer.querySelector('.artist').textContent = song.artist;
+    currentPlayer.querySelector('.year').textContent = song.year;
 
-            // Configurar botones
-            const prevButton = currentPlayer.querySelector('.prev');
-            const playButton = currentPlayer.querySelector('.play');
-            const nextButton = currentPlayer.querySelector('.next');
+    // Establecer el fondo con la portada
+    currentPlayer.style.background = `linear-gradient(to bottom, #0003, #000c), url(${song.cover}) no-repeat center/cover`;
 
-            // Actualizar el botón de reproducción según el estado
-            updatePlayButton(playButton, isPlaying, design);
+    // Configurar la fuente de audio
+    audioElement.src = song.song;
+    audioElement.load();
 
-            // Si estaba reproduciendo, continuar reproduciendo
-            if (isPlaying) {
-                audioElement.play();
-                currentPlayer.querySelector('.disco').style.animationPlayState = 'running';
+    // Configurar botones
+    const prevButton = currentPlayer.querySelector('.prev');
+    const playButton = currentPlayer.querySelector('.play');
+    const nextButton = currentPlayer.querySelector('.next');
+
+    // Actualizar el botón de reproducción según el estado
+    updatePlayButton(playButton, isPlaying, design);
+
+    // Si estaba reproduciendo, continuar reproduciendo
+    if (isPlaying) {
+        audioElement.play();
+        currentPlayer.querySelector('.disco').style.animationPlayState = 'running';
+    } else {
+        currentPlayer.querySelector('.disco').style.animationPlayState = 'paused';
+    }
+
+    // Configurar los event listeners para los botones
+    prevButton.onclick = playPrevious;
+    playButton.onclick = togglePlay;
+    nextButton.onclick = playNext;
+}
+
+/**
+ * Alterna entre reproducir y pausar
+ */
+function togglePlay() {
+    if (!songs.length) return;
+    
+    const song = songs[currentSongIndex];
+    const currentPlayer = players[song.design];
+    const playButton = currentPlayer.querySelector('.play');
+    const disco = currentPlayer.querySelector('.disco');
+
+    if (isPlaying) {
+        // Pausar
+        audioElement.pause();
+        disco.style.animationPlayState = 'paused';
+    } else {
+        // Reproducir
+        audioElement.play();
+        disco.style.animationPlayState = 'running';
+    }
+
+    isPlaying = !isPlaying;
+    updatePlayButton(playButton, isPlaying, song.design);
+}
+
+/**
+ * Reproduce la canción anterior
+ */
+function playPrevious() {
+    if (!songs.length) return;
+    
+    currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+    loadSong(currentSongIndex);
+
+    if (isPlaying) {
+        audioElement.play();
+    }
+}
+
+/**
+ * Reproduce la siguiente canción
+ */
+function playNext() {
+    if (!songs.length) return;
+    
+    currentSongIndex = (currentSongIndex + 1) % songs.length;
+    loadSong(currentSongIndex);
+
+    if (isPlaying) {
+        audioElement.play();
+    }
+}
+
+/**
+ * Carga la playlist desde el archivo JSON externo
+ */
+function loadPlaylist() {
+    fetch('json/playlist.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error HTTP: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data && data.songs && Array.isArray(data.songs)) {
+                songs = data.songs;
+                loadSong(currentSongIndex);
+                console.log('Playlist cargada correctamente:', songs);
             } else {
-                currentPlayer.querySelector('.disco').style.animationPlayState = 'paused';
+                console.error('Formato de JSON inválido. Se esperaba un objeto con propiedad "songs" como array.');
             }
-
-            // Configurar los event listeners para los botones
-            prevButton.onclick = playPrevious;
-            playButton.onclick = togglePlay;
-            nextButton.onclick = playNext;
-        }
-
-        /**
-         * Alterna entre reproducir y pausar
-         */
-        function togglePlay() {
-            const song = songs[currentSongIndex];
-            const currentPlayer = players[song.design];
-            const playButton = currentPlayer.querySelector('.play');
-            const disco = currentPlayer.querySelector('.disco');
-
-            if (isPlaying) {
-                // Pausar
-                audioElement.pause();
-                disco.style.animationPlayState = 'paused';
-            } else {
-                // Reproducir
-                audioElement.play();
-                disco.style.animationPlayState = 'running';
-            }
-
-            isPlaying = !isPlaying;
-            updatePlayButton(playButton, isPlaying, song.design);
-        }
-
-        /**
-         * Reproduce la canción anterior
-         */
-        function playPrevious() {
-            currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
-            loadSong(currentSongIndex);
-
-            if (isPlaying) {
-                audioElement.play();
-            }
-        }
-
-        /**
-         * Reproduce la siguiente canción
-         */
-        function playNext() {
-            currentSongIndex = (currentSongIndex + 1) % songs.length;
-            loadSong(currentSongIndex);
-
-            if (isPlaying) {
-                audioElement.play();
-            }
-        }
-
-        // Evento cuando termina una canción
-        audioElement.addEventListener('ended', playNext);
-
-        // Inicializar la aplicación
-        document.addEventListener('DOMContentLoaded', () => {
-            hideAllPlayers();
-            loadSong(currentSongIndex);
+        })
+        .catch(error => {
+            console.error('Error al cargar la playlist:', error);
+            // Cargar la playlist predeterminada como fallback
+            loadDefaultPlaylist();
         });
+}
+
+
+
+// Evento cuando termina una canción
+audioElement.addEventListener('ended', playNext);
+
+// Inicializar la aplicación
+document.addEventListener('DOMContentLoaded', () => {
+    hideAllPlayers();
+    loadPlaylist(); // Cargar playlist JSON externo
+});
     </script>
 </body>
 
