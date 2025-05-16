@@ -1,0 +1,244 @@
+@font-face {
+        font-family: 'VoidInBlue';
+        src: url('fonts/VoidInBlue.ttf') format('truetype');
+    }
+
+    /* Estilos comunes para todos los players */
+    div.player {
+        position: relative;
+        border-radius: 22px;
+        height: 340px;
+        margin: 2rem auto;
+        width: 340px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        /* Aquí NO ponemos background general, porque lo manejas en JS con la imagen */
+    }
+
+    div.container {
+        height: 338px;
+        position: relative;
+        z-index: 0;
+    }
+
+    div.disco {
+        position: absolute;
+        height: 164px;
+        width: 164px;
+        top: 5.5rem;
+        left: 5.5rem;
+        z-index: 1;
+        /* El background es específico, por diseño */
+    }
+
+    div.espacio {
+        height: 10rem;
+        width: 6rem;
+        position: absolute;
+        z-index: 2;
+        /* El background y posición varían según diseño */
+    }
+
+    h4.title, h4.artist, h4.year {
+        font-family: 'VoidInBlue';
+        color: #fff;
+        opacity: 0.9;
+        position: absolute;
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+
+    div.controls {
+        position: absolute;
+        width: 320px;
+        bottom: 40px;
+        height: 92px;
+        left: 50%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transform: translateX(-50%);
+    }
+
+    div.controls button {
+        cursor: pointer;
+        border: none;
+        transition: transform 0.2s ease-in;
+    }
+
+    div.controls button.prev, 
+    div.controls button.next {
+        height: 41.67px;
+        width: 41.67px;
+        background-size: cover;
+    }
+
+    div.controls button.play {
+        height: 91.67px;
+        width: 91.67px;
+        background-size: cover;
+    }
+
+    /* -------- Estilos para Design 1 -------- */
+    .design1 {
+        background: linear-gradient(to bottom, #0006, #000c);
+    }
+
+    .design1 div.disco {
+        background: url(imagen/mp3player/svg/disco-01.svg) no-repeat;
+        scale: 1.7;
+    }
+
+    .design1 div.espacio {
+        background: url(imagen/mp3player/svg/port.svg) no-repeat;
+        scale: 2.13;
+        top: 5.63rem;
+        left: 2.9rem;
+    }
+
+    .design1 h4.title {
+        font-size: small;
+        opacity: 0.9;
+        top: 14.5rem;
+        left: 6rem;
+        transform: translateX(-50%) scaleY(7.5);
+        width: 8rem;
+    }
+
+    .design1 h4.artist {
+        opacity: 0.7;
+        font-size: 20px;
+        font-weight: 500;
+        top: 0.5rem;
+        left: 18rem;
+        width: 320px;
+        transform: translateX(-50%);
+    }
+
+    .design1 h4.year {
+        opacity: 0.7;
+        font-size: 20px;
+        font-weight: 500;
+        top: 2rem;
+        left: 18rem;
+        width: 320px;
+        transform: translateX(-50%);
+    }
+
+    .design1 div.controls button.prev {
+        background: url(imagen/mp3player/svg/botons/prev-1.svg) no-repeat;
+    }
+
+    .design1 div.controls button.play {
+        background: url(imagen/mp3player/svg/botons/play-1.svg) no-repeat;
+    }
+
+    .design1 div.controls button.next {
+        background: url(imagen/mp3player/svg/botons/next-1.svg) no-repeat;
+    }
+
+    /* -------- Estilos para Design 2 -------- */
+    .design2 {
+        /* Ejemplo: un fondo diferente o filtro */
+        background: linear-gradient(to bottom, #001022, #00001a);
+    }
+
+    .design2 div.disco {
+        background: url(imagen/mp3player/svg/disco-02.svg) no-repeat;
+        scale: 1.5;
+        top: 6rem;
+        left: 6rem;
+    }
+
+    .design2 div.espacio {
+        background: url(imagen/mp3player/svg/port-02.svg) no-repeat;
+        scale: 2;
+        top: 5.5rem;
+        left: 3rem;
+    }
+
+    .design2 h4.title {
+        font-size: medium;
+        top: 15rem;
+        left: 7rem;
+        width: 9rem;
+    }
+
+    .design2 h4.artist {
+        font-size: 18px;
+        top: 1rem;
+        left: 19rem;
+        width: 300px;
+    }
+
+    .design2 h4.year {
+        font-size: 18px;
+        top: 2.5rem;
+        left: 19rem;
+        width: 300px;
+    }
+
+    .design2 div.controls button.prev {
+        background: url(imagen/mp3player/svg/botons/prev-2.svg) no-repeat;
+    }
+
+    .design2 div.controls button.play {
+        background: url(imagen/mp3player/svg/botons/play-2.svg) no-repeat;
+    }
+
+    .design2 div.controls button.next {
+        background: url(imagen/mp3player/svg/botons/next-2.svg) no-repeat;
+    }
+
+    /* -------- Estilos para Design 3 -------- */
+    .design3 {
+        background: linear-gradient(to bottom, #220000, #3a0000);
+    }
+
+    .design3 div.disco {
+        background: url(imagen/mp3player/svg/disco-03.svg) no-repeat;
+        scale: 1.6;
+        top: 5.8rem;
+        left: 5.7rem;
+    }
+
+    .design3 div.espacio {
+        background: url(imagen/mp3player/svg/port-03.svg) no-repeat;
+        scale: 2.1;
+        top: 5.6rem;
+        left: 3.1rem;
+    }
+
+    .design3 h4.title {
+        font-size: small;
+        top: 14.8rem;
+        left: 6.3rem;
+        width: 7.5rem;
+    }
+
+    .design3 h4.artist {
+        font-size: 19px;
+        top: 0.7rem;
+        left: 18.5rem;
+        width: 310px;
+    }
+
+    .design3 h4.year {
+        font-size: 19px;
+        top: 2.1rem;
+        left: 18.5rem;
+        width: 310px;
+    }
+
+    .design3 div.controls button.prev {
+        background: url(imagen/mp3player/svg/botons/prev-3.svg) no-repeat;
+    }
+
+    .design3 div.controls button.play {
+        background: url(imagen/mp3player/svg/botons/play-3.svg) no-repeat;
+    }
+
+    .design3 div.controls button.next {
+        background: url(imagen/mp3player/svg/botons/next-3.svg) no-repeat;
+    }

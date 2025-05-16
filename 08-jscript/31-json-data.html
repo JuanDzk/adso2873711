@@ -1,158 +1,361 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template</title>
-    <link rel="stylesheet" href="css/master.css">
+    <title>Reproductor MP3 con Múltiples Diseños</title>
+    <style>
+        @font-face {
+            font-family: 'VoidInBlue';
+            src: url('fonts/VoidInBlue.ttf') format('truetype');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        nav.controls {
+            padding: 1rem;
+        }
+
+        nav.controls a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+        }
+
+        main {
+            flex: 1;
+            padding: 1rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header h2 {
+            font-size: 1.2rem;
+            color: #aaa;
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        /* Estilos comunes para todos los players */
+        div.player {
+            position: relative;
+            border-radius: 22px;
+            height: 340px;
+            width: 340px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: none;
+            /* Oculto por defecto */
+        }
+
+        div.container {
+            height: 338px;
+            position: relative;
+            z-index: 0;
+        }
+
+        div.disco {
+            position: absolute;
+            z-index: 1;
+            animation: spin 10s linear infinite paused;
+        }
+
+        div.espacio {
+            height: 10rem;
+            width: 6rem;
+            position: absolute;
+            z-index: 2;
+        }
+
+        h4.title,
+        h4.artist,
+        h4.year {
+            font-family: 'VoidInBlue', Arial, sans-serif;
+            color: #fff;
+            opacity: 0.9;
+            position: absolute;
+            margin: 0.5rem 0;
+            text-align: center;
+        }
+
+        div.controls {
+            position: absolute;
+            width: 180px;
+            bottom: 40px;
+            height: 0;
+            left: 50%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transform: translateX(-50%);
+        }
+
+        div.controls button {
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s ease-in;
+            background-color: transparent;
+        }
+
+        div.controls button:hover {
+            transform: scale(1.1);
+        }
+
+        div.controls button:active {
+            transform: scale(0.95);
+        }
+
+        div.controls button.prev,
+        div.controls button.next {
+            height: 41.67px;
+            width: 41.67px;
+            background-size: cover;
+        }
+
+        div.controls button.play {
+            height: 57.67px;
+            width: 57.67px;
+            background-size: cover;
+        }
+
+        /* Animación para el disco */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* -------- Estilos para Design 1 -------- */
+        .design1 {
+            background: linear-gradient(to bottom, #0006, #000c);
+        }
+
+        .design1 div.disco {
+            background: url(imagen/mp3player/svg/disco-01.svg) no-repeat;
+            background-size: contain;
+            height: 10rem;
+            width: 10rem;
+            top: 5.5rem;
+            left: 6rem;
+            scale: 1.7;
+        }
+
+        .design1 div.espacio {
+            background: url(imagen/mp3player/svg/port.svg) no-repeat;
+            scale: 2.13;
+            top: 5.63rem;
+            left: 2.9rem;
+        }
+
+        .design1 h4.title {
+            font-size: small;
+            opacity: 0.9;
+            top: 14.5rem;
+            left: 6rem;
+            transform: translateX(-50%) scaleY(7.5);
+            width: 8rem;
+        }
+
+        .design1 h4.artist {
+            opacity: 0.7;
+            font-size: 20px;
+            font-weight: 500;
+            top: 0.5rem;
+            left: 18rem;
+            width: 320px;
+            transform: translateX(-50%);
+        }
+
+        .design1 h4.year {
+            opacity: 0.7;
+            font-size: 20px;
+            font-weight: 500;
+            top: 2rem;
+            left: 18rem;
+            width: 320px;
+            transform: translateX(-50%);
+        }
+
+        .design1 div.controls button.prev {
+            background: url(imagen/mp3player/svg/botons/prev-1.svg) no-repeat;
+            background-size: 100%;
+        }
+
+        .design1 div.controls button.play {
+            background: url(imagen/mp3player/svg/botons/play-1.svg) no-repeat;
+            background-size: 100%;
+
+        }
+
+        .design1 div.controls button.next {
+            background: url(imagen/mp3player/svg/botons/next-1.svg) no-repeat;
+            background-size: 100%;
+
+        }
+
+        /* -------- Estilos para Design 2 -------- */
+        .design2 {
+            background: linear-gradient(to bottom, #001022, #00001a);
+        }
+
+        .design2 div.disco {
+            background: url(imagen/mp3player/svg/disco-02.svg) no-repeat;
+            height: 5.2rem;
+            width: 5.2rem;
+            scale: 1.7;
+            top: 7rem;
+            left: 8.6rem;
+        }
+
+        .design2 div.espacio {
+            background: url(imagen/mp3player/svg/musashi.svg) no-repeat;
+            scale: 1.7;
+            top: 8.5rem;
+            left: 8.5rem;
+        }
+
+        .design2 h4.title {
+            font-size: medium;
+            top: 5rem;
+            left: 8rem;
+            width: 9rem;
+            text-shadow: 2px 2px 2px rgb(255, 0, 0);
+        }
+
+        .design2 h4.artist {
+            font-size: 18px;
+            top: 3.8rem;
+            left: 8rem;
+        }
+
+        .design2 h4.year {
+            font-size: 18px;
+            top: 14.5rem;
+            left: 9.5rem;
+        }
+
+        .design2 div.controls button.prev {
+            background: url(imagen/mp3player/svg/botons/prev-2.svg) no-repeat;
+            background-size: 100%;
+
+        }
+
+        .design2 div.controls button.play {
+            background: url(imagen/mp3player/svg/botons/play-2.svg) no-repeat;
+            background-size: 100%;
+
+        }
+
+        .design2 div.controls button.next {
+            background: url(imagen/mp3player/svg/botons/next-2.svg) no-repeat;
+            background-size: 100%;
+
+        }
+
+        /* -------- Estilos para Design 3 -------- */
+        .design3 {
+            background: linear-gradient(to bottom, #220000, #3a0000);
+        }
+
+        .design3 div.disco {
+            background: url(imagen/mp3player/svg/disco-03.svg) no-repeat;
+            height: 6.7rem;
+            width: 6.7rem;
+            scale: 1.6;
+            top: 3rem;
+            left: 2.5rem;
+        }
+
+        .design3 div.espacio {
+            background: url(imagen/mp3player/svg/port-3.svg) no-repeat;
+            scale: 1.7;
+            top: 5.6rem;
+            left: 3.1rem;
+        }
+
+        .design3 h4.title {
+            font-size: larger;
+            top: 12rem;
+            left: 1.8rem;
+            width: 7.5rem 120px;
+        }
+
+        .design3 h4.artist {
+            font-size: 19px;
+            top: 0.7rem;
+            left: 18.5rem;
+            width: 310px;
+        }
+
+        .design3 h4.year {
+            font-size: 19px;
+            top: 2.1rem;
+            left: 18.5rem;
+            width: 310px;
+        }
+
+        .design3 div.controls button.prev {
+            background: url(imagen/mp3player/svg/botons/prev-3.svg) no-repeat;
+            background-size: 100%;
+
+        }
+
+        .design3 div.controls button.play {
+            background: url(imagen/mp3player/svg/botons/play-3.svg) no-repeat;
+            background-size: 100%;
+
+        }
+
+        .design3 div.controls button.next {
+            background: url(imagen/mp3player/svg/botons/next-3.svg) no-repeat;
+            background-size: 100%;
+
+        }
+
+        /* Información de la canción actual */
+        .song-info {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+    </style>
 </head>
-<style>
-    @font-face {
-        font-family: 'VoidInBlue';
-        src: url('fonts/VoidInBlue.ttf') format('truetype');
-    }
-
-    div.player {
-        position: relative;
-        background: linear-gradient(to bottom, #0006, #000c);
-        border-radius: 22px;
-        height: 340px;
-        margin: 2rem auto;
-        width: 340px;
-        background-size: cover;
-        background-position: center;
-    }
-
-    div.container {
-        height: 338px;
-        position: relative;
-        z-index: 0;
-    }
-
-    div.disco {
-        position: absolute;
-        background: url(imagen/mp3player/svg/disco-01.svg) no-repeat;
-        height: 164px;
-        width: 164px;
-        scale: 1.7;
-        top: 5.5rem;
-        left: 5.5rem;
-        z-index: 1;
-    }
-
-    div.espacio {
-        background: url(imagen/mp3player/svg/port.svg) no-repeat;
-        height: 10rem;
-        width: 6rem;
-        scale: 2.13;
-        position: absolute;
-        top: 5.63rem;
-        left: 2.9rem;
-        z-index: 2;
-    }
-
-    h4.title {
-        font-family: 'VoidInBlue';
-        font-size: small;
-        color: #ffffff;
-        opacity: 0.9;
-        position: absolute;
-        top: 14.5rem;
-        left: 6rem;
-        transform: translateX(-50%) scaleY(7.5);
-        width: 8rem;
-        text-align: center;
-        margin: 0.5rem 0;
-
-    }
-
-
-    h4.artist {
-        font-family: 'VoidInBlue';
-
-        color: #fff;
-        opacity: 0.7;
-        font-size: 20px;
-        font-weight: 500;
-        text-align: center;
-        position: absolute;
-        top: .5rem;
-        left: 18rem;
-        margin: 0;
-        width: 320px;
-        transform: translateX(-50%);
-    }
-
-    h4.year {
-        font-family: 'VoidInBlue';
-
-        color: #fff;
-        opacity: 0.7;
-        font-size: 20px;
-        font-weight: 500;
-        text-align: center;
-        position: absolute;
-        top: 2rem;
-        left: 18rem;
-        margin: 0;
-        width: 320px;
-        transform: translateX(-50%);
-    }
-
-    div.controls {
-        position: absolute;
-        width: 320px;
-        bottom: 40px;
-        height: 92px;
-        left: 50%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        transform: translateX(-50%);
-    }
-
-    div.controls button {
-        cursor: pointer;
-        transition: transform 0.2s ease-in;
-    }
-
-    div.controls button.prev {
-        background: url(imagen/mp3player/svg/botons/prev-1.svg) no-repeat;
-        background-size: cover;
-        border: none;
-        height: 41.67px;
-        width: 41.67px;
-    }
-
-    div.controls button.prev:hover {
-        transform: translateX(-4px);
-    }
-
-    div.controls button.play {
-        background: url(images/mp3player/btn-pause.svg) no-repeat;
-        background-size: cover;
-        border: none;
-        height: 91.67px;
-        width: 91.67px;
-    }
-
-    div.controls button.play:hover {
-        transform: scale(1.1);
-    }
-
-    div.controls button.next {
-        background: url(images/mp3player/btn-next.svg) no-repeat;
-        background-size: cover;
-        border: none;
-        height: 41.67px;
-        width: 41.67px;
-    }
-
-    div.controls button.next:hover {
-        transform: translateX(4px);
-    }
-</style>
 
 <body>
     <nav class="controls">
@@ -165,11 +368,12 @@
     </nav>
     <main>
         <header>
-            <h1>31- Json Data</h1>
-            <h2>Text format for data exchange, easy to </h2>
+            <h1>MP3 Player - Diseños Múltiples</h1>
+            <h2>Reproductor con tres estilos diferentes</h2>
         </header>
         <section>
-            <div class="player">
+            <!-- Diseño 1 -->
+            <div class="player design1">
                 <div class="container">
                     <div class="espacio"></div>
                     <div class="disco"></div>
@@ -178,117 +382,227 @@
                 <h4 class="artist"></h4>
                 <h4 class="year"></h4>
                 <div class="controls">
-                    <button class="prev"></button>
-                    <button class="play"></button>
-                    <button class="next"></button>
+                    <button class="prev" aria-label="Anterior"></button>
+                    <button class="play" aria-label="Reproducir/Pausar"></button>
+                    <button class="next" aria-label="Siguiente"></button>
                 </div>
             </div>
-            <audio src="audio"></audio>
+
+            <!-- Diseño 2 -->
+            <div class="player design2">
+                <div class="container">
+                    <div class="espacio"></div>
+                    <div class="disco"></div>
+                </div>
+                <h4 class="title"></h4>
+                <h4 class="artist"></h4>
+                <h4 class="year"></h4>
+                <div class="controls">
+                    <button class="prev" aria-label="Anterior"></button>
+                    <button class="play" aria-label="Reproducir/Pausar"></button>
+                    <button class="next" aria-label="Siguiente"></button>
+                </div>
+            </div>
+
+            <!-- Diseño 3 -->
+            <div class="player design3">
+                <div class="container">
+                    <div class="espacio"></div>
+                    <div class="disco"></div>
+                </div>
+                <h4 class="title"></h4>
+                <h4 class="artist"></h4>
+                <h4 class="year"></h4>
+                <div class="controls">
+                    <button class="prev" aria-label="Anterior"></button>
+                    <button class="play" aria-label="Reproducir/Pausar"></button>
+                    <button class="next" aria-label="Siguiente"></button>
+                </div>
+            </div>
+
+            <!-- Elemento de audio (invisible) -->
+            <audio id="audio-player"></audio>
         </section>
     </main>
 
     <script>
-        // Elements
-        const player = document.querySelector('.player');
-        const title = document.querySelector('.title');
-        const artist = document.querySelector('.artist');
-        const year = document.querySelector('.year');
-        const btnPrev = document.querySelector('.prev');
-        const btnPlay = document.querySelector('.play');
-        const btnNext = document.querySelector('.next');
-        const audio = document.querySelector('audio');
+        // Definición de la playlist como objeto JSON
+        const playlist = {
+            "songs": [
+                {
+                    "id": 1,
+                    "title": "VOID IN BLUE",
+                    "artist": "Glaire",
+                    "album": "Single",
+                    "year": 2021,
+                    "cover": "imagen/mp3player/cover-03.webp",
+                    "song": "audio/song-01.mp3",
+                    "design": "design1"
+                },
+                {
+                    "id": 2,
+                    "title": "BOA",
+                    "artist": "Duvet",
+                    "album": "twilight",
+                    "year": 1996,
+                    "cover": "imagen/mp3player/cover-02.webp",
+                    "song": "audio/song-02.mp3",
+                    "design": "design2"
+                },
+                {
+                    "id": 3,
+                    "title": "BITE MY TONGLE",
+                    "artist": "wilt",
+                    "album": "Single",
+                    "year": 2024,
+                    "cover": "imagen/mp3player/cover-01.webp",
+                    "song": "audio/song-03.mp3",
+                    "design": "design3"
+                }
+            ]
+        };
 
-        // Variables
-        let songs = [];
-        let currentSong = 0;
+        // Elementos principales
+        const audioElement = document.getElementById('audio-player');
+        const players = {
+            design1: document.querySelector('.player.design1'),
+            design2: document.querySelector('.player.design2'),
+            design3: document.querySelector('.player.design3')
+        };
+
+        // Variables de estado
+        let currentSongIndex = 0;
         let isPlaying = false;
+        const songs = playlist.songs;
 
-        // Functions
+        /**
+         * Oculta todos los reproductores
+         */
+        function hideAllPlayers() {
+            Object.values(players).forEach(player => {
+                player.style.display = 'none';
+            });
+        }
+
+        /**
+         * Actualiza el icono del botón play/pause según el estado
+         * @param {HTMLElement} playButton - El botón a actualizar
+         * @param {boolean} playing - Estado de reproducción
+         * @param {string} design - Diseño actual
+         */
+        function updatePlayButton(playButton, playing, design) {
+            const baseUrl = 'imagen/mp3player/svg/botons/';
+            const icon = playing ? `pause-${design.slice(-1)}.svg` : `play-${design.slice(-1)}.svg`;
+            playButton.style.background = `url(${baseUrl}${icon}) no-repeat center/cover`;
+        }
+
+        /**
+         * Carga y muestra una canción
+         * @param {number} index - Índice de la canción a cargar
+         */
         function loadSong(index) {
+            // Obtener la canción actual
             const song = songs[index];
-            player.style.background = `linear-gradient(to bottom, #0006, #000c), url(${song.cover}) no-repeat center`;
-            player.style.backgroundSize = 'cover';
-            title.textContent = song.title;
-            artist.textContent = song.artist;
-            year.textContent = song.year;
-            audio.src = song.song;
-            console.log('Song loaded:', song);
-        }
+            if (!song) return;
 
-        function togglePlay() {
+            // Ocultar todos los reproductores
+            hideAllPlayers();
+
+            // Obtener el reproductor correspondiente al diseño
+            const design = song.design;
+            const currentPlayer = players[design];
+
+            // Mostrar el reproductor actual
+            currentPlayer.style.display = 'block';
+
+            // Actualizar la información en el reproductor
+            currentPlayer.querySelector('.title').textContent = song.title;
+            currentPlayer.querySelector('.artist').textContent = song.artist;
+            currentPlayer.querySelector('.year').textContent = song.year;
+
+            // Establecer el fondo con la portada
+            currentPlayer.style.background = `linear-gradient(to bottom, #0006, #000c), url(${song.cover}) no-repeat center/cover`;
+
+            // Configurar la fuente de audio
+            audioElement.src = song.song;
+            audioElement.load();
+
+            // Configurar botones
+            const prevButton = currentPlayer.querySelector('.prev');
+            const playButton = currentPlayer.querySelector('.play');
+            const nextButton = currentPlayer.querySelector('.next');
+
+            // Actualizar el botón de reproducción según el estado
+            updatePlayButton(playButton, isPlaying, design);
+
+            // Si estaba reproduciendo, continuar reproduciendo
             if (isPlaying) {
-                audio.pause();
-                btnPlay.style.background = 'url(images/mp3player/btn-pause.svg) no-repeat';
-                btnPlay.style.backgroundSize = 'cover';
+                audioElement.play();
+                currentPlayer.querySelector('.disco').style.animationPlayState = 'running';
             } else {
-                audio.play();
-                btnPlay.style.background = 'url(images/mp3player/btn-play.svg) no-repeat';
-                btnPlay.style.backgroundSize = 'cover';
+                currentPlayer.querySelector('.disco').style.animationPlayState = 'paused';
             }
-            isPlaying = !isPlaying;
+
+            // Configurar los event listeners para los botones
+            prevButton.onclick = playPrevious;
+            playButton.onclick = togglePlay;
+            nextButton.onclick = playNext;
         }
 
-        // Event Listeners
-        btnPlay.addEventListener('click', togglePlay);
+        /**
+         * Alterna entre reproducir y pausar
+         */
+        function togglePlay() {
+            const song = songs[currentSongIndex];
+            const currentPlayer = players[song.design];
+            const playButton = currentPlayer.querySelector('.play');
+            const disco = currentPlayer.querySelector('.disco');
 
-        btnPrev.addEventListener('click', () => {
-            currentSong = (currentSong - 1 + songs.length) % songs.length;
-            loadSong(currentSong);
-            if (isPlaying) audio.play();
-        });
-
-        btnNext.addEventListener('click', () => {
-            currentSong = (currentSong + 1) % songs.length;
-            loadSong(currentSong);
-            if (isPlaying) audio.play();
-            isPlaying = !isPlaying
-        });
-
-        btnNext.addEventListener('click', (e) => {
-
-            if (currentSong < songs.length - 1) {
-                currentSong += 1
+            if (isPlaying) {
+                // Pausar
+                audioElement.pause();
+                disco.style.animationPlayState = 'paused';
             } else {
-                currentSong = 0
+                // Reproducir
+                audioElement.play();
+                disco.style.animationPlayState = 'running';
             }
-            loadSong(currentSong)
-            btnPlay.style.background = `url(images/mp3player/btn-play.svg) no-repeat width: 41.67px;`
-            isPlaying = false
 
+            isPlaying = !isPlaying;
+            updatePlayButton(playButton, isPlaying, song.design);
+        }
 
+        /**
+         * Reproduce la canción anterior
+         */
+        function playPrevious() {
+            currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+            loadSong(currentSongIndex);
 
-
-        })
-        btnNext.addEventListener('click', (e) => {
-
-            if (currentSong > 0) {
-                currentSong -= 1
-            } else {
-                currentSong = songs.length - 1
+            if (isPlaying) {
+                audioElement.play();
             }
-            loadSong(currentSong)
-            btnPlay.style.background = `url(images/mp3player/btn-play.svg)no-repeat center width: 41.67px;`
-            isPlaying = false
+        }
 
+        /**
+         * Reproduce la siguiente canción
+         */
+        function playNext() {
+            currentSongIndex = (currentSongIndex + 1) % songs.length;
+            loadSong(currentSongIndex);
 
+            if (isPlaying) {
+                audioElement.play();
+            }
+        }
 
+        // Evento cuando termina una canción
+        audioElement.addEventListener('ended', playNext);
 
-        })
-        // Load playlist
-        fetch('json/playlist.json')
-            .then(response => response.json())
-            .then(data => {
-                songs = data.songs;
-                loadSong(currentSong);
-                console.log('Playlist loaded:', songs);
-            })
-            .catch(error => console.error('Error:', error));
-
-        // Audio event listeners
-        audio.addEventListener('ended', () => {
-            currentSong = (currentSong + 1) % songs.length;
-            loadSong(currentSong);
-            if (isPlaying) audio.play();
+        // Inicializar la aplicación
+        document.addEventListener('DOMContentLoaded', () => {
+            hideAllPlayers();
+            loadSong(currentSongIndex);
         });
     </script>
 </body>
