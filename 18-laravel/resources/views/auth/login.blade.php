@@ -1,5 +1,4 @@
-<x-guest-layout>
-    <!-- Session Status -->
+  {{--   <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <form method="POST" action="{{ route('login') }}">
@@ -45,3 +44,38 @@
         </div>
     </form>
 </x-guest-layout>
+--}}
+
+
+@extends ('layouts.app')
+@section('title', 'Welcome to LaraPets')
+@section('content')
+<main class="bg-[url(images/bg-welcome3.png)] bg-cover w-full min-h-[100dvh] flex flex-col justify-center items-center">
+    <div class="bg-[#0006] w-96 text-white p-10 rounded-lg flex flex-col justify-center items-center">
+        <h1 class="text-4x1 w-[140px]" href="{{url('login')}} ">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-12">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+            </svg>
+            Log in
+        </h1>
+        <form method="POST" action="{{ route('login') }}" class="flex flex-col gap-2">
+            @csrf
+            <div class="mt-4">
+                <label class="mt-4"">Email:</label>
+                <input type="email" name="email" placeholder="algo@email.com" class="input bg-[trasnparent] border-white"/>
+            </div>
+
+            <div>
+                <label class="mt-4">Password:</label> 
+                <input type="password" name="password" placeholder="secret" class="input  bg-[trasnparent] border-white"/>
+            </div>
+            <div>
+                <button class="btn btn-light w-full">
+                    Login
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+    </main>
+    @endsection
