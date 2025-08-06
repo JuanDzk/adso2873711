@@ -18,16 +18,16 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-   'document',
-   'fullname',
-   'gender',
-   'birthdate',
-   'photo',
-   'phone',
-   'email',
-   'password',
-   'active',
-   'role'
+        'document',
+        'fullname',
+        'gender',
+        'birthdate',
+        'photo',
+        'phone',
+        'email',
+        'password',
+        'active',
+        'role'
     ];
 
     /**
@@ -53,8 +53,9 @@ class User extends Authenticatable
         ];
     }
 
-    //Relationship: User hasMany Adoptions
-    public function adoptions () {
+    // Relationship: User hasMany Adoptions
+    public function adoptions() {
         return $this->hasMany(Adoption::class);
     }
+
 }
