@@ -79,7 +79,22 @@ Route::middleware('auth')->group(function () {
             // 'pets'      => PetController::class,
             // 'adoptions' => AdoptionController::class
         ]);
+        Route::post('search/users', [UserController::class,'search']);
+        
     });
 });
+
+//search
+Route::post('search/users',[UserController::class, 'search']);
+
+
+//pdf
+Route::get('export/users/pdf',[UserController::class, 'pdf']);
+
+//excel
+Route::get('export/users/excel',[UserController::class, 'excel']);
+Route::get('import/users/',[UserController::class, 'import']);
+
+
 
 require __DIR__.'/auth.php';
