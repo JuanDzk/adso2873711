@@ -55,8 +55,8 @@
                     <div id="upload" class="mask mask-squircle w-48 cursor-pointer hover:scale-110 transition-transform">
                         <img id="preview" src="https://i.pinimg.com/474x/48/e1/5a/48e15a68bc8d3ca74854456813cdbd52.jpg" />
                     </div>
-                    <small class="font-bold text-gray-500 flex items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="" viewBox="0 0 256 256">
+                    <small class="font-bold text-gay-500 flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
                             <path
                                 d="M168,136a8,8,0,0,1-8,8H136v24a8,8,0,0,1-16,0V144H96a8,8,0,0,1,0-16h24V104a8,8,0,0,1,16,0v24h24A8,8,0,0,1,168,136Zm64-56V192a24,24,0,0,1-24,24H48a24,24,0,0,1-24-24V80A24,24,0,0,1,48,56H75.72L87,39.12A16,16,0,0,1,100.28,32h55.44A16,16,0,0,1,169,39.12L180.28,56H208A24,24,0,0,1,232,80Zm-16,0a8,8,0,0,0-8-8H176a8,8,0,0,1-6.66-3.56L155.72,48H100.28L86.66,68.44A8,8,0,0,1,80,72H48a8,8,0,0,0-8,8V192a8,8,0,0,0,8,8H208a8,8,0,0,0,8-8Z">
                             </path>
@@ -67,17 +67,17 @@
                 <input type="file" name="photo" id="photo" class="hidden" accept="image/*">
                 <div class="mt-4">
                     <label class="mt-4">Document:</label>
-                    <input type="text" name="document" placeholder="750001002"
-                        class="w-full input bg-[transparent] border-white" value="{{ old('document') }}" />
+                    <input type="text" name="document" placeholder="750001002" class="input bg-[transparent] border-white"
+                        value="{{ old('document') }}" />
                 </div>
                 <div>
                     <label class="mt-4">Full Name:</label>
-                    <input type="text" name="fullname" placeholder="John Wick"
-                        class="w-full input bg-[transparent] border-white" value="{{ old('fullname') }}" />
+                    <input type="text" name="fullname" placeholder="John Wick" class="input bg-[transparent] border-white"
+                        value="{{ old('fullname') }}" />
                 </div>
                 <div>
                     <label class="mt-4">Gender:</label>
-                    <select name="gender" class="w-full select bg-[transparent] border-white">
+                    <select name="gender" class="select bg-[transparent] border-white">
                         <option value="">Select Gender...</option>
                         <option value="Female" @if(old('gender') == 'Female') selected @endif>Female</option>
                         <option value="Male" @if(old('gender') == 'Male') selected @endif>Male</option>
@@ -85,29 +85,29 @@
                 </div>
                 <div>
                     <label class="mt-4">Birthdate:</label>
-                    <input type="date" name="birthdate" placeholder="2000-10-08"
-                        class="w-full input bg-[transparent] border-white" value="{{ old('birthdate') }}" />
+                    <input type="date" name="birthdate" placeholder="2000-10-08" class="input bg-[transparent] border-white"
+                        value="{{ old('birthdate') }}" />
                 </div>
                 <div>
                     <label class="mt-4">Phone Number:</label>
-                    <input type="text" name="phone" placeholder="3201231234"
-                        class="w-full input bg-[transparent] border-white" value="{{ old('phone') }}" />
+                    <input type="text" name="phone" placeholder="3201231234" class="input bg-[transparent] border-white"
+                        value="{{ old('phone') }}" />
                 </div>
                 <div>
                     <label class="mt-4">Email:</label>
-                    <input type="text" name="email" placeholder="jonhw@mail.com"
-                        class="w-full input bg-[transparent] border-white" value="{{ old('email') }}" />
+                    <input type="text" name="email" placeholder="jonhw@mail.com" class="input bg-[transparent] border-white"
+                        value="{{ old('email') }}" />
                 </div>
                 <div>
                     <div> </div>
                     <label class="mt-4">Password:</label>
                     <input type="password" name="password" placeholder="secret"
-                        class="w-full input bg-[transparent] border-white" />
+                        class="input bg-[transparent] border-white" />
                 </div>
                 <div>
                     <label class="mt-4">Password Confirmation:</label>
                     <input type="password" name="password_confirmation" placeholder="secret"
-                        class="w-full input bg-[transparent] border-white" />
+                        class="input bg-[transparent] border-white" />
                 </div>
                 <div>
                     <button class="btn btn-light w-full">
@@ -133,18 +133,18 @@
             @if (count($errors->all()) > 0)
                 @php $content = '<ul class="flex flex-col gap-1">' @endphp
                 @foreach ($errors->all() as $msg)
-                    @php $content .= '<li class="badge badge-error text-xs w-full">' . $msg . '</li>' @endphp
+                    @php $content .= '<li class="badge badge-error text-xs w-full">.'.$msg.'</li>' @endphp
                 @endforeach
-                @php $content .= '</ul>' @endphp
+            @php $content .= '</ul>' @endphp
                 Swal.fire({
                     position: "top-end",
                     icon: "error",
                     title: "something went wrong!",
                     html: `@php echo $content @endphp`,
                     showConfirmButton: true,
-                    confirmButtonColor: "#154869",
+                    confirmButtonColor: "#154869"
                 });
             @endif
-                });
+            });
     </script>
 @endsection

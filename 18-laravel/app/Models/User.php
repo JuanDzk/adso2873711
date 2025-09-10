@@ -53,17 +53,20 @@ class User extends Authenticatable
         ];
     }
 
-    // Relationship: User hasMany Adoptions
-    public function adoptions() {
+    // Relationships: User hasMany Adoptions
+    public function adoptions()
+    {
         return $this->hasMany(Adoption::class);
     }
 
+    // Scoope Names
     public function scopeNames($users, $q) {
-        if (trim($q)) {
-            $users->where('fullname','LIKE',"%$q%")
-            ->orWhere('email','LIKE',"%$q%");
+        if(trim($q)) {
+            $users->where('fullname', 'LIKE', "%$q%")
+                  ->orWhere('email', 'LIKE', "%$q%");
+        }
 
     }
 
-}
+    
 }

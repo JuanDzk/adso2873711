@@ -17,28 +17,38 @@ class PetFactory extends Factory
     public function definition(): array
     {
         $pets = [
-            'Max', 'Bella', 'Charlie', 'Luna', 'Lucy', 'Cooper', 'Daisy', 'Buddy', 'Molly', 'Rocky',
-            'Bear', 'Sadie', 'Duke', 'Zoe', 'Toby', 'Chloe', 'Oliver', 'Lily', 'Jack', 'Sophie',
-            'Teddy', 'Stella', 'Winston', 'Penny', 'Spider', 'Roxy', 'Leo', 'Ruby', 'Milo', 'Gracie',
-            'Zeus', 'Mia', 'Louie', 'Lola', 'Jax', 'Coco', 'Bentley', 'Rosie', 'Murphy', 'Ellie',
-            'Finn', 'Abby', 'Henry', 'Piper', 'Otis', 'Ginger', 'Tucker', 'Lulu', 'Gus', 'Nala',
-            'Sam', 'Willow', 'Koda', 'Maddie', 'Apollo', 'Layla', 'Harley', 'Zara', 'Bruno', 'Pepper',
-            'Beau', 'Lilly', 'Dexter', 'Sasha', 'Ace', 'Lexi', 'Scout', 'Maya', 'Jake', 'Izzy',
-            'Bandit', 'Annie', 'Thor', 'Olive', 'Riley', 'Cookie', 'Marley', 'Hazel', 'Gunner', 'Emma',
-            'Bo', 'Riley', 'Cash', 'Phoebe', 'Simba', 'Harper', 'Oreo', 'Belle', 'Rex', 'Dixie',
-            'Hank', 'Holly', 'Moose', 'Sugar', 'Prince', 'Ivy', 'Chico', 'Maggie', 'Benny', 'Ella',
-            'Bruce', 'Mocha', 'Rocco', 'Winnie', 'Rudy', 'Kona', 'Sammy', 'Athena', 'Tank', 'Cleo'
+            'Max', 'Luna', 'Bella', 'Charlie', 'Lucy', 'Cooper', 'Daisy', 'Milo', 'Sadie', 'Rocky',
+            'Lola', 'Bear', 'Zoe', 'Duke', 'Stella', 'Tucker', 'Molly', 'Teddy', 'Chloe', 'Winston',
+            'Penny', 'Oliver', 'Roxy', 'Zeus', 'Ruby', 'Bentley', 'Lily', 'Murphy', 'Sophie', 'Jax',
+            'Gracie', 'Oscar', 'Rosie', 'Leo', 'Ellie', 'Moose', 'Abby', 'Louie', 'Piper', 'Gus',
+            'Maggie', 'Finn', 'Ginger', 'Riley', 'Zara', 'Tank', 'Coco', 'Apollo', 'Sasha', 'Thor',
+            'Annie', 'Sam', 'Lilly', 'Bandit', 'Princess', 'Diesel', 'Emma', 'Marley', 'Willow', 'Gunner',
+            'Izzy', 'Shadow', 'Nala', 'Scout', 'Holly', 'Kobe', 'Lexi', 'Brody', 'Lulu', 'Hank',
+            'Mia', 'Jackson', 'Pepper', 'Axel', 'Harley', 'Bruno', 'Ziggy', 'Rex', 'Pearl', 'Jake',
+            'Cody', 'Sandy', 'Ranger', 'Layla', 'Champ', 'Maddie', 'Hunter', 'Maya', 'Rusty', 'Shelby',
+            'Simba', 'Athena', 'Dexter', 'Millie', 'Rocco', 'Mocha', 'Otis', 'Kona', 'Boomer', 'Fiona'
         ];
 
         return [
-            'name'        => $pets[array_rand($pets)] . fake()->numerify('-##'),
-            'kind'        => fake()->randomElement(['Dog', 'Cat', 'Dog', 'Bird', 'Mouse', 'Dog', 'Cat', 'Pig']),
-            'weight'      => fake()->numberBetween(1, 80),
-            'age'         => fake()->numberBetween(1, 18),
+            'name'        => $pets[array_rand($pets)] . fake()->numerify('###'),
+            'kind'        => fake()->randomElement(['Dog', 'Cat', 'Dog', 'Bird', 'Mouse', 'Dog', 'Hamster', 'Pig']),
+            'weight'      => fake()->numberBetween(1, 80),    // Es un rango entre
+            'age'         => fake()->randomNumber(1, true),
             'breed'       => fake()->colorName(),
             'location'    => fake()->city(),
             'description' => fake()->sentence(10),
-            'created_at'  => now()
+            'created_at'   => now()
         ];
+        /*
+        'name',
+        'photo',
+        'kind',
+        'weight',
+        'age',
+        'breed',
+        'location',
+        'active',
+        'status'
+        */
     }
 }

@@ -35,11 +35,11 @@ class RegisteredUserController extends Controller
             'gender'    => ['required'],
             'birthdate' => ['required', 'date'],
             'phone'     => ['required'],
-            'email'    => ['required', 'lowercase', 'email', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', 'min:4'],
+            'email'     => ['required', 'lowercase', 'email', 'unique:'.User::class],
+            'password'  => ['required', 'confirmed', 'min:4'],
         ]);
 
-        //dd($request->all());
+        //dd($request->all());  // Para detener el codigo aquí y ver los datos del request
 
         $user = User::create([
             'document'  => $request->document,

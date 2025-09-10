@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Adoption extends Model
 {
-         /**
+    /**
      * The attributes that are mass assignable.
      *
      * @var list<string>
@@ -16,13 +16,16 @@ class Adoption extends Model
         'pet_id'
     ];
 
-    // Relationship: Adoption belongsTo User
-    public function user() {
+    // Relationships: Adoption belongsTo User
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    // Relationship: Adoption belongsTo Pet
-    public function pet() {
+    // Relationships: Adoption belongsTo Pet
+    public function pet()
+    {
         return $this->belongsTo(Pet::class);
     }
+
 }
