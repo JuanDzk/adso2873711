@@ -14,15 +14,15 @@ return new class extends Migration
         Schema::create('pets', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('image')->default('no-image.webp');
+            $table->string('image')->default('no-pet.webp');
             $table->string('kind');
             $table->double('weight');
-            $table->integer('age');
+            $table->string('age');
             $table->string('breed');
             $table->string('location');
             $table->text('description');
             $table->boolean('active')->default(1);
-            $table->boolean('status')->default(0);
+            $table->boolean('status')->default(0); // 0: Available, 1: Adopted
             $table->timestamps();
         });
     }

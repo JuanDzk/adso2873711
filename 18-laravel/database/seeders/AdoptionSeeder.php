@@ -13,13 +13,14 @@ class AdoptionSeeder extends Seeder
      */
     public function run(): void
     {
-        $adopt = new Adoption;
-        $adopt->user_id = 2;
-        $adopt->pet_id = 2;
-        $adopt->save();
+        $adop = new Adoption;
+        $adop->user_id = 2;  // Lara Croft
+        $adop->pet_id  = 2;  // Killer
+        $adop->save();
 
-        $pet = \App\Models\Pet::find($adopt->pet_id);
-        $pet->status = 1;
+        // Busca, consulta y modifica el estado del pet
+        $pet = \App\Models\Pet::find($adop->pet_id);  // Killer
+        $pet->status = 1;  // Adopted
         $pet->save();
     }
 }

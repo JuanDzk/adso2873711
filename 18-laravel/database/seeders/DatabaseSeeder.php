@@ -4,8 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Pet;
-
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+//use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,9 +20,10 @@ class DatabaseSeeder extends Seeder
             AdoptionSeeder::class
         ]);
 
-        User::factory(50)->create();
+
+        User::factory(30)->create();
         Pet::factory(50)->create();
-        
+
         // User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

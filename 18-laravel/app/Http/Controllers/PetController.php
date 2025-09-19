@@ -68,25 +68,19 @@ class PetController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
+ 
     public function show(Pet $pet)
     {
         return view('pets.show')->with('pet', $pet);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+  
     public function edit(Pet $pet)
     {
         return view('pets.edit')->with('pet', $pet);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+  
     public function update(Request $request, Pet $pet)
     {
         $validation = $request->validate([
@@ -128,9 +122,7 @@ class PetController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+   
     public function destroy(Pet $pet)
     {
         if($pet->image != 'no-pet.webp') {
@@ -161,18 +153,11 @@ class PetController extends Controller
         return Excel::download(new PetsExport, 'allpets.xlsx');
     }
 
-    // Explicación Juan David
+
     public function dd(Pet $pet)
     {
         return $pet->name;
     }
 
 
-
-    // public function import(Request $request)
-    // {
-    //     $file = $request->file('file');
-    //     Excel::import(new PetImport, $file);
-    //     return redirect()->back()->with('message', 'Pets imported successfully');
-    // }
 }

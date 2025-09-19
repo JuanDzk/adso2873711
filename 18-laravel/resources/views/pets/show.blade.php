@@ -3,8 +3,8 @@
 
 @section('content')
     @include('layouts.navbar')
-    <main class="bg-slate-950 pt-20 bg-cover w-full min-h-[100dvh] flex flex-col justify-center items-center">
-        <div class="bg-[#00003366] md:w-10/12 w-full text-white p-10 rounded-lg flex flex-col justify-center items-center">
+    <main class="bg-blue-950 pt-20 bg-cover w-full min-h-[100dvh] flex flex-col justify-center items-center">
+        <div class="bg-[#0006] md:w-10/12 w-full text-white p-10 rounded-lg flex flex-col justify-center items-center">
             <h1 class="text-2xl flex gap-2 items-center pb-2 border-b-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="size-12" fill="#fff" viewBox="0 0 256 256"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg>
                 Pet Details
@@ -41,17 +41,17 @@
             </div>
 
             {{-- Pet Details Card --}}
-            <div class="w-full max-w-2xl mt-8 bg-[#00003366] rounded-xl p-6 shadow-lg">
+            <div class="w-full max-w-2xl mt-8 bg-[#0006] rounded-xl p-6 shadow-lg">
                 <div class="flex flex-col md:flex-row gap-8">
                     {{-- Photo Section --}}
                     <div class="flex-shrink-0 flex flex-col items-center">
-                        <div class="mask mask-squircle w-48 h-48 bg-slate-700 flex items-center justify-center">
+                        <div class="mask mask-squircle w-48 h-48 bg-gray-700 flex items-center justify-center">
                             @if($pet->image)
-                                <img src="{{ asset('images/pets/'.$pet->image) }}" 
-                                     alt="Pet Photo" 
+                                <img src="{{ asset('images/pets/'.$pet->image) }}"
+                                     alt="Pet Photo"
                                      class="w-full h-full object-cover">
                             @else
-                                <div class="text-6xl text-slate-400">
+                                <div class="text-6xl text-gray-400">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="size-32" fill="currentColor" viewBox="0 0 256 256">
                                         <path d="M132,180a20,20,0,1,1-20-20A20,20,0,0,1,132,180ZM88,116a20,20,0,1,0-20,20A20,20,0,0,0,88,116Zm108,20a20,20,0,1,0-20-20A20,20,0,0,0,196,136Z"></path>
                                     </svg>
@@ -60,71 +60,91 @@
                         </div>
                         <div class="mt-4 text-center">
                             <h2 class="text-xl font-bold">{{ $pet->name }}</h2>
-                            <span class="badge badge-lg badge-outline text-white mt-2">{{ $pet->species }}</span>
+                            <p class="text-gray-300">{{ $pet->breed }}</p>
+                            <p class="text-gray-300">{{ $pet->kind }}</p>
                         </div>
                     </div>
 
                     {{-- Details Section --}}
-                    <div class="flex-grow">
-                        <h3 class="text-lg font-bold border-b pb-2 mb-4">Details</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <p class="text-sm font-semibold">Age:</p>
-                                <p>{{ $pet->age }} years old</p>
-                            </div>
-                            <div>
-                                <p class="text-sm font-semibold">Created At:</p>
-                                <p>{{ $pet->created_at->format('M d, Y') }}</p>
-                            </div>
-                            <div>
-                                <p class="text-sm font-semibold">Updated At:</p>
-                                <p>{{ $pet->updated_at->format('M d, Y') }}</p>
-                            </div>
+                    <div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-[#0009] p-4 rounded-lg">
+                            <h3 class="text-gray-400 text-sm font-semibold">Name</h3>
+                            <p class="mt-1">{{ $pet->name }}</p>
+                        </div>
+                        
+                        <div class="bg-[#0009] p-4 rounded-lg">
+                            <h3 class="text-gray-400 text-sm font-semibold">Kind</h3>
+                            <p class="mt-1">{{ $pet->kind }}</p>
+                        </div>
+                        
+                        <div class="bg-[#0009] p-4 rounded-lg">
+                            <h3 class="text-gray-400 text-sm font-semibold">Weight</h3>
+                            <p class="mt-1">{{ $pet->weight }} kg</p>
+                        </div>
+                        
+                        <div class="bg-[#0009] p-4 rounded-lg">
+                            <h3 class="text-gray-400 text-sm font-semibold">Age</h3>
+                            <p class="mt-1">{{ $pet->age }} years</p>
                         </div>
 
-                        <div class="flex justify-end mt-6">
-                            <a href="{{ url('pets', ['pet' => $pet->id, 'edit']) }}" class="btn btn-warning btn-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="size-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.242-8.256Z" />
-                                </svg>
-                                Edit
-                            </a>
-                            <button class="btn btn-sm" onclick="my_modal_1.showModal()">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="size-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.919a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m-1.022.166a48.12 48.12 0 0 1 7.5 0m-3.478-.397a48.108 48.108 0 0 1 7.5 0m7.5-1.655C20.735 4.79 19.866 4.5 18.995 4.5H5.005c-.87 0-1.735.29-2.505.86-1.928.74-3.085 2.87-3.085 5.176v.38c0 .245.022.486.064.726a2.053 2.053 0 0 0 1.954 1.841c.294.015.589.022.883.022h15.939c.294 0 .589-.007.883-.022a2.053 2.053 0 0 0 1.954-1.841c.042-.24.064-.48.064-.726v-.38c0-2.306-1.157-4.436-3.085-5.176Z" />
-                                </svg>
-                                Delete
-                            </button>
+                        <div class="bg-[#0009] p-4 rounded-lg">
+                            <h3 class="text-gray-400 text-sm font-semibold">Breed</h3>
+                            <p class="mt-1">{{ $pet->breed }}</p>
+                        </div>
+
+                        <div class="bg-[#0009] p-4 rounded-lg">
+                            <h3 class="text-gray-400 text-sm font-semibold">Location</h3>
+                            <p class="mt-1">{{ $pet->location }}</p>
+                        </div>
+
+                        <div class="bg-[#0009] p-4 rounded-lg md:col-span-2">
+                            <h3 class="text-gray-400 text-sm font-semibold">Description</h3>
+                            <p class="mt-1">{{ $pet->description ?: 'No description provided' }}</p>
+                        </div>
+
+                        <div class="bg-[#0009] p-4 rounded-lg">
+                            <h3 class="text-gray-400 text-sm font-semibold">Status</h3>
+                                 @if ($pet->status == 'adopted')
+                                    <div class="mt-1 w-28 h-8 font-semibold rounded-full bg-blue-400 text-blue-950 flex items-center justify-center">
+                                        Adopted
+                                    </div>
+                                @else
+                                    <div class="mt-1 w-28 h-8 font-semibold rounded-full bg-blue-400 text-blue-950 flex items-center justify-center">
+                                        Available
+                                    </div>
+                                @endif
+                        </div>
+
+                        <div class="bg-[#0009] p-4 rounded-lg">
+                            <h3 class="text-gray-400 text-sm font-semibold">Active</h3>
+                                @if ($pet->active == 1)
+                                    <div class="mt-1 w-8 h-8 rounded-full text-white bg-blue-400 flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="size-8" fill="#000000" viewBox="0 0 256 256"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path></svg>
+                                    </div>
+                                @else
+                                    <div class="mt-1 w-8 h-8 rounded-full text-white bg-purple-400 flex">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="size-8" fill="#000000" viewBox="0 0 256 256"><path d="M165.66,101.66,139.31,128l26.35,26.34a8,8,0,0,1-11.32,11.32L128,139.31l-26.34,26.35a8,8,0,0,1-11.32-11.32L116.69,128,90.34,101.66a8,8,0,0,1,11.32-11.32L128,116.69l26.34-26.35a8,8,0,0,1,11.32,11.32ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path></svg>
+                                    </div>
+                                @endif 
+                        </div>
+
+                        <div class="bg-[#0009] p-4 rounded-lg md:col-span-2">
+                            <h3 class="text-gray-400 text-sm font-semibold">Created At</h3>
+                            <p class="mt-1">{{ $pet->created_at->format('d/m/Y H:i') }}</p>
                         </div>
                     </div>
+                </div>
+
+                {{-- Action Buttons --}}
+                <div class="mt-8 flex flex-wrap gap-4 justify-center">
+                    <a href="{{ url('pets') }}" class="btn btn-outline flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
+                        Back to Pets
+                    </a>
                 </div>
             </div>
-
-            {{-- Modal for delete confirmation --}}
-            <dialog id="my_modal_1" class="modal">
-                <div class="modal-box bg-slate-800 text-white rounded-xl">
-                    <h3 class="font-bold text-lg text-center">Delete Pet</h3>
-                    <p class="py-4 text-center">Are you sure you want to delete the pet: <b>{{ $pet->name }}</b>?</p>
-                    <div class="modal-action flex justify-between">
-                        <form action="{{ url('pets', ['pet' => $pet->id]) }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-warning">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="currentColor" viewBox="0 0 256 256">
-                                    <path d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM192,208H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z"></path>
-                                </svg>
-                                Yes, I'm sure
-                            </button>
-                        </form>
-                        <form method="dialog">
-                            <button class="btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="size-8" fill="#ffffff" viewBox="0 0 256 256"><path d="M165.66,101.66,139.31,128l26.35,26.34a8,8,0,0,1-11.32,11.32L128,139.31l-26.34,26.35a8,8,0,0,1-11.32-11.32L116.69,128,90.34,101.66a8,8,0,0,1,11.32-11.32L128,116.69l26.34-26.35a8,8,0,0,1,11.32,11.32ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path></svg>
-                                Close
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </dialog>
         </div>   
     </main>
 @endsection
